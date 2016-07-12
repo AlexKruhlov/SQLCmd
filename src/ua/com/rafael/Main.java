@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.*;
+import java.util.Scanner;
 
 import com.mysql.jdbc.*;
 import com.mysql.jdbc.Driver;
@@ -28,34 +29,32 @@ public class Main {
     }
 
     public static void main(String[] args) throws SQLException {
-        try {
-            // The newInstance() call is a work around for some
-            // broken Java implementations
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-        } catch (Exception ex) {
+        System.out.println("Welcome to console database manager!");
+        SQLExecutor.regDriver();
+        String choice;
+        Scanner scanner = new Scanner(System.in);
+        Connection connection = null;
+        do {
+            System.out.print("Please, input your database name: ");
+            String database = scanner.nextLine();
+            System.out.print("Please, input your user name: ");
+            String user = scanner.nextLine();
+            System.out.print("Please, input your password: ");
+            String password = scanner.nextLine();
+            System.out.println("Connecting...");
+            connection = SQLExecutor.userCheckIn(database, user, password);
+            if (connection != null) {
+                break;
+            }
+            choice = getChoice(scanner);
+            if (choice.equals("N") || choice.equals("n")) System.exit(1);
+        } while (choice.equals("Y") || choice.equals("y"));
 
-            System.out.println("Registration ERROR!!!");
-            // handle the error
-        }
-        System.out.println("Driver refistration Ok!");
-
-        Connection connection= null;
-        try {
-            connection =
-                    DriverManager.getConnection("jdbc:mysql://localhost:3306/myschema?autoReconnect=true&useSSL=false",
-                            "root", "independence24");
-            // Do something with the Connection
-        } catch (SQLException ex) {
-            // handle any errors
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getSQLState());
-            System.out.println("VendorError: " + ex.getErrorCode());
-        }
 
         Statement statement = null;
         ResultSet resultSet = null;
 
-
+/*
         try {
             statement = connection.createStatement();
 //            statement.execute("UPDATE myschema.mytable SET myname='Viktor' where mynum>1");
@@ -85,7 +84,18 @@ public class Main {
                 statement = null;
             }
         }
+        */
+    }
 
+    private static String getChoice(Scanner scanner) {
+        String resultStr = null;
+        do {
+            System.out.println("Do you want to try again? (<Y>-yes, <N>-no): ");
+            resultStr = scanner.nextLine();
+        } while (resultStr.length() == 0 ||
+                !(resultStr.equals("N") || resultStr.equals("n") ||
+                        resultStr.equals("Y") || resultStr.equals("y")));
+        return resultStr;
     }
 }
 
