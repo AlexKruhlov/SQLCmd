@@ -22,39 +22,47 @@ import com.mysql.jdbc.PreparedStatement;
  */
 public class Main {
 
-    private static void printSQLExceptionmassage(SQLException ex) {
-        System.out.println("SQLException: " + ex.getMessage());
-        System.out.println("SQLState: " + ex.getSQLState());
-        System.out.println("VendorError: " + ex.getErrorCode());
-    }
-
     public static void main(String[] args) throws SQLException {
-        System.out.println("Welcome to console database manager!");
-        SQLExecutor.regDriver();
-        String choice;
+        System.out.println("Welcome to console database manager!\n");
         Scanner scanner = new Scanner(System.in);
+
+//      Connection block
+        DBConnector.regDriver();
         Connection connection = null;
+        String choice = null;
+
         do {
-            System.out.print("Please, input your database name: ");
-            String database = scanner.nextLine();
-            System.out.print("Please, input your user name: ");
-            String user = scanner.nextLine();
-            System.out.print("Please, input your password: ");
-            String password = scanner.nextLine();
-            System.out.println("Connecting...");
-            connection = SQLExecutor.userCheckIn(database, user, password);
-            if (connection != null) {
-                break;
-            }
+            UserInfo userInfo = new UserInfo();
+            userInfo.inputAll();
+            connection = DBConnector.getConnection(userInfo);
+            if (connection != null) break;
             choice = getChoice(scanner);
             if (choice.equals("N") || choice.equals("n")) System.exit(1);
         } while (choice.equals("Y") || choice.equals("y"));
 
 
+
+/*  Commands:
+        1. help
+        2. exit, -h
+        3. list - print the list of all database tables
+        4. find tableName - print table
+        5. find tableName LIMITOFFSET
+        6. update
+        7. find tableName with conditions
+        8. delete
+        9. create table
+        10. insert
+
+        find NOTEXISTStable??
+*/
+//      Execution block
         Statement statement = null;
         ResultSet resultSet = null;
 
-/*
+
+
+        /*
         try {
             statement = connection.createStatement();
 //            statement.execute("UPDATE myschema.mytable SET myname='Viktor' where mynum>1");
@@ -92,10 +100,14 @@ public class Main {
         do {
             System.out.println("Do you want to try again? (<Y>-yes, <N>-no): ");
             resultStr = scanner.nextLine();
-        } while (resultStr.length() == 0 ||
-                !(resultStr.equals("N") || resultStr.equals("n") ||
-                        resultStr.equals("Y") || resultStr.equals("y")));
+        } while (isFail(resultStr));
         return resultStr;
+    }
+
+    public static boolean isFail(String resultStr) {
+        return resultStr.length() == 0 ||
+                !(resultStr.equals("N") || resultStr.equals("n") ||
+                        resultStr.equals("Y") || resultStr.equals("y"));
     }
 }
 
