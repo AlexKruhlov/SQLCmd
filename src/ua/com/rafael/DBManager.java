@@ -35,7 +35,6 @@ public class DBManager {
 
 
     public String[] getTableList() throws SQLException {
-
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("show tables from " + connection.getCatalog())) {
 //          return null if resultSet is empty
@@ -52,8 +51,7 @@ public class DBManager {
             }
             return result;
         } catch (SQLException exc) {
-//            todo create a right message
-            System.out.println("[ERROR]: Wrong sql syntax!");
+            System.out.println(exc.getCause().getMessage());
             throw exc;
         }
     }
@@ -70,6 +68,7 @@ public class DBManager {
         }
     }
 
+//    public
     public void insert(String tablename) throws SQLException {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("INSERT INTO" + connection.getSchema() + "." + tablename +
