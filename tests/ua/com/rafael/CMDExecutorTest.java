@@ -20,19 +20,17 @@ public class CMDExecutorTest {
 
     @Test
     public void showTablesTest() throws Exception {
-        String expected = "[mytable, ok]";
-        ResultSet resultSet = dBase.getTables();
-        Assert.assertEquals(expected, dBase.toString(resultSet));
+        String[] expected = {"actor","address"};
+        Assert.assertArrayEquals(expected, dBase.getTableList());
 
         dBase.connection(new UserInfo("outoftables","root","independence24"));
-        expected = "[]";
-        resultSet = dBase.getTables();
-        Assert.assertEquals(expected, dBase.toString(resultSet));
+        expected = null;
+        Assert.assertArrayEquals(expected, dBase.getTableList());
     }
 
     @Test
     public void createTable() throws Exception {
         //executor.insert("mytable");
     }
-    
+
 }

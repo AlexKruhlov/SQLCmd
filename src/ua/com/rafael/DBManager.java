@@ -8,6 +8,7 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 
 import java.sql.*;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.function.Supplier;
 
@@ -15,6 +16,7 @@ import java.util.function.Supplier;
  * Created by sigmund69 on 12.07.2016.
  */
 public class DBManager {
+    byte FIRST_COLUMN = 1;
     private Connection connection;
 
     /*Commands:
@@ -32,33 +34,30 @@ public class DBManager {
 */
 
 
-    public ResultSet getTables() throws SQLException {
-        ResultSet resultSet = null;
-        Statement statement = null;
-        try {
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("show tables from " + connection.getCatalog());
-            return resultSet;
+    public String[] getTableList() throws SQLException {
+
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("show tables from " + connection.getCatalog())) {
+//          return null if resultSet is empty
+            if (!resultSet.last()) {
+                return null;
+            }
+            int tableLength = resultSet.getRow();
+            int index = 0;
+            String[] result = new String[tableLength];
+            resultSet.first();
+            for (int i = 0; i < tableLength; i++) {
+                result[i] = resultSet.getString(FIRST_COLUMN);
+                resultSet.next();
+            }
+            return result;
         } catch (SQLException exc) {
+//            todo create a right message
             System.out.println("[ERROR]: Wrong sql syntax!");
             throw exc;
-        } /*finally {
-            statement.close();
-        }*/
+        }
     }
 
-    public String toString(ResultSet resultSet) throws SQLException {
-        String resultString = "[";
-        if (resultSet.first() == false) {
-            return resultString + "]";
-        }
-        while (!resultSet.isLast()) {
-            resultString += resultSet.getString(1) + ", ";
-            resultSet.next();
-        }
-        resultString += resultSet.getString(1) + "]";
-        return resultString;
-    }
 
     public void createTable(String tableName) throws SQLException {
         try (Statement statement = connection.createStatement();
