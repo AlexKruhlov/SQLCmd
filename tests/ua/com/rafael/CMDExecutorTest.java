@@ -1,44 +1,38 @@
 package ua.com.rafael;
 
-import com.mysql.jdbc.ResultSetImpl;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by sigmund69 on 15.07.2016.
  */
 public class CMDExecutorTest {
+    DBManager dBase = new DBManager();
+
+    @Before
+    public void preSetup(){
+        dBase.connection(new UserInfo("myschema", "root", "independence24"));
+    }
 
     @Test
     public void showTablesTest() throws Exception {
-        Connection connection = connectionforTest(new UserInfo("myschema", "root", "independence24"));
-        CMDExecutor executor = new CMDExecutor(connection);
         String expected = "[mytable, ok]";
-        ResultSet resultSet = executor.getTables();
-        Assert.assertEquals(expected, executor.toString(resultSet));
+        ResultSet resultSet = dBase.getTables();
+        Assert.assertEquals(expected, dBase.toString(resultSet));
 
-        connection = connectionforTest(new UserInfo("outoftables", "root", "independence24"));
-        executor = new CMDExecutor(connection);
+        dBase.connection(new UserInfo("outoftables","root","independence24"));
         expected = "[]";
-        resultSet = executor.getTables();
-        Assert.assertEquals(expected, executor.toString(resultSet));
+        resultSet = dBase.getTables();
+        Assert.assertEquals(expected, dBase.toString(resultSet));
     }
 
     @Test
     public void createTable() throws Exception {
         //executor.insert("mytable");
     }
-
-
-    private Connection connectionforTest(UserInfo userInfo) {
-        DBConnector.regDriver();
-        return DBConnector.getConnection(userInfo);
-    }
-
-
+    
 }

@@ -27,14 +27,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
 //      Connection block
-        DBConnector.regDriver();
         Connection connection = null;
         String choice = null;
 
         do {
             UserInfo userInfo = new UserInfo();
             userInfo.inputAll();
-            connection = DBConnector.getConnection(userInfo);
+            connection = null;//DBConnector.getConnection(userInfo);
             if (connection != null) break;
             choice = getChoice(scanner);
             if (choice.equals("N") || choice.equals("n")) System.exit(1);

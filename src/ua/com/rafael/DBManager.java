@@ -14,12 +14,9 @@ import java.util.function.Supplier;
 /**
  * Created by sigmund69 on 12.07.2016.
  */
-public class CMDExecutor {
+public class DBManager {
     private Connection connection;
 
-    public CMDExecutor(Connection connection) {
-        this.connection = connection;
-    }
     /*Commands:
     1. help
     2. exit, -h
@@ -84,6 +81,25 @@ public class CMDExecutor {
         } catch (SQLException exc) {
             throw exc;
         }
+    }
+
+    public void connection(UserInfo userInfo) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (Exception ex) {
+            System.out.println("[ERROR]: MySQL driver was not registered!");
+        }
+        try {
+            connection =
+                    DriverManager.getConnection("jdbc:mysql://localhost:3306/" + userInfo.getDatabase() +
+                            "?autoReconnect=true&useSSL=false", userInfo.getUser(), userInfo.getPassword());
+            System.out.println("Your registration has been successful!");
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println(ex.getCause().getMessage());
+            System.out.println("Please, check your database name, user name and password!");
+        }
+
     }
 }
 
