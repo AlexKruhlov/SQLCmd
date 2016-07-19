@@ -6,9 +6,18 @@ import java.util.Scanner;
  * Created by sigmund69 on 14.07.2016.
  */
 public class UserInfo {
-    private String database = null;
-    private String user = null;
-    private String password = null;
+    private String database;
+    private String user;
+    private String password;
+
+    public UserInfo() {
+    }
+
+    public UserInfo(String database, String user, String password) {
+        this.database = database;
+        this.user = user;
+        this.password = password;
+    }
 
     public String getDatabase() {
         return database;

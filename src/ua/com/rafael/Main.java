@@ -42,20 +42,7 @@ public class Main {
 
 
 
-/*  Commands:
-        1. help
-        2. exit, -h
-        3. list - print the list of all database tables
-        4. find tableName - print table
-        5. find tableName LIMITOFFSET
-        6. update
-        7. find tableName with conditions
-        8. delete
-        9. create table
-        10. insert
 
-        find NOTEXISTStable??
-*/
 //      Execution block
         Statement statement = null;
         ResultSet resultSet = null;
