@@ -6,6 +6,7 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLDataException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLInvalidAuthorizationSpecException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
+import com.sun.xml.internal.ws.api.addressing.WSEndpointReference;
 
 import javax.jws.soap.SOAPBinding;
 import java.sql.*;
@@ -58,24 +59,28 @@ public class DBManager {
         }
     }
 
-    public Table[] getDataTable(String tablleName){
+    public Table[] getDataTable(String tablleName) throws SQLException {
         try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT * FROM "+connection.getCatalog()+"."+
-             tablleName)) {
-            
-
-        }catch (SQLException exc){
-
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM " + connection.getCatalog() + "." + tablleName)) {
+            if (!resultSet.last()) {
+                return null;
+            }
+            int rowCount = resultSet.getRow();
+            int columnCount = resultSet.getMetaData().getColumnCount();
+            Table[] tables = new Table[rowCount];
+            resultSet.first();
+            for (int i = 0; i < rowCount; i++) {
+                tables[i] = new Table(columnCount);
+                for (int j = 0; j < tables[i].getRowSize(); j++) {
+                    tables[i].put(resultSet.getMetaData().getColumnName(j), resultSet.getObject(j));
+                    resultSet.next();
+                }
+            }
+            return tables;
+        } catch (SQLException exc) {
+            throw exc;
         }
-
-
-
-        Table[] result = null;
-
-
-        return result;
     }
-
 
     public void createTable(String tableName) throws SQLException {
         try (Statement statement = connection.createStatement();
@@ -88,7 +93,7 @@ public class DBManager {
         }
     }
 
-//    public
+    //    public
     public void insert(String tablename) throws SQLException {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("INSERT INTO" + connection.getSchema() + "." + tablename +

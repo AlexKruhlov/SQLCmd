@@ -15,6 +15,10 @@ public class Table {
         dataTable = new DataTable[this.rowSize];
     }
 
+    public int getRowSize() {
+        return rowSize;
+    }
+
     class DataTable {
         private String name;
         private Object data;
