@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 /**
  * Created by sigmund69 on 15.07.2016.
  */
-public class CMDExecutorTest {
+public class DBManagerTest {
     DBManager dBase = new DBManager();
 
     @Before
@@ -19,7 +19,7 @@ public class CMDExecutorTest {
     }
 
     @Test
-    public void showTablesTest() throws Exception {
+    public void getTableListTest() throws Exception {
         String[] expected = {"actor","address"};
         Assert.assertArrayEquals(expected, dBase.getTableList());
 
@@ -27,6 +27,13 @@ public class CMDExecutorTest {
         expected = null;
         Assert.assertArrayEquals(expected, dBase.getTableList());
     }
+
+
+    @Test
+    public void getDataTable() throws Exception {
+        
+    }
+
 
     @Test
     public void createTable() throws Exception {
