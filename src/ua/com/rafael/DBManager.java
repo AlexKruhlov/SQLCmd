@@ -58,6 +58,24 @@ public class DBManager {
         }
     }
 
+    public Table[] getDataTable(String tablleName){
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM "+connection.getCatalog()+"."+
+             tablleName)) {
+            
+
+        }catch (SQLException exc){
+
+        }
+
+
+
+        Table[] result = null;
+
+
+        return result;
+    }
+
 
     public void createTable(String tableName) throws SQLException {
         try (Statement statement = connection.createStatement();

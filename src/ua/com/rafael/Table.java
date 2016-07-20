@@ -31,14 +31,30 @@ public class Table {
         public Object getData() {
             return data;
         }
+    }
 
-        @Override
-        public String toString() {
-            return "DataTable{" +
-                    "name='" + name + '\'' +
-                    ", data=" + data.toString() +
-                    '}';
+    public String[] getNames() {
+        String[] names = new String[rowSize];
+        for (int i = 0; i < rowSize; i++) {
+            names[i] = dataTable[i].getName();
         }
+        return names;
+    }
+
+    public Object[] getData() {
+        Object[] values = new Object[rowSize];
+        for (int i = 0; i < rowSize; i++) {
+            values[i] = dataTable[i].getData();
+        }
+        return values;
+    }
+
+    @Override
+    public String toString() {
+        return "Table{"+
+        Arrays.toString(getNames()) +"\n"+
+                Arrays.toString(getData())+
+                "\n"+'}';
     }
 
     public void put(String name, Object data) {
