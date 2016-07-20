@@ -3,7 +3,7 @@ package ua.com.rafael;
 import java.util.Scanner;
 
 /**
- * Created by sigmund69 on 14.07.2016.
+ * Created by sigmund69 on 20.07.2016.
  */
 public class UserInfo {
     private String database;
@@ -41,3 +41,4 @@ public class UserInfo {
         password = scanner.nextLine();
     }
 }
+

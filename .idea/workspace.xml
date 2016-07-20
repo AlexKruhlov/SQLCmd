@@ -33,14 +33,14 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
+            <state relative-caret-position="320">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1468937388340" expanded="true" signature="1511:1569" placeholder="INSERT INTO myschema.mytable... " />
-                <marker date="1468937388340" expanded="true" signature="1511:1579" placeholder="INSERT INTO myschema.mytable... " />
-                <marker date="1468937388340" expanded="true" signature="1517:1539" placeholder="SELECT * FRO... mytable" />
-                <marker date="1468937388340" expanded="true" signature="1517:1559" placeholder="DELETE FROM " />
+                <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
+                <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
+                <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
+                <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -59,10 +59,27 @@
       <file leaf-file-name="DBManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+            <state relative-caret-position="838">
+              <caret line="86" column="13" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+              <folding>
+                <element signature="e#439#440#0" expanded="true" />
+                <element signature="e#470#471#0" expanded="true" />
+                <element signature="e#501#502#0" expanded="true" />
+                <element signature="e#528#529#0" expanded="true" />
+                <element signature="e#563#564#0" expanded="true" />
+                <element signature="e#594#595#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,9 +88,16 @@
       <file leaf-file-name="Table.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/Table.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="1269">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <folding>
+                <element signature="e#589#590#0" expanded="true" />
+                <element signature="e#624#625#0" expanded="true" />
+                <element signature="e#659#660#0" expanded="true" />
+                <element signature="e#694#695#0" expanded="true" />
+                <element signature="e#967#968#0" expanded="true" />
+                <element signature="e#1029#1030#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,12 +105,10 @@
       <file leaf-file-name="CMDExecutorTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/CMDExecutorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+            <state relative-caret-position="676">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#310#311#0" expanded="true" />
-                <element signature="e#394#395#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,16 +119,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="74">
               <caret line="405" column="0" selection-start-line="405" selection-start-column="0" selection-end-line="405" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -136,13 +148,14 @@
         <option value="$PROJECT_DIR$/tests/ua/com/rafael/getChoiceTest.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/SQLExecutor.java" />
         <option value="$PROJECT_DIR$/tests/ua/com/rafael/MainTest.java" />
-        <option value="$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/CMDExecutor.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/DBMabager.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/DBConnector.java" />
+        <option value="$PROJECT_DIR$/tests/ua/com/rafael/CMDExecutorTest.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/Main.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/DBManager.java" />
-        <option value="$PROJECT_DIR$/tests/ua/com/rafael/CMDExecutorTest.java" />
+        <option value="$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java" />
+        <option value="$PROJECT_DIR$/src/ua/com/rafael/Table.java" />
       </list>
     </option>
   </component>
@@ -860,17 +873,12 @@
       <workItem from="1468757859639" duration="6058000" />
       <workItem from="1468855186702" duration="4218000" />
       <workItem from="1468868423618" duration="5463000" />
-      <workItem from="1468934051373" duration="13587000" />
+      <workItem from="1468934051373" duration="13650000" />
+      <workItem from="1469008892509" duration="5123000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CMDExecutorTest_showTablesTest - 2016.07.19 at 22h 37m 38s.xml">
-      <configuration name="CMDExecutorTest.showTablesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CMDExecutorTest_showTablesTest - 2016.07.19 at 22h 37m 45s.xml">
-      <configuration name="CMDExecutorTest.showTablesTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CMDExecutorTest_showTablesTest - 2016.07.19 at 22h 42m 57s.xml">
       <configuration name="CMDExecutorTest.showTablesTest" configurationId="JUnit" />
     </history-entry>
@@ -895,9 +903,15 @@
     <history-entry file="CMDExecutorTest_showTablesTest - 2016.07.20 at 01h 22m 57s.xml">
       <configuration name="CMDExecutorTest.showTablesTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CMDExecutorTest_showTablesTest - 2016.07.20 at 14h 56m 12s.xml">
+      <configuration name="CMDExecutorTest.showTablesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CMDExecutorTest_showTablesTest - 2016.07.20 at 15h 35m 34s.xml">
+      <configuration name="CMDExecutorTest.showTablesTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114259000" />
+    <option name="totallyTimeSpent" value="119445000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
@@ -911,22 +925,22 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.69673914" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.69673914" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18697916" sideWeight="0.4347826" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.067708336" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18697916" sideWeight="0.4304348" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.067708336" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18697916" sideWeight="0.5652174" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18697916" sideWeight="0.56956524" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -973,10 +987,10 @@
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1468937388340" expanded="true" signature="1511:1569" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1511:1579" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1517:1539" placeholder="SELECT * FRO... mytable" />
-            <marker date="1468937388340" expanded="true" signature="1517:1559" placeholder="DELETE FROM " />
+            <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
+            <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1005,20 +1019,11 @@
           <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#310#311#0" expanded="true" />
-            <element signature="e#394#395#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBConnector.java" />
     <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1038,12 +1043,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23460">
           <caret line="1490" column="25" selection-start-line="1490" selection-start-column="21" selection-end-line="1490" selection-end-column="25" />
-          <folding>
-            <marker date="1462356700000" expanded="true" signature="90940:90969" placeholder="SELECT @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="104890:104917" placeholder="SELECT @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="107097:107126" placeholder="select @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="114142:114157" placeholder="/* missingVa... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1053,10 +1052,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1468937388340" expanded="true" signature="1511:1569" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1511:1579" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1517:1539" placeholder="SELECT * FRO... mytable" />
-            <marker date="1468937388340" expanded="true" signature="1517:1559" placeholder="DELETE FROM " />
+            <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
+            <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1079,14 +1078,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="30" column="22" selection-start-line="28" selection-start-column="8" selection-end-line="30" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBConnector.java" />
     <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1106,12 +1098,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23460">
           <caret line="1490" column="25" selection-start-line="1490" selection-start-column="21" selection-end-line="1490" selection-end-column="25" />
-          <folding>
-            <marker date="1462356700000" expanded="true" signature="90940:90969" placeholder="SELECT @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="104890:104917" placeholder="SELECT @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="107097:107126" placeholder="select @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="114142:114157" placeholder="/* missingVa... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1121,10 +1107,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1468937388340" expanded="true" signature="1511:1569" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1511:1579" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1517:1539" placeholder="SELECT * FRO... mytable" />
-            <marker date="1468937388340" expanded="true" signature="1517:1559" placeholder="DELETE FROM " />
+            <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
+            <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1147,14 +1133,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBConnector.java" />
     <entry file="jar://$PROJECT_DIR$/libs/mysql-connector-java-5.1.39-bin.jar!/com/mysql/jdbc/JDBC4Connection.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1166,12 +1145,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23460">
           <caret line="1490" column="25" selection-start-line="1490" selection-start-column="21" selection-end-line="1490" selection-end-column="25" />
-          <folding>
-            <marker date="1462356700000" expanded="true" signature="90940:90969" placeholder="SELECT @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="104890:104917" placeholder="SELECT @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="107097:107126" placeholder="select @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="114142:114157" placeholder="/* missingVa... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1181,10 +1154,10 @@
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1468937388340" expanded="true" signature="1511:1569" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1511:1579" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1517:1539" placeholder="SELECT * FRO... mytable" />
-            <marker date="1468937388340" expanded="true" signature="1517:1559" placeholder="DELETE FROM " />
+            <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
+            <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1213,10 +1186,10 @@
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1468937388340" expanded="true" signature="1511:1569" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1511:1579" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1517:1539" placeholder="SELECT * FRO... mytable" />
-            <marker date="1468937388340" expanded="true" signature="1517:1559" placeholder="DELETE FROM " />
+            <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
+            <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1316,12 +1289,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23460">
           <caret line="1490" column="25" selection-start-line="1490" selection-start-column="21" selection-end-line="1490" selection-end-column="25" />
-          <folding>
-            <marker date="1462356700000" expanded="true" signature="90940:90969" placeholder="SELECT @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="104890:104917" placeholder="SELECT @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="107097:107126" placeholder="select @@ses... " />
-            <marker date="1462356700000" expanded="true" signature="114142:114157" placeholder="/* missingVa... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1329,7 +1296,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-334">
           <caret line="341" column="0" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1337,7 +1303,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1345,7 +1310,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1353,7 +1317,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1365,14 +1328,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBConnector.java" />
     <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/MainTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1381,64 +1337,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1468937388340" expanded="true" signature="1511:1569" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1511:1579" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1468937388340" expanded="true" signature="1517:1539" placeholder="SELECT * FRO... mytable" />
-            <marker date="1468937388340" expanded="true" signature="1517:1559" placeholder="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/ExactComparisonCriteria.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="e#443#444#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
+            <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
+            <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/Table.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="850">
+          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+          <folding>
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#528#529#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#594#595#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+        <state relative-caret-position="838">
+          <caret line="86" column="13" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/Table.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1269">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#659#660#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="true" />
+            <element signature="e#967#968#0" expanded="true" />
+            <element signature="e#1029#1030#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/CMDExecutorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+        <state relative-caret-position="676">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#310#311#0" expanded="true" />
-            <element signature="e#394#395#0" expanded="true" />
           </folding>
         </state>
       </provider>

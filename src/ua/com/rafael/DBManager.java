@@ -7,6 +7,7 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLInvalidAuthorizationSpecException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 
+import javax.jws.soap.SOAPBinding;
 import java.sql.*;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -22,7 +23,7 @@ public class DBManager {
     /*Commands:
     1. help
     2. exit, -h
-    3. list - print the list of all database tables
+    3. ++list - print the list of all database tables
     4. find tableName - print table
     5. find tableName LIMITOFFSET
     6. update
@@ -30,6 +31,7 @@ public class DBManager {
     8. delete
     9. create table
     10. insert
+    11. clear - delete all rows of current table
     find NOTEXISTStable??
 */
 

@@ -30,14 +30,14 @@ public class Main {
         Connection connection = null;
         String choice = null;
 
-        do {
-            UserInfo userInfo = new UserInfo();
-            userInfo.inputAll();
-            connection = null;//DBConnector.getConnection(userInfo);
-            if (connection != null) break;
-            choice = getChoice(scanner);
-            if (choice.equals("N") || choice.equals("n")) System.exit(1);
-        } while (choice.equals("Y") || choice.equals("y"));
+//        do {
+//            UserInfo userInfo = new UserInfo();
+//            userInfo.inputAll();
+//            connection = null;//DBConnector.getConnection(userInfo);
+//            if (connection != null) break;
+//            choice = getChoice(scanner);
+//            if (choice.equals("N") || choice.equals("n")) System.exit(1);
+//        } while (choice.equals("Y") || choice.equals("y"));
 
 
 
