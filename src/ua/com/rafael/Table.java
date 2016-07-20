@@ -8,15 +8,15 @@ import java.util.Arrays;
 public class Table {
     private DataTable[] dataTable; //// TODO: 20.07.2016
     private int index = 0;
-    private int rowSize = 0;
+    private int columnSize = 0;
 
-    public Table(int rowSize) {
-        this.rowSize = rowSize;
-        dataTable = new DataTable[this.rowSize];
+    public Table(int columnSize) {
+        this.columnSize = columnSize;
+        dataTable = new DataTable[this.columnSize];
     }
 
-    public int getRowSize() {
-        return rowSize;
+    public int getColumnSize() {
+        return columnSize;
     }
 
     class DataTable {
@@ -38,16 +38,16 @@ public class Table {
     }
 
     public String[] getNames() {
-        String[] names = new String[rowSize];
-        for (int i = 0; i < rowSize; i++) {
+        String[] names = new String[columnSize];
+        for (int i = 0; i < columnSize; i++) {
             names[i] = dataTable[i].getName();
         }
         return names;
     }
 
     public Object[] getData() {
-        Object[] values = new Object[rowSize];
-        for (int i = 0; i < rowSize; i++) {
+        Object[] values = new Object[columnSize];
+        for (int i = 0; i < columnSize; i++) {
             values[i] = dataTable[i].getData();
         }
         return values;
@@ -55,15 +55,13 @@ public class Table {
 
     @Override
     public String toString() {
-        return "Table{"+
-        Arrays.toString(getNames()) +"\n"+
-                Arrays.toString(getData())+
-                "\n"+'}';
+        return "Row{"+
+        "Names: "+Arrays.toString(getNames()) +"\n"+
+         "Values: "+Arrays.toString(getData())+ "\n"+'}';
     }
 
     public void put(String name, Object data) {
         dataTable[index++] = new DataTable(name, data);
     }
-
 
 }

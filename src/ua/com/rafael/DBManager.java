@@ -71,14 +71,14 @@ public class DBManager {
             resultSet.first();
             for (int i = 0; i < rowCount; i++) {
                 tables[i] = new Table(columnCount);
-                for (int j = 0; j < tables[i].getRowSize(); j++) {
-                    tables[i].put(resultSet.getMetaData().getColumnName(j), resultSet.getObject(j));
-                    resultSet.next();
+                for (int j = 0; j < tables[i].getColumnSize(); j++) {
+                    tables[i].put(resultSet.getMetaData().getColumnName(j+1), resultSet.getObject(j+1));
                 }
+                resultSet.next();
             }
             return tables;
         } catch (SQLException exc) {
-            throw exc;
+            throw exc; //todo exc
         }
     }
 
@@ -122,6 +122,8 @@ public class DBManager {
             System.out.println(ex.getCause().getMessage());
             System.out.println("Please, check your database name, user name and password!");
         }
+
+
 
     }
 }
