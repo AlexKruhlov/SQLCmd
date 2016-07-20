@@ -56,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DBManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="61" column="31" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="31" />
+            <state relative-caret-position="368">
+              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <marker date="1469035256722" expanded="true" signature="2107:2120" placeholder="SELECT * FRO... " />
@@ -107,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBManagerTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DBManagerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/DBManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="52" column="79" selection-start-line="52" selection-start-column="79" selection-end-line="52" selection-end-column="79" />
+            <state relative-caret-position="676">
+              <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#334#335#0" expanded="true" />
@@ -173,8 +173,8 @@
         <option value="$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java" />
         <option value="$PROJECT_DIR$/tests/ua/com/rafael/CMDExecutorTest.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/Table.java" />
-        <option value="$PROJECT_DIR$/tests/ua/com/rafael/DBManagerTest.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/DBManager.java" />
+        <option value="$PROJECT_DIR$/tests/ua/com/rafael/DBManagerTest.java" />
       </list>
     </option>
   </component>
@@ -321,27 +321,7 @@
       <recent name="C:\Users\sigmund69\Desktop\SQLcmd\libs" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DBManagerTest.getDataTable">
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ua.com.rafael.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="ua.com.rafael.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SQLcmd" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager">
     <configuration default="false" name="MainTest.isFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -433,6 +413,32 @@
       <option name="PACKAGE_NAME" value="ua.com.rafael" />
       <option name="MAIN_CLASS_NAME" value="ua.com.rafael.DBManagerTest" />
       <option name="METHOD_NAME" value="getDataTable" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="DBManagerTest.getDataTableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ua.com.rafael.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="SQLcmd" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ua.com.rafael" />
+      <option name="MAIN_CLASS_NAME" value="ua.com.rafael.DBManagerTest" />
+      <option name="METHOD_NAME" value="getDataTableTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -848,19 +854,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.MainTest.isFailTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.DBManagerTest.showTablesTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.DBManagerTest.getTableListTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.DBManagerTest.getDataTable" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.MainTest.isFailTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.DBManagerTest.showTablesTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.DBManagerTest.getTableListTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.DBManagerTest.getDataTable" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DBManagerTest.getDataTableTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.DBManagerTest.getDataTable" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DBManagerTest.getTableListTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DBManagerTest.showTablesTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.MainTest.isFailTest" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.DBManagerTest.getTableListTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DBManagerTest.getDataTableTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DBManagerTest.getDataTable" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DBManagerTest.showTablesTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.MainTest.isFailTest" />
       </list>
     </recent_temporary>
   </component>
@@ -893,17 +899,11 @@
       <workItem from="1468855186702" duration="4218000" />
       <workItem from="1468868423618" duration="5463000" />
       <workItem from="1468934051373" duration="13650000" />
-      <workItem from="1469008892509" duration="17160000" />
+      <workItem from="1469008892509" duration="18167000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DBManagerTest_getDataTable - 2016.07.20 at 20h 00m 23s.xml">
-      <configuration name="DBManagerTest.getDataTable" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DBManagerTest_getDataTable - 2016.07.20 at 20h 09m 14s.xml">
-      <configuration name="DBManagerTest.getDataTable" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DBManagerTest_getDataTable - 2016.07.20 at 20h 10m 20s.xml">
       <configuration name="DBManagerTest.getDataTable" configurationId="JUnit" />
     </history-entry>
@@ -928,13 +928,19 @@
     <history-entry file="DBManagerTest_getDataTable - 2016.07.20 at 20h 20m 59s.xml">
       <configuration name="DBManagerTest.getDataTable" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DBManagerTest_getDataTableTest - 2016.07.20 at 20h 36m 55s.xml">
+      <configuration name="DBManagerTest.getDataTableTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DBManagerTest_getTableListTest - 2016.07.20 at 20h 36m 59s.xml">
+      <configuration name="DBManagerTest.getTableListTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131482000" />
+    <option name="totallyTimeSpent" value="132489000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -956,7 +962,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18697916" sideWeight="0.56956524" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18697916" sideWeight="0.56956524" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1425,26 +1431,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/DBManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="52" column="79" selection-start-line="52" selection-start-column="79" selection-end-line="52" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#334#335#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="61" column="31" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="31" />
+        <state relative-caret-position="368">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1469035256722" expanded="true" signature="2107:2120" placeholder="SELECT * FRO... " />
             <marker date="1469035256722" expanded="true" signature="2107:2121" placeholder="SELECT * FRO... missingValue" />
             <marker date="1469035256722" expanded="true" signature="2107:2153" placeholder="SELECT * FRO... missingValue." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/DBManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
           </folding>
         </state>
       </provider>

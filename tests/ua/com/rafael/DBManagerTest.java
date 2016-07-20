@@ -31,7 +31,7 @@ public class DBManagerTest {
 
 
     @Test
-    public void getDataTable() throws Exception {
+    public void getDataTableTest() throws Exception {
         Table[] expected = new Table[3];
 
         expected[0] = new Table(3);
@@ -51,12 +51,6 @@ public class DBManagerTest {
         Table[] actual = dBase.getDataTable("actor");
 
         Assert.assertEquals(Arrays.toString(expected),Arrays.toString(actual));
-    }
-
-
-    @Test
-    public void createTable() throws Exception {
-        //executor.insert("mytable");
     }
 
 
