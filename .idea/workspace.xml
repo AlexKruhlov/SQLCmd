@@ -30,17 +30,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1405">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="70">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
-                <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
-                <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
-                <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -74,7 +70,7 @@
       <file leaf-file-name="UserInfo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
+            <state relative-caret-position="850">
               <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
               <folding>
                 <element signature="e#439#440#0" expanded="true" />
@@ -107,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBManagerTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DBManagerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/DBManagerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
-              <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+            <state relative-caret-position="756">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#334#335#0" expanded="true" />
@@ -169,12 +165,12 @@
         <option value="$PROJECT_DIR$/src/ua/com/rafael/CMDExecutor.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/DBMabager.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/DBConnector.java" />
-        <option value="$PROJECT_DIR$/src/ua/com/rafael/Main.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java" />
         <option value="$PROJECT_DIR$/tests/ua/com/rafael/CMDExecutorTest.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/Table.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/DBManager.java" />
         <option value="$PROJECT_DIR$/tests/ua/com/rafael/DBManagerTest.java" />
+        <option value="$PROJECT_DIR$/src/ua/com/rafael/Main.java" />
       </list>
     </option>
   </component>
@@ -899,7 +895,7 @@
       <workItem from="1468855186702" duration="4218000" />
       <workItem from="1468868423618" duration="5463000" />
       <workItem from="1468934051373" duration="13650000" />
-      <workItem from="1469008892509" duration="18167000" />
+      <workItem from="1469008892509" duration="18805000" />
     </task>
     <servers />
   </component>
@@ -936,7 +932,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132489000" />
+    <option name="totallyTimeSpent" value="133127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -955,14 +951,14 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18697916" sideWeight="0.4304348" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18697916" sideWeight="0.4304348" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.067708336" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18697916" sideWeight="0.56956524" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18697916" sideWeight="0.56956524" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1067,10 +1063,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
-            <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1125,10 +1117,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
-            <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1175,10 +1163,6 @@
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
-            <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1210,10 +1194,6 @@
           <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
-            <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -1367,31 +1347,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/Main.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/ExactComparisonCriteria.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1405">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="74">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1469014682381" expanded="true" signature="1527:1585" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1469014682381" expanded="true" signature="1527:1595" placeholder="INSERT INTO myschema.mytable... " />
-            <marker date="1469014682381" expanded="true" signature="1533:1555" placeholder="SELECT * FRO... mytable" />
-            <marker date="1469014682381" expanded="true" signature="1533:1575" placeholder="DELETE FROM " />
+            <element signature="e#443#444#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java">
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        <state relative-caret-position="368">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding>
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#594#595#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1469035256722" expanded="true" signature="2107:2120" placeholder="SELECT * FRO... " />
+            <marker date="1469035256722" expanded="true" signature="2107:2121" placeholder="SELECT * FRO... missingValue" />
+            <marker date="1469035256722" expanded="true" signature="2107:2153" placeholder="SELECT * FRO... missingValue." />
           </folding>
         </state>
       </provider>
@@ -1404,12 +1378,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/ExactComparisonCriteria.class">
+    <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/DBManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="756">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <element signature="e#443#444#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/UserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+          <folding>
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#528#529#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#594#595#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1431,26 +1421,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/DBManager.java">
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state relative-caret-position="70">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1469035256722" expanded="true" signature="2107:2120" placeholder="SELECT * FRO... " />
-            <marker date="1469035256722" expanded="true" signature="2107:2121" placeholder="SELECT * FRO... missingValue" />
-            <marker date="1469035256722" expanded="true" signature="2107:2153" placeholder="SELECT * FRO... missingValue." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/DBManagerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#334#335#0" expanded="true" />
           </folding>
         </state>
       </provider>

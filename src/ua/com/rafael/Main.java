@@ -39,46 +39,6 @@ public class Main {
 //            if (choice.equals("N") || choice.equals("n")) System.exit(1);
 //        } while (choice.equals("Y") || choice.equals("y"));
 
-
-
-
-//      Execution block
-        Statement statement = null;
-        ResultSet resultSet = null;
-
-
-
-        /*
-        try {
-            statement = connection.createStatement();
-//            statement.execute("UPDATE myschema.mytable SET myname='Viktor' where mynum>1");
-            statement.executeUpdate("INSERT INTO myschema.mytable (mynum,myname,age) VALUES (4,'Emma',33)");
-
-        } catch (SQLException ex) {
-            System.out.println("Quiry Error!!!");
-        } finally {
-            // it is a good idea to release
-            // resources in a finally{} block
-            // in reverse-order of their creation
-            // if they are no-longer needed
-
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException sqlEx) { } // ignore
-
-                resultSet = null;
-            }
-
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException sqlEx) { } // ignore
-
-                statement = null;
-            }
-        }
-        */
     }
 
     private static String getChoice(Scanner scanner) {
