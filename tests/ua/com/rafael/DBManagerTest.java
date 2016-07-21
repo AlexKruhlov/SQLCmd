@@ -12,6 +12,7 @@ import java.util.Arrays;
  * Created by sigmund69 on 15.07.2016.
  */
 public class DBManagerTest {
+
     DBManager dBase = new DBManager();
 
     @Before
@@ -33,7 +34,6 @@ public class DBManagerTest {
     @Test
     public void getDataTableTest() throws Exception {
         Table[] expected = new Table[3];
-
         expected[0] = new Table(3);
         expected[0].put("actor_id", 1);
         expected[0].put("first_name", "PENELOPE");
@@ -52,6 +52,19 @@ public class DBManagerTest {
 
         Assert.assertEquals(Arrays.toString(expected),Arrays.toString(actual));
     }
+
+    @Test
+    public void getFormatFields() throws Exception {
+        Table[] tables = dBase.getDataTable("actor");
+        String[] tableNames = tables[1].getNames();
+        String actual = dBase.getFormatFields(tableNames,"%s=?,");
+
+        String expected = "actor_id=?,first_name=?,last_name=?";
+
+        Assert.assertEquals(expected,actual);
+    }
+
+
 
 
 }

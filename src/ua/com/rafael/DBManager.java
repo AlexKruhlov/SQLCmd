@@ -6,6 +6,7 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLDataException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLInvalidAuthorizationSpecException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
+import com.sun.javafx.binding.StringFormatter;
 import com.sun.xml.internal.ws.api.addressing.WSEndpointReference;
 
 import javax.jws.soap.SOAPBinding;
@@ -72,7 +73,7 @@ public class DBManager {
             for (int i = 0; i < rowCount; i++) {
                 tables[i] = new Table(columnCount);
                 for (int j = 0; j < tables[i].getColumnSize(); j++) {
-                    tables[i].put(resultSet.getMetaData().getColumnName(j+1), resultSet.getObject(j+1));
+                    tables[i].put(resultSet.getMetaData().getColumnName(j + 1), resultSet.getObject(j + 1));
                 }
                 resultSet.next();
             }
@@ -124,9 +125,24 @@ public class DBManager {
         }
     }
 
-    public void update(){
-        
+    public void update(String tableName, int id, Table newValue) throws SQLException {
+        String query = "UPDATE " + tableName + " set ";
+        String tableFields = getFormatFields(newValue.getNames(), "%s=?,") + " where ";
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("UPDATE " + tableName + "set"+ tableFields+"where")) {
+        } catch (SQLException exc) {
+            throw exc;
+        }
     }
+
+    public String getFormatFields(String[] names, String format) {
+        String result = "";
+        for (String name : names) {
+            result += String.format(format, name);
+        }
+        return result.substring(0,result.length()-1);
+    }
+
 }
 
 
