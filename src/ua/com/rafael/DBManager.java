@@ -122,9 +122,10 @@ public class DBManager {
             System.out.println(ex.getCause().getMessage());
             System.out.println("Please, check your database name, user name and password!");
         }
+    }
 
-
-
+    public void update(){
+        
     }
 }
 
