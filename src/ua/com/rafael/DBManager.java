@@ -1,19 +1,7 @@
 package ua.com.rafael;
 
 
-import com.mysql.jdbc.authentication.MysqlClearPasswordPlugin;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLDataException;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLInvalidAuthorizationSpecException;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
-import com.sun.javafx.binding.StringFormatter;
-import com.sun.xml.internal.ws.api.addressing.WSEndpointReference;
-
-import javax.jws.soap.SOAPBinding;
 import java.sql.*;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.function.Supplier;
 
 /**
  * Created by sigmund69 on 12.07.2016.
@@ -97,7 +85,7 @@ public class DBManager {
     //    public
     public void insert(String tablename) throws SQLException {
         try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("INSERT INTO" + connection.getSchema() + "." + tablename +
+             ResultSet resultSet = statement.executeQuery("INSERT INTO" + connection.getCatalog() + "." + tablename +
                      "(")) {
         } catch (SQLSyntaxErrorException exc) {
             System.out.println("[Query syntax ERROR]: Table was not created.");
@@ -126,21 +114,46 @@ public class DBManager {
     }
 
     public void update(String tableName, int id, Table newValue) throws SQLException {
-        String query = "UPDATE " + tableName + " set ";
-        String tableFields = getFormatFields(newValue.getNames(), "%s=?,") + " where ";
-        try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("UPDATE " + tableName + "set"+ tableFields+"where")) {
+        String primaryKeyName = getPrimaryKey(tableName);
+
+        String query = "UPDATE " + tableName + " set " +
+                getFormatedFieldNames(newValue.getNames(), "%s=?,") +
+                " where " + primaryKeyName + "=" + id;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            Object[] newObjects = newValue.getData();
+            for (int i = 0; i < newValue.getColumnSize(); i++) {
+                preparedStatement.setObject(i, newObjects[i]);
+            }
+            preparedStatement.execute();
         } catch (SQLException exc) {
             throw exc;
         }
     }
 
-    public String getFormatFields(String[] names, String format) {
+    public String getPrimaryKey(String tableName) throws SQLException {
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SHOW KEYS FROM " + connection.getCatalog() + "." +
+                     tableName + " WHERE Key_name = 'PRIMARY'")) {
+            if (isEmpty(resultSet)){
+                return null;
+            }
+            String primaryKeyName = resultSet.getString("Column_name");
+            return primaryKeyName;
+        } catch (SQLException exc) {
+            throw exc;
+        }
+    }
+
+    public String getFormatedFieldNames(String[] names, String format) {
         String result = "";
         for (String name : names) {
             result += String.format(format, name);
         }
-        return result.substring(0,result.length()-1);
+        return result.substring(0, result.length() - 1);
+    }
+
+    public boolean isEmpty(ResultSet resultSet) throws SQLException {
+        return !resultSet.first();
     }
 
 }

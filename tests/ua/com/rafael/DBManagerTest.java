@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.util.Arrays;
 
 /**
@@ -54,17 +52,63 @@ public class DBManagerTest {
     }
 
     @Test
-    public void getFormatFields() throws Exception {
+    public void getFormatFieldsTest() throws Exception {
         Table[] tables = dBase.getDataTable("actor");
         String[] tableNames = tables[1].getNames();
-        String actual = dBase.getFormatFields(tableNames,"%s=?,");
+        String actual = dBase.getFormatedFieldNames(tableNames,"%s=?,");
 
         String expected = "actor_id=?,first_name=?,last_name=?";
 
         Assert.assertEquals(expected,actual);
     }
 
+    @Test
+    public void getPrimaryKeyTest() throws Exception {
+        String[] tableNames = dBase.getTableList();
+        String[] actual = new String[2];
+        for (int i = 0; i<tableNames.length;i++){
+            System.out.println(tableNames[0]+", "+tableNames[1]);
+            actual[i] = dBase.getPrimaryKey(tableNames[i]);
+            System.out.println(actual[i]);
+        }
+
+        String[] expected = {"actor_id", null};
+
+        Assert.assertArrayEquals(expected,actual);
+
+    }
+
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
