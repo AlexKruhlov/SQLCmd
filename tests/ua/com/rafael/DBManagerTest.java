@@ -78,9 +78,32 @@ public class DBManagerTest {
 
     }
 
+    @Test
+    public void update() throws Exception {
+        Table[] toExpectation = dBase.getDataTable("actor");
+        toExpectation[1] = new Table(3);
+        toExpectation[1].put("actor_id", 2);
+        toExpectation[1].put("first_name", "JACK");
+        toExpectation[1].put("last_name", "BLACK");
 
+        Table toUpdate = new Table(3);
+        toUpdate.put("actor_id", 2);
+        toUpdate.put("first_name", "JACK");
+        toUpdate.put("last_name", "BLACK");
+        dBase.update("actor",2,toUpdate);
+        Table[] afterUpdate = dBase.getDataTable("actor");
 
+        String[]
+                expected = new String[3],
+                actual = new String[3];
 
+        for (int i = 0; i<actual.length;i++){
+            expected[i]=toExpectation[i].toString();
+            actual[i] = afterUpdate[i].toString();
+        }
+
+        Assert.assertArrayEquals(expected,actual);
+    }
 }
 
 

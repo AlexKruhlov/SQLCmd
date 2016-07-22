@@ -122,7 +122,7 @@ public class DBManager {
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             Object[] newObjects = newValue.getData();
             for (int i = 0; i < newValue.getColumnSize(); i++) {
-                preparedStatement.setObject(i, newObjects[i]);
+                preparedStatement.setObject(i+1, newObjects[i]);
             }
             preparedStatement.execute();
         } catch (SQLException exc) {
@@ -134,7 +134,7 @@ public class DBManager {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SHOW KEYS FROM " + connection.getCatalog() + "." +
                      tableName + " WHERE Key_name = 'PRIMARY'")) {
-            if (isEmpty(resultSet)){
+            if (isEmpty(resultSet)) {
                 return null;
             }
             String primaryKeyName = resultSet.getString("Column_name");
