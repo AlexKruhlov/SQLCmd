@@ -50,7 +50,8 @@ public class DBManager {
 
     public Table[] getDataTable(String tablleName) throws SQLException {
         try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT * FROM " + connection.getCatalog() + "." + tablleName)) {
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM " + connection.getCatalog() + "."
+                     + tablleName)) {
             if (!resultSet.last()) {
                 return null;
             }
