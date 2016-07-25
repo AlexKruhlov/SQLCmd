@@ -72,6 +72,10 @@ public class DBManager {
         }
     }
 
+    public byte getFIRST_COLUMN() {
+        return FIRST_COLUMN;
+    }
+
     public void createTable(String tableName) throws SQLException {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("CREATE TABLE ")) {
