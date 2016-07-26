@@ -5,12 +5,12 @@ import java.util.Arrays;
 /**
  * Created by sigmund69 on 19.07.2016.
  */
-public class Table {
+public class Row {
     private DataTable[] dataTable; //// TODO: 20.07.2016
     private int index = 0;
     private int columnSize = 0;
 
-    public Table(int columnSize) {
+    public Row(int columnSize) {
         this.columnSize = columnSize;
         dataTable = new DataTable[this.columnSize];
     }

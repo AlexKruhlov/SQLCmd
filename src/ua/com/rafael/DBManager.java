@@ -2,6 +2,7 @@ package ua.com.rafael;
 
 
 import java.sql.*;
+import java.util.Objects;
 
 /**
  * Created by sigmund69 on 12.07.2016.
@@ -25,6 +26,23 @@ public class DBManager {
     find NOTEXISTStable??
 */
 
+    public void connection(UserInfo userInfo) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (Exception ex) {
+            System.out.println("[ERROR]: MySQL driver was not registered!");
+        }
+        try {
+            connection =
+                    DriverManager.getConnection("jdbc:mysql://localhost:3306/" + userInfo.getDatabase() +
+                            "?autoReconnect=true&useSSL=false", userInfo.getUser(), userInfo.getPassword());
+            System.out.println("Your registration has been successful!");
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println(ex.getCause().getMessage());
+            System.out.println("Please, check your database name, user name and password!");
+        }
+    }
 
     public String[] getTableList() throws SQLException {
         try (Statement statement = connection.createStatement();
@@ -48,7 +66,7 @@ public class DBManager {
         }
     }
 
-    public Table[] getDataTable(String tablleName) throws SQLException {
+    public Row[] getDataTable(String tablleName) throws SQLException {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT * FROM " + connection.getCatalog() + "."
                      + tablleName)) {
@@ -57,10 +75,10 @@ public class DBManager {
             }
             int rowCount = resultSet.getRow();
             int columnCount = resultSet.getMetaData().getColumnCount();
-            Table[] tables = new Table[rowCount];
+            Row[] tables = new Row[rowCount];
             resultSet.first();
             for (int i = 0; i < rowCount; i++) {
-                tables[i] = new Table(columnCount);
+                tables[i] = new Row(columnCount);
                 for (int j = 0; j < tables[i].getColumnSize(); j++) {
                     tables[i].put(resultSet.getMetaData().getColumnName(j + 1), resultSet.getObject(j + 1));
                 }
@@ -72,15 +90,11 @@ public class DBManager {
         }
     }
 
-    public byte getFIRST_COLUMN() {
-        return FIRST_COLUMN;
-    }
-
     public void createTable(String tableName) throws SQLException {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("CREATE TABLE ")) {
         } catch (SQLSyntaxErrorException exc) {
-            System.out.println("[Query syntax ERROR]: Table was not created.");
+            System.out.println("[Query syntax ERROR]: Row was not created.");
             throw exc;
         } catch (SQLException exc) {
             throw exc;
@@ -88,37 +102,30 @@ public class DBManager {
     }
 
     //    public
-    public void insert(String tablename) throws SQLException {
-        try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("INSERT INTO" + connection.getCatalog() + "." + tablename +
-                     "(")) {
+    public void insert(String tablename, Row newRow) throws SQLException {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(
+                "INSERT INTO" + connection.getCatalog() + "." + tablename +
+                        "(" + getFormatedFieldNames(newRow.getNames(), "%s,") + ")" +
+                        "VALUES (" + getFormatedValues(newRow.getData(), "?,") + ")")) {
+
+//            todo make accodance to update()
+//            todo create a method (update() has the same operators){
+            Object[] newValues = newRow.getData();
+            for (int i = 0; i < newRow.getColumnSize(); i++) {
+                preparedStatement.setObject(i + 1, newValues);
+            }
+//            }
+            preparedStatement.execute();
         } catch (SQLSyntaxErrorException exc) {
-            System.out.println("[Query syntax ERROR]: Table was not created.");
+            System.out.println("[Query syntax ERROR]: Row was not created.");
             throw exc;
         } catch (SQLException exc) {
             throw exc;
         }
     }
 
-    public void connection(UserInfo userInfo) {
-        try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-        } catch (Exception ex) {
-            System.out.println("[ERROR]: MySQL driver was not registered!");
-        }
-        try {
-            connection =
-                    DriverManager.getConnection("jdbc:mysql://localhost:3306/" + userInfo.getDatabase() +
-                            "?autoReconnect=true&useSSL=false", userInfo.getUser(), userInfo.getPassword());
-            System.out.println("Your registration has been successful!");
-        } catch (SQLException ex) {
-            // handle any errors
-            System.out.println(ex.getCause().getMessage());
-            System.out.println("Please, check your database name, user name and password!");
-        }
-    }
 
-    public void update(String tableName, int id, Table newValue) throws SQLException {
+    public void update(String tableName, int id, Row newValue) throws SQLException {
         String primaryKeyName = getPrimaryKey(tableName);
 
         String query = "UPDATE " + tableName + " set " +
@@ -127,9 +134,17 @@ public class DBManager {
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             Object[] newObjects = newValue.getData();
             for (int i = 0; i < newValue.getColumnSize(); i++) {
-                preparedStatement.setObject(i+1, newObjects[i]);
+                preparedStatement.setObject(i + 1, newObjects[i]);
             }
             preparedStatement.execute();
+        } catch (SQLException exc) {
+            throw exc;
+        }
+    }
+
+    public void clear(String tableName) throws SQLException {
+        try (Statement statement = connection.createStatement()) {
+            statement.executeUpdate("DELETE FROM " + connection.getCatalog() + "." + tableName);
         } catch (SQLException exc) {
             throw exc;
         }
@@ -149,6 +164,14 @@ public class DBManager {
         }
     }
 
+    public String getFormatedValues(Object[] value, String format) {
+        String result = "";
+        for (int i = 0; i < value.length; i++) {
+            result += String.format(format, value);
+        }
+        return result.substring(0, result.length() - 1);
+    }
+
     public String getFormatedFieldNames(String[] names, String format) {
         String result = "";
         for (String name : names) {
@@ -165,7 +188,7 @@ public class DBManager {
 
 
 
-
+/*todo Is primary key usage important?*/
 
 /* TODO exc.getCause().getMessage();
         System.out.println("Please, use help information to deside this problem!");

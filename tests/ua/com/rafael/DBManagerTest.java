@@ -31,29 +31,48 @@ public class DBManagerTest {
 
     @Test
     public void getDataTableTest() throws Exception {
-        Table[] expected = new Table[3];
-        expected[0] = new Table(3);
+        Row[] expected = new Row[3];
+        expected[0] = new Row(3);
         expected[0].put("actor_id", 1);
         expected[0].put("first_name", "PENELOPE");
         expected[0].put("last_name", "GUINESS");
 
-        expected[1] = new Table(3);
+        expected[1] = new Row(3);
         expected[1].put("actor_id", 2);
         expected[1].put("first_name", "NICK");
         expected[1].put("last_name", "WAHLBERG");
 
-        expected[2] = new Table(3);
+        expected[2] = new Row(3);
         expected[2].put("actor_id", 3);
         expected[2].put("first_name", "ED");
         expected[2].put("last_name", "CHASE");
-        Table[] actual = dBase.getDataTable("actor");
+        Row[] actual = dBase.getDataTable("actor");
 
         Assert.assertEquals(Arrays.toString(expected),Arrays.toString(actual));
     }
 
     @Test
+    public void insertTest() throws Exception {
+        dBase.clear("actor");
+        Row input = new Row(3);
+        input.put("actor_id", 2);
+        input.put("first_name", "JACK");
+        input.put("last_name", "BLACK");
+        Row[] expected = new Row[]{input};
+
+    }
+
+
+    @Test
+    public void clearTest() throws Exception {
+        //dBase.insert("actor");
+        dBase.clear("actor");
+
+    }
+
+    @Test
     public void getFormatFieldsTest() throws Exception {
-        Table[] tables = dBase.getDataTable("actor");
+        Row[] tables = dBase.getDataTable("actor");
         String[] tableNames = tables[1].getNames();
         String actual = dBase.getFormatedFieldNames(tableNames,"%s=?,");
 
@@ -79,19 +98,30 @@ public class DBManagerTest {
     }
 
     @Test
+    public void getFormatedValuesTest() throws Exception {
+        Row input = new Row(3);
+        input.put("actor_id", 2);
+        input.put("first_name", "JACK");
+        input.put("last_name", "BLACK");
+        String expected = "?,?,?";
+        String actual = dBase.getFormatedValues(input.getData(),"?,");
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
     public void update() throws Exception {
-        Table[] toExpectation = dBase.getDataTable("actor");
-        toExpectation[1] = new Table(3);
+        Row[] toExpectation = dBase.getDataTable("actor");
+        toExpectation[1] = new Row(3);
         toExpectation[1].put("actor_id", 2);
         toExpectation[1].put("first_name", "JACK");
         toExpectation[1].put("last_name", "BLACK");
 
-        Table toUpdate = new Table(3);
+        Row toUpdate = new Row(3);
         toUpdate.put("actor_id", 2);
         toUpdate.put("first_name", "JACK");
         toUpdate.put("last_name", "BLACK");
         dBase.update("actor",2,toUpdate);
-        Table[] afterUpdate = dBase.getDataTable("actor");
+        Row[] afterUpdate = dBase.getDataTable("actor");
 
         String[]
                 expected = new String[3],
