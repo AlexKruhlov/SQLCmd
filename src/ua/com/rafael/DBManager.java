@@ -108,18 +108,20 @@ public class DBManager {
                         "(" + getFormatedFieldNames(newRow.getNames(), "%s,") + ")" +
                         "VALUES (" + getFormatedValues(newRow.getData(), "?,") + ")")) {
 //            todo make accodance to update()
-//            todo create a method (update() has the same operators){
-            Object[] newValues = newRow.getData();
-            for (int i = 0; i < newRow.getColumnSize(); i++) {
-                preparedStatement.setObject(i + 1, newValues[i]);
-            }
-//            }
+            setObjectsToPreaparedStatememnt(newRow, preparedStatement);
             preparedStatement.execute();
         } catch (SQLSyntaxErrorException exc) {
             System.out.println("[Query syntax ERROR]: Row was not created.");
             throw exc;
         } catch (SQLException exc) {
             throw exc;
+        }
+    }
+
+    public void setObjectsToPreaparedStatememnt(Row newRow, PreparedStatement preparedStatement) throws SQLException {
+        Object[] newValues = newRow.getData();
+        for (int i = 0; i < newRow.getColumnSize(); i++) {
+            preparedStatement.setObject(i + 1, newValues[i]);
         }
     }
 
@@ -131,10 +133,7 @@ public class DBManager {
                 getFormatedFieldNames(newValue.getNames(), "%s=?,") +
                 " where " + primaryKeyName + "=" + id;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            Object[] newObjects = newValue.getData();
-            for (int i = 0; i < newValue.getColumnSize(); i++) {
-                preparedStatement.setObject(i + 1, newObjects[i]);
-            }
+            setObjectsToPreaparedStatememnt(newValue, preparedStatement);
             preparedStatement.execute();
         } catch (SQLException exc) {
             throw exc;
