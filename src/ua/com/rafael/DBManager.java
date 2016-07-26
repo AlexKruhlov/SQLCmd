@@ -104,15 +104,14 @@ public class DBManager {
     //    public
     public void insert(String tablename, Row newRow) throws SQLException {
         try (PreparedStatement preparedStatement = connection.prepareStatement(
-                "INSERT INTO" + connection.getCatalog() + "." + tablename +
+                "INSERT INTO " + connection.getCatalog() + "." + tablename +
                         "(" + getFormatedFieldNames(newRow.getNames(), "%s,") + ")" +
                         "VALUES (" + getFormatedValues(newRow.getData(), "?,") + ")")) {
-
 //            todo make accodance to update()
 //            todo create a method (update() has the same operators){
             Object[] newValues = newRow.getData();
             for (int i = 0; i < newRow.getColumnSize(); i++) {
-                preparedStatement.setObject(i + 1, newValues);
+                preparedStatement.setObject(i + 1, newValues[i]);
             }
 //            }
             preparedStatement.execute();

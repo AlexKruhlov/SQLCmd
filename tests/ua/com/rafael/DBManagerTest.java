@@ -52,23 +52,28 @@ public class DBManagerTest {
     }
 
     @Test
-    public void insertTest() throws Exception {
-        dBase.clear("actor");
-        Row input = new Row(3);
-        input.put("actor_id", 2);
-        input.put("first_name", "JACK");
-        input.put("last_name", "BLACK");
-        Row[] expected = new Row[]{input};
-
-    }
-
-
-    @Test
     public void clearTest() throws Exception {
         //dBase.insert("actor");
         dBase.clear("actor");
 
     }
+
+    @Test
+    public void insertTest() throws Exception {
+        dBase.clear("actor");
+
+        Row input = new Row(3);
+        input.put("actor_id", 1);
+        input.put("first_name", "JACK");
+        input.put("last_name", "BLACK");
+        Row[] expected = new Row[]{input};
+
+        dBase.insert("actor",input);
+        Row[] actual = dBase.getDataTable("actor");
+
+        Assert.assertEquals(Arrays.toString(expected),Arrays.toString(actual));
+    }
+
 
     @Test
     public void getFormatFieldsTest() throws Exception {
