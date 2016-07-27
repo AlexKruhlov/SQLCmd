@@ -2,11 +2,10 @@ package ua.com.rafael;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import ua.com.rafael.view.Main;
 
 /**
- * Created by sigmund69 on 12.07.2016.
+ * Created by Alexandr Kruhlov on 12.07.2016.
  */
 public class MainTest {
 
