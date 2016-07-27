@@ -1,4 +1,4 @@
-package ua.com.rafael;
+package ua.com.rafael.manager;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -106,43 +106,43 @@ public class DBManagerTest {
         Assert.assertEquals(Arrays.toString(expected), Arrays.toString(actual));
     }
 
-    @Test
-    public void getFormatFieldNamesTest() throws Exception {
-        Row input = new Row(3);
-        input.put("actor_id", 1);
-        input.put("first_name", "JACK");
-        input.put("last_name", "BLACK");
-        String[] tableNames = input.getNames();
-        String actual = dBase.getFormatedFieldNames(tableNames, "%s=?,");
+//    @Test
+//    public void getFormatFieldNamesTest() throws Exception {
+//        Row input = new Row(3);
+//        input.put("actor_id", 1);
+//        input.put("first_name", "JACK");
+//        input.put("last_name", "BLACK");
+//        String[] tableNames = input.getNames();
+//        String actual = dBase.getFormatedFieldNames(tableNames, "%s=?,");
+//
+//        String expected = "actor_id=?,first_name=?,last_name=?";
+//
+//        Assert.assertEquals(expected, actual);
+//    }
 
-        String expected = "actor_id=?,first_name=?,last_name=?";
+//    @Test
+//    public void getPrimaryKeyTest() throws Exception {
+//        String[] tableNames = dBase.getTableList();
+//        String[] actual = new String[2];
+//        for (int i = 0; i < tableNames.length; i++) {
+//            actual[i] = dBase.getPrimaryKey(tableNames[i]);
+//        }
+//
+//        String[] expected = {"actor_id", null};
+//
+//        Assert.assertArrayEquals(expected, actual);
+//    }
 
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void getPrimaryKeyTest() throws Exception {
-        String[] tableNames = dBase.getTableList();
-        String[] actual = new String[2];
-        for (int i = 0; i < tableNames.length; i++) {
-            actual[i] = dBase.getPrimaryKey(tableNames[i]);
-        }
-
-        String[] expected = {"actor_id", null};
-
-        Assert.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void getFormatedValuesTest() throws Exception {
-        Row input = new Row(3);
-        input.put("actor_id", 2);
-        input.put("first_name", "JACK");
-        input.put("last_name", "BLACK");
-        String expected = "?,?,?";
-        String actual = dBase.getFormatedValues(input.getData(), "?,");
-        Assert.assertEquals(expected, actual);
-    }
+//    @Test
+//    public void getFormatedValuesTest() throws Exception {
+//        Row input = new Row(3);
+//        input.put("actor_id", 2);
+//        input.put("first_name", "JACK");
+//        input.put("last_name", "BLACK");
+//        String expected = "?,?,?";
+//        String actual = dBase.getFormatedValues(input.getData(), "?,");
+//        Assert.assertEquals(expected, actual);
+//    }
 }
 
 

@@ -6,8 +6,6 @@ import java.sql.*;
  * Created by sigmund69 on 12.07.2016.
  */
 
-
-//dddfdfdf
 public class MySqlDBManager implements DBManager {
     byte FIRST_COLUMN = 1;
     private Connection connection;
@@ -35,7 +33,6 @@ public class MySqlDBManager implements DBManager {
     public String[] getTableList() throws SQLException {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("show tables from " + connection.getCatalog())) {
-//          return null if resultSet is empty
             if (!resultSet.last()) {
                 return null;
             }
@@ -91,7 +88,6 @@ public class MySqlDBManager implements DBManager {
         }
     }
 
-    //    public
     @Override
     public void insert(String tablename, Row newRow) throws SQLException {
         try (PreparedStatement preparedStatement = connection.prepareStatement(
@@ -108,18 +104,9 @@ public class MySqlDBManager implements DBManager {
         }
     }
 
-    public void setObjectsToPreaparedStatememnt(Row newRow, PreparedStatement preparedStatement) throws SQLException {
-        Object[] newValues = newRow.getData();
-        for (int i = 0; i < newRow.getColumnSize(); i++) {
-            preparedStatement.setObject(i + 1, newValues[i]);
-        }
-    }
-
-
     @Override
     public void update(String tableName, int id, Row newValue) throws SQLException {
         String primaryKeyName = getPrimaryKey(tableName);
-
         String query = "UPDATE " + tableName + " set " +
                 getFormatedFieldNames(newValue.getNames(), "%s=?,") +
                 " where " + primaryKeyName + "=" + id;
@@ -140,7 +127,14 @@ public class MySqlDBManager implements DBManager {
         }
     }
 
-    public String getPrimaryKey(String tableName) throws SQLException {
+    private void setObjectsToPreaparedStatememnt(Row newRow, PreparedStatement preparedStatement) throws SQLException {
+        Object[] newValues = newRow.getData();
+        for (int i = 0; i < newRow.getColumnSize(); i++) {
+            preparedStatement.setObject(i + 1, newValues[i]);
+        }
+    }
+
+    private String getPrimaryKey(String tableName) throws SQLException {  //todo think about method usage
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SHOW KEYS FROM " + connection.getCatalog() + "." +
                      tableName + " WHERE Key_name = 'PRIMARY'")) {
@@ -154,7 +148,7 @@ public class MySqlDBManager implements DBManager {
         }
     }
 
-    public String getFormatedValues(Object[] value, String format) {
+    private String getFormatedValues(Object[] value, String format) {
         String result = "";
         for (int i = 0; i < value.length; i++) {
             result += String.format(format, value);
@@ -162,7 +156,7 @@ public class MySqlDBManager implements DBManager {
         return result.substring(0, result.length() - 1);
     }
 
-    public String getFormatedFieldNames(String[] names, String format) {
+    private String getFormatedFieldNames(String[] names, String format) {
         String result = "";
         for (String name : names) {
             result += String.format(format, name);
@@ -170,13 +164,10 @@ public class MySqlDBManager implements DBManager {
         return result.substring(0, result.length() - 1);
     }
 
-    public boolean isEmpty(ResultSet resultSet) throws SQLException {
+    private boolean isEmpty(ResultSet resultSet) throws SQLException {
         return !resultSet.first();
     }
-
 }
-
-
 
 /* TODO exc.getCause().getMessage();
         System.out.println("Please, use help information to deside this problem!");
