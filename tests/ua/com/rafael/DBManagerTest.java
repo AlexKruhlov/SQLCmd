@@ -3,21 +3,21 @@ package ua.com.rafael;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import ua.com.rafael.manager.MySqlDBManager;
+import ua.com.rafael.manager.Row;
 
 import java.sql.SQLException;
 import java.util.Arrays;
-import java.util.Random;
 
 /**
- * Created by sigmund69 on 15.07.2016.
+ * Created by Alexandr Kruhlov on 15.07.2016.
  */
 public class DBManagerTest {
-
-    DBManager dBase = new DBManager();
+    MySqlDBManager dBase = new MySqlDBManager();
 
     @Before
     public void preSetup() throws SQLException {
-        dBase.connection(new UserInfo("myschema", "root", "independence24"));
+        dBase.connection("myschema", "root", "independence24");
         dBase.clear("actor");
     }
 
@@ -26,7 +26,7 @@ public class DBManagerTest {
         String[] expected = {"actor", "address"};
         Assert.assertArrayEquals(expected, dBase.getTableList());
 
-        dBase.connection(new UserInfo("outoftables", "root", "independence24"));
+        dBase.connection("outoftables", "root", "independence24");
         expected = null;
         Assert.assertArrayEquals(expected, dBase.getTableList());
     }
@@ -131,7 +131,6 @@ public class DBManagerTest {
         String[] expected = {"actor_id", null};
 
         Assert.assertArrayEquals(expected, actual);
-
     }
 
     @Test

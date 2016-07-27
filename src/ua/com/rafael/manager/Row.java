@@ -1,12 +1,13 @@
-package ua.com.rafael;
+package ua.com.rafael.manager;
 
 import java.util.Arrays;
 
 /**
- * Created by sigmund69 on 19.07.2016.
+ * Created by Alexandr Kruhlov on 19.07.2016.
  */
+
 public class Row {
-    private DataTable[] dataTable; //// TODO: 20.07.2016
+    private DataTable[] dataTable;
     private int index = 0;
     private int columnSize = 0;
 

@@ -1,26 +1,21 @@
-package ua.com.rafael;
+package ua.com.rafael.view;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.channels.Pipe;
-import java.nio.channels.SelectableChannel;
-import java.sql.Clob;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.sql.*;
 import java.util.Scanner;
 
-import com.mysql.jdbc.*;
-import com.mysql.jdbc.Driver;
-import com.mysql.jdbc.PreparedStatement;
-
 /**
- * Created by sigmund69 on 08.07.2016.
+ * Created by Alexandr Kruhlov on 08.07.2016.
  */
 public class Main {
+
+//    Scanner scanner = new Scanner(System.in);
+//    System.out.print("Please, input your database name: ");
+//    database = scanner.nextLine();
+//    System.out.print("Please, input your user name: ");
+//    user = scanner.nextLine();
+//    System.out.print("Please, input your password: ");
+//    password = scanner.nextLine();
 
     public static void main(String[] args) throws SQLException {
         System.out.println("Welcome to console database manager!\n");
@@ -38,7 +33,6 @@ public class Main {
 //            choice = getChoice(scanner);
 //            if (choice.equals("N") || choice.equals("n")) System.exit(1);
 //        } while (choice.equals("Y") || choice.equals("y"));
-
     }
 
     private static String getChoice(Scanner scanner) {
