@@ -11,7 +11,8 @@ public class MySqlDBManager implements DBManager {
     private Connection connection;
 
     @Override
-    public void connection(String dataBase, String user, String password) {
+    public Connection connection(String dataBase, String user, String password) {
+
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (Exception ex) {
@@ -21,11 +22,9 @@ public class MySqlDBManager implements DBManager {
             connection =
                     DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dataBase +
                             "?autoReconnect=true&useSSL=false", user, password);
-            System.out.println("Your registration has been successful!");
+            return connection;
         } catch (SQLException ex) {
-            // handle any errors
-            System.out.println(ex.getCause().getMessage());
-            System.out.println("Please, check your database name, user name and password!"); //todo exception
+            throw new RuntimeException("Please, check your database name, user name and password!", ex);
         }
     }
 

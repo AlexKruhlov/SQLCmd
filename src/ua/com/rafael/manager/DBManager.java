@@ -1,12 +1,13 @@
 package ua.com.rafael.manager;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
  * Created by Alexandr Kruhlov on 27.07.2016.
  */
 public interface DBManager {
-    void connection(String dataBase, String user, String password);
+    Connection connection(String dataBase, String user, String password);
 
     String[] getTableList() throws SQLException;
 
