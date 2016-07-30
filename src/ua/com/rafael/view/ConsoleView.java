@@ -4,13 +4,13 @@ import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.manager.MySqlDBManager;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
  * Created by Alexandr Kruhlov on 08.07.2016.
  */
 public class ConsoleView implements View {
+    DBManager dbManager;
 
     @Override
     public void print(String string) {
@@ -24,12 +24,22 @@ public class ConsoleView implements View {
     }
 
     @Override
-    public int run() {
-        int EXIT = 0;
-        int PRETERM_EXIT = 1;
-        String choice;
-
+    public void run() {
         print("Welcome to console database manager!\n");
+        if (connectToDBase()) {
+            print("\n\nYour registration has been successful!");
+        } else{
+            System.exit(1);
+        }
+
+
+
+    }
+
+    private boolean connectToDBase() {
+        boolean SUCCESSFUL_CONEXCTION = true;
+        boolean CONNECTION_FAILED = false;
+        String choice;
         do {
             print("\nPlease, input your database name: ");
             String database = readLine();
@@ -37,7 +47,7 @@ public class ConsoleView implements View {
             String user = readLine();
             print("Please, input your password: ");
             String password = readLine();
-            DBManager dbManager = new MySqlDBManager();
+            dbManager = new MySqlDBManager();
             Connection connection = null;
             try {
                 print("\nConnection process...");
@@ -47,16 +57,15 @@ public class ConsoleView implements View {
                 print("\n" + ex.getMessage());
             }
             if (connection != null) {
-                print("\n\nYour registration has been successful!");
                 break;
             }
-            choice = detChoice();
-            if (choice.equals("N") || choice.equals("n")) return PRETERM_EXIT;
+            choice = getChoice();
+            if (choice.equals("N") || choice.equals("n")) return CONNECTION_FAILED;
         } while (choice.equals("Y") || choice.equals("y"));
-        return EXIT;
+        return SUCCESSFUL_CONEXCTION;
     }
 
-    private String detChoice() {
+    private String getChoice() {
         String choice = null;
         do {
             print("\n\nDo you want to try again? (<Y>-yes, <N>-no): ");

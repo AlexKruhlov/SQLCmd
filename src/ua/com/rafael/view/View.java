@@ -8,5 +8,5 @@ import java.sql.SQLException;
 public interface View {
     void print(String string);
     String readLine();
-    int run();
+    void run();
 }
