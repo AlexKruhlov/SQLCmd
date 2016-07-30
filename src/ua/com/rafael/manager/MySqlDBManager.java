@@ -29,12 +29,13 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
-    public String[] getTableList() throws SQLException {
+    public String[] getTableList() {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("show tables from " + connection.getCatalog())) {
-            if (!resultSet.last()) {
+            if (isEmpty(resultSet)) {
                 return null;
             }
+            resultSet.last();
             int tableLength = resultSet.getRow();
             int index = 0;
             String[] result = new String[tableLength];
@@ -45,19 +46,19 @@ public class MySqlDBManager implements DBManager {
             }
             return result;
         } catch (SQLException exc) {
-            System.out.println(exc.getCause().getMessage());
-            throw exc;// todo exception
+            throw new RuntimeException("This command hasn't been peformed!", exc);
         }
     }
 
     @Override
-    public Row[] getDataTable(String tablleName) throws SQLException {
+    public Row[] getDataTable(String tablleName){
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT * FROM " + connection.getCatalog() + "."
                      + tablleName)) {
-            if (!resultSet.last()) {
+            if (isEmpty(resultSet)) {
                 return null;
             }
+            resultSet.last();
             int rowCount = resultSet.getRow();
             int columnCount = resultSet.getMetaData().getColumnCount();
             Row[] tables = new Row[rowCount];
@@ -71,7 +72,7 @@ public class MySqlDBManager implements DBManager {
             }
             return tables;
         } catch (SQLException exc) {
-            throw exc; //todo exc
+            throw new RuntimeException("This command hasn't been peformed!", exc);
         }
     }
 

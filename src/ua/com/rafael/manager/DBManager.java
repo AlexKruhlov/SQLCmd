@@ -9,9 +9,9 @@ import java.sql.SQLException;
 public interface DBManager {
     Connection connection(String dataBase, String user, String password);
 
-    String[] getTableList() throws SQLException;
+    String[] getTableList();
 
-    Row[] getDataTable(String tablleName) throws SQLException;
+    Row[] getDataTable(String tablleName);
 
     void createTable(String tableName) throws SQLException;
 

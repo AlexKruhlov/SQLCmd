@@ -4,6 +4,8 @@ import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.manager.MySqlDBManager;
 
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -24,15 +26,35 @@ public class ConsoleView implements View {
     }
 
     @Override
-    public void run() {
+    public void run(){
         print("Welcome to console database manager!\n");
         if (connectToDBase()) {
-            print("\n\nYour registration has been successful!");
+            print("\n\nYour registration has been successful!\n");
         } else{
             System.exit(1);
         }
 
+        print("\nPlease, input your command:\n");
+        String[] command = readLine().split(" ");
+        int COMMAND = 0;
+        int PARAMETER = 1;
+        if (command[COMMAND].equals("help")){
+            print("\nList of commands:");
+            print("\n\t help " +
+                    "\n\t\tprovides the information of all database manager commands");
+            print("\n\t list " +
+                    "\n\t\tdisplays all tabels of the current database");
+            print("\n\t find " +
+                    "\n\t\tdisplays table data");
 
+            print("\n\t exit " +
+                    "\n\t\tcompletes database manager execution");
+
+        } else if (command[COMMAND].equals("list")){
+            print(Arrays.toString(dbManager.getTableList()));
+        } else if (command[COMMAND].equals("find")){
+            doFind(command[PARAMETER]);
+        }
 
     }
 
@@ -79,6 +101,11 @@ public class ConsoleView implements View {
                 !(resultStr.equals("N") || resultStr.equals("n") ||
                         resultStr.equals("Y") || resultStr.equals("y"));
     }
+
+    private void doFind(String s) {
+        dbManager.getDataTable(s);
+    }
+
 }
 
 
