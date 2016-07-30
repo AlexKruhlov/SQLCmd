@@ -51,7 +51,7 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
-    public Row[] getDataTable(String tablleName){
+    public Row[] getDataTable(String tablleName) {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT * FROM " + connection.getCatalog() + "."
                      + tablleName)) {
@@ -125,6 +125,27 @@ public class MySqlDBManager implements DBManager {
         } catch (SQLException exc) {
             throw exc; //todo exception
         }
+    }
+
+    public String[] getColumbNames(String table) {
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SHOW COLUMNS FROM " + table)) {
+            if (isEmpty(resultSet)) {
+                return null;
+            }
+            resultSet.last();
+            int numberOfColumns = resultSet.getRow();
+            String[] columnNames = new String[numberOfColumns];
+            resultSet.first();
+            for (int i = 0; i < numberOfColumns; i++) {
+                columnNames[i] = resultSet.getString(FIRST_COLUMN);
+                resultSet.next();
+            }
+            return columnNames;
+        } catch (SQLException exc) {
+            //todo exc
+        }
+        return null;
     }
 
     private void setObjectsToPreaparedStatememnt(Row newRow, PreparedStatement preparedStatement) throws SQLException {

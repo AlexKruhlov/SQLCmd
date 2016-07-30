@@ -12,7 +12,8 @@ import java.util.Arrays;
 /**
  * Created by Alexandr Kruhlov on 15.07.2016.
  */
-public class DBManagerTest {
+public class MySqlDBManagerTest {
+
     MySqlDBManager dBase = new MySqlDBManager();
 
     @Before
@@ -104,6 +105,13 @@ public class DBManagerTest {
         Row[] actual = dBase.getDataTable("actor");
 
         Assert.assertEquals(Arrays.toString(expected), Arrays.toString(actual));
+    }
+
+    @Test
+    public void getColumbNamesTest() throws Exception {
+        String[] expected = {"actor_id","first_name","last_name"};
+        String[] actual = dBase.getColumbNames("actor");
+        Assert.assertArrayEquals(expected,actual);
     }
 
 //    @Test
