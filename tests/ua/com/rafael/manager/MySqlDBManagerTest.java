@@ -110,7 +110,7 @@ public class MySqlDBManagerTest {
     @Test
     public void getColumbNamesTest() throws Exception {
         String[] expected = {"actor_id","first_name","last_name"};
-        String[] actual = dBase.getColumbNames("actor");
+        String[] actual = dBase.getColumnNames("actor");
         Assert.assertArrayEquals(expected,actual);
     }
 

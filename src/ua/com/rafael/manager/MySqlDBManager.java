@@ -127,7 +127,8 @@ public class MySqlDBManager implements DBManager {
         }
     }
 
-    public String[] getColumbNames(String table) {
+    @Override
+    public String[] getColumnNames(String table) {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SHOW COLUMNS FROM " + table)) {
             if (isEmpty(resultSet)) {
@@ -143,6 +144,7 @@ public class MySqlDBManager implements DBManager {
             }
             return columnNames;
         } catch (SQLException exc) {
+            System.out.println("This table has not created");
             //todo exc
         }
         return null;

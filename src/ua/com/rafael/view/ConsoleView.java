@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.SplittableRandom;
 
 /**
  * Created by Alexandr Kruhlov on 08.07.2016.
@@ -34,29 +35,31 @@ public class ConsoleView implements View {
         } else {
             System.exit(1);
         }
-
-        print("\nPlease, input your command:\n");
-        String[] command = readLine().split(" ");
-        int COMMAND = 0;
-        int PARAMETER = 1;
-        if (command[COMMAND].equals("help")) {
-            print("\nList of commands:");
-            print("\n\t help " +
-                    "\n\t\tprovides the information of all database manager commands");
-            print("\n\t list " +
-                    "\n\t\tdisplays all tabels of the current database");
-            print("\n\t find " +
-                    "\n\t\tdisplays table data");
-
-            print("\n\t exit " +
-                    "\n\t\tcompletes database manager execution");
-
-        } else if (command[COMMAND].equals("list")) {
-            print(Arrays.toString(dbManager.getTableList()));
-        } else if (command[COMMAND].equals("find")) {
-            doFind(command[PARAMETER]);
+        while (true) {
+            print("\nPlease, input your command:\n");
+            String[] command = readLine().split(" ");
+            int COMMAND = 0;
+            int PARAMETER = 1;
+            if (command[COMMAND].equals("help")) {
+                showHelp();
+            } else if (command[COMMAND].equals("list")) {
+                print(Arrays.toString(dbManager.getTableList()));
+            } else if (command[COMMAND].equals("find")) {
+                doFind(command[PARAMETER]);
+            } else if (command[COMMAND].equals("exit")) {
+                System.exit(0);
+            } else {
+                print("Command not found");
+            }
         }
+    }
 
+    private void showHelp() {
+        print("\nList of commands:" +
+                "\n\thelp\n\t\tprovides the information of all database manager commands" +
+                "\n\tlist\n\t\tdisplays all tabels of the current database" +
+                "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +
+                "\n\texit\n\t\tcompletes database manager execution");
     }
 
     private boolean connectToDBase() {
@@ -103,17 +106,52 @@ public class ConsoleView implements View {
                         resultStr.equals("Y") || resultStr.equals("y"));
     }
 
-    private void doFind(String table) {
-        Row[] names = dbManager.getDataTable(table);
-        if (names.length == 0) {
-            print("d");
+    private void doFind(String tableName) {
+        final int
+                COLUMN_SIZE = 40,
+                LINE_LENGTH = COLUMN_SIZE + 2;
+        String[] columnNames = dbManager.getColumnNames(tableName);
+        if (columnNames == null) {
+            print("Table has not created");
+            return;
         }
-        for (int i = 0; i < names[0].getColumnSize(); i++) {
-
+        String line = getLine(LINE_LENGTH * columnNames.length - 1);
+        print("\n\t|" + line + "|");
+        printTableTop(columnNames, COLUMN_SIZE);
+        print("\n\t|" + line + "|");
+        Row[] rows = dbManager.getDataTable(tableName);
+        if (rows != null) {
+            printRows(rows, COLUMN_SIZE);
         }
-        dbManager.getDataTable(table);
+        print("\n\t-" + line + "-");
     }
 
+    private String getLine(int length) {
+        char[] result = new char[length];
+        for (int i = 0; i < length; i++) {
+            result[i] = '-';
+        }
+        return new String(result);
+    }
+
+    private void printTableTop(String[] columnNames, int columnSize) {
+        String format = " %-" + columnSize + "s";
+        print("\n\t" + "|");
+        for (int i = 0; i < columnNames.length; i++) {
+            print(String.format(format, columnNames[i]) + "|");
+        }
+    }
+
+    private void printRows(Row[] rows, int columnSize) {
+        String format = " %-" + columnSize + "s";
+        for (int i = 0; i < rows.length; i++) {
+            print("\n\t" + "|");
+            Object[] rowData = rows[i].getData();
+            for (int j = 0; j < rowData.length; j++) {
+                print(String.format(format, rowData[j]) + "|");
+            }
+        }
+    }
 }
 
 

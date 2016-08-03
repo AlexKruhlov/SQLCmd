@@ -21,4 +21,6 @@ public interface DBManager {
     void update(String tableName, int id, Row newValue) throws SQLException;
 
     void clear(String tableName) throws SQLException;
+
+    String[] getColumnNames(String tableName);
 }
