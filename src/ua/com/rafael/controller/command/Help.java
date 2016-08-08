@@ -1,4 +1,4 @@
-package ua.com.rafael.manager.command;
+package ua.com.rafael.controller.command;
 
 import ua.com.rafael.view.View;
 
@@ -19,7 +19,7 @@ public class Help implements Command {
 
     @Override
     public void start() {
-        System.out.print("\nList of commands:" +
+        view.print("List of commands:" +
                 "\n\thelp\n\t\tprovides the information of all database manager commands" +
                 "\n\tlist\n\t\tdisplays all tabels of the current database" +
                 "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +

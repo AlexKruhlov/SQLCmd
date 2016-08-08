@@ -1,4 +1,4 @@
-package ua.com.rafael.manager.command;
+package ua.com.rafael.controller.command;
 
 /**
  * Created by Alexandr Kruhlov on 06.08.2016.

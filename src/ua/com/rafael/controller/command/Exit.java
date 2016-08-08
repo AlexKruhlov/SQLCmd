@@ -1,4 +1,4 @@
-package ua.com.rafael.manager.command;
+package ua.com.rafael.controller.command;
 
 import ua.com.rafael.view.View;
 

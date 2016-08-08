@@ -1,7 +1,10 @@
-package ua.com.rafael.manager.command;
+package ua.com.rafael.controller.command;
 
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
+
+import java.sql.Array;
+import java.util.Arrays;
 
 /**
  * Created by Alexandr Kruhlov on 06.08.2016.
@@ -15,10 +18,6 @@ public class List implements Command {
         this.dbManager = dbManager;
     }
 
-    public List(DBManager dbManager) {
-        this.dbManager = dbManager;
-    }
-
     @Override
     public boolean isValid(String command) {
         return command.equals("list");
@@ -26,6 +25,6 @@ public class List implements Command {
 
     @Override
     public void start() {
-        dbManager.getTableList();
+        view.print(Arrays.toString(dbManager.getTableList()));
     }
 }

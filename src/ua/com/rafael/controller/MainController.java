@@ -1,9 +1,12 @@
-package ua.com.rafael.manager.controller;
+package ua.com.rafael.controller;
 
+import ua.com.rafael.controller.command.Command;
+import ua.com.rafael.controller.command.Exit;
+import ua.com.rafael.controller.command.Help;
+import ua.com.rafael.controller.command.List;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.manager.MySqlDBManager;
 import ua.com.rafael.manager.Row;
-import ua.com.rafael.manager.command.*;
 import ua.com.rafael.view.View;
 
 import java.sql.Connection;
@@ -16,8 +19,8 @@ public class MainController {
     DBManager dbManager;
     Command[] command;
 
-    public MainController(View console, DBManager dbManager) {
-        this.view = console;
+    public MainController(View view, DBManager dbManager) {
+        this.view = view;
         this.dbManager = dbManager;
         command = new Command[]{new Help(view), new Exit(view), new List(view, dbManager)};
     }
@@ -27,7 +30,7 @@ public class MainController {
         if (connectToDBase()) {
             view.print("\n\nYour registration has been successful!\n");
         } else {
-            System.exit(1);
+            System.exit(1); // TODO: 07.08.2016
         }
 
         int COMMAND = 0;
@@ -56,10 +59,6 @@ public class MainController {
         }
     }
 
-    private void showHelp() {
-
-    }
-
     private boolean connectToDBase() {
         boolean SUCCESSFUL_CONEXCTION = true;
         boolean CONNECTION_FAILED = false;
@@ -71,7 +70,6 @@ public class MainController {
             String user = view.readLine();
             view.print("Please, input your password: ");
             String password = view.readLine();
-            dbManager = new MySqlDBManager();
             Connection connection = null;
             try {
                 view.print("\nConnection process...");
