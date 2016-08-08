@@ -29,6 +29,11 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
+    public boolean isConnect() {
+        return connection != null;
+    }
+
+    @Override
     public String[] getTableList() {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("show tables from " + connection.getCatalog())) {

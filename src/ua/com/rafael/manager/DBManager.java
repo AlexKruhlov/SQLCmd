@@ -9,6 +9,8 @@ import java.sql.SQLException;
 public interface DBManager {
     Connection connection(String dataBase, String user, String password);
 
+    boolean isConnect();
+
     String[] getTableList();
 
     Row[] getDataTable(String tablleName);
