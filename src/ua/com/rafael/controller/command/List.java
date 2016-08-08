@@ -24,7 +24,7 @@ public class List implements Command {
     }
 
     @Override
-    public void start() {
+    public void start(String command) {
         view.print(Arrays.toString(dbManager.getTableList()));
     }
 }

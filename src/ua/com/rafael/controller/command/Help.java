@@ -18,7 +18,7 @@ public class Help implements Command {
     }
 
     @Override
-    public void start() {
+    public void start(String command) {
         view.print("List of commands:" +
                 "\n\thelp\n\t\tprovides the information of all database manager commands" +
                 "\n\tlist\n\t\tdisplays all tabels of the current database" +

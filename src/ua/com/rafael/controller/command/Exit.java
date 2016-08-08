@@ -19,7 +19,7 @@ public class Exit implements Command {
     }
 
     @Override
-    public void start() {
+    public void start(String command) {
         System.exit(0);
     }
 }

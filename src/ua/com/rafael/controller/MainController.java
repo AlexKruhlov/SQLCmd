@@ -1,9 +1,6 @@
 package ua.com.rafael.controller;
 
-import ua.com.rafael.controller.command.Command;
-import ua.com.rafael.controller.command.Exit;
-import ua.com.rafael.controller.command.Help;
-import ua.com.rafael.controller.command.List;
+import ua.com.rafael.controller.command.*;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.manager.MySqlDBManager;
 import ua.com.rafael.manager.Row;
@@ -22,7 +19,7 @@ public class MainController {
     public MainController(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
-        command = new Command[]{new Help(view), new Exit(view), new List(view, dbManager)};
+        command = new Command[]{new Help(view), new Exit(view), new List(view, dbManager), new Find(view, dbManager)};
     }
 
     public void run() {
@@ -36,10 +33,11 @@ public class MainController {
         int COMMAND = 0;
         while (true) {
             view.print("\nPlease, input your command:\n");
-            String[] inputedCommand = view.readLine().split(" ");
+            String inputedCommand = view.readLine();
             for (Command comm : command) {
-                if (comm.isValid(inputedCommand[COMMAND])) {
-                    comm.start();
+                if (comm.isValid(inputedCommand)) {
+                    comm.start(inputedCommand);
+                    break;
                 }
             }
 //
@@ -102,50 +100,4 @@ public class MainController {
                         resultStr.equals("Y") || resultStr.equals("y"));
     }
 
-    private void doFind(String tableName) {
-        final int
-                COLUMN_SIZE = 40,
-                LINE_LENGTH = COLUMN_SIZE + 2;
-        String[] columnNames = dbManager.getColumnNames(tableName);
-        if (columnNames == null) {
-            view.print("Table has not created");
-            return;
-        }
-        String line = getLine(LINE_LENGTH * columnNames.length - 1);
-        view.print("\n\t|" + line + "|");
-        printTableTop(columnNames, COLUMN_SIZE);
-        view.print("\n\t|" + line + "|");
-        Row[] rows = dbManager.getDataTable(tableName);
-        if (rows != null) {
-            printRows(rows, COLUMN_SIZE);
-        }
-        view.print("\n\t-" + line + "-");
-    }
-
-    private String getLine(int length) {
-        char[] result = new char[length];
-        for (int i = 0; i < length; i++) {
-            result[i] = '-';
-        }
-        return new String(result);
-    }
-
-    private void printTableTop(String[] columnNames, int columnSize) {
-        String format = " %-" + columnSize + "s";
-        view.print("\n\t" + "|");
-        for (int i = 0; i < columnNames.length; i++) {
-            view.print(String.format(format, columnNames[i]) + "|");
-        }
-    }
-
-    private void printRows(Row[] rows, int columnSize) {
-        String format = " %-" + columnSize + "s";
-        for (int i = 0; i < rows.length; i++) {
-            view.print("\n\t" + "|");
-            Object[] rowData = rows[i].getData();
-            for (int j = 0; j < rowData.length; j++) {
-                view.print(String.format(format, rowData[j]) + "|");
-            }
-        }
-    }
 }
