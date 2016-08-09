@@ -20,9 +20,10 @@ public class Help implements Command {
     @Override
     public void start(String command) {
         view.print("List of commands:" +
-                "\n\thelp\n\t\tprovides the information of all database manager commands" +
-                "\n\tlist\n\t\tdisplays all tabels of the current database" +
+                "\n\tconnect\n\t\tconnects to database you need" +
+                "\n\texit\n\t\tcompletes database manager execution" +
                 "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +
-                "\n\texit\n\t\tcompletes database manager execution");
+                "\n\thelp\n\t\tprovides the information of all database manager commands" +
+                "\n\tlist\n\t\tdisplays all tabels of the current database");
     }
 }

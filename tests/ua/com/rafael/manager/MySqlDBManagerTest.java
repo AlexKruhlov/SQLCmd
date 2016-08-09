@@ -13,13 +13,29 @@ import java.util.Arrays;
  * Created by Alexandr Kruhlov on 15.07.2016.
  */
 public class MySqlDBManagerTest {
-
     MySqlDBManager dBase = new MySqlDBManager();
 
     @Before
     public void preSetup() throws SQLException {
         dBase.connection("myschema", "root", "independence24");
         dBase.clear("actor");
+    }
+
+    @Test
+    public void isConnectTest() throws Exception {
+        boolean[] expected = {true, true, false};
+
+        boolean[] actual = new boolean[3];
+        actual[0] = dBase.isConnect();
+        try {
+            dBase.connection("schema", "root", "independence24");
+        } catch (Exception ex) {
+        }
+        actual[1] = dBase.isConnect();
+        dBase = new MySqlDBManager();
+        actual[2] = dBase.isConnect();
+
+        Assert.assertArrayEquals(expected, actual);
     }
 
     @Test
@@ -109,10 +125,11 @@ public class MySqlDBManagerTest {
 
     @Test
     public void getColumbNamesTest() throws Exception {
-        String[] expected = {"actor_id","first_name","last_name"};
+        String[] expected = {"actor_id", "first_name", "last_name"};
         String[] actual = dBase.getColumnNames("actor");
-        Assert.assertArrayEquals(expected,actual);
+        Assert.assertArrayEquals(expected, actual);
     }
+
 
 //    @Test
 //    public void getFormatFieldNamesTest() throws Exception {
