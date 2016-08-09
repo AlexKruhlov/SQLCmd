@@ -9,8 +9,10 @@ import java.sql.Connection;
  * Created by Alexandr Kruhlov on 08.08.2016.
  */
 public class Connect implements Command {
-    View view;
-    DBManager dbManager;
+    private View view;
+    private DBManager dbManager;
+
+    private final String command = "connect";
 
     public Connect(View view, DBManager dbManager) {
         this.view = view;
@@ -19,13 +21,11 @@ public class Connect implements Command {
 
     @Override
     public boolean isValid(String command) {
-        return command.equals("connect");
+        return command.equals(this.command);
     }
 
     @Override
     public void start(String command) {
-        boolean SUCCESSFUL_CONEXCTION = true;
-        boolean CONNECTION_FAILED = false;
         String choice;
         do {
             view.print("Please, input your database name: ");

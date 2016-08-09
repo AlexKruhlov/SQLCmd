@@ -10,8 +10,10 @@ import java.util.Arrays;
  * Created by Alexandr Kruhlov on 06.08.2016.
  */
 public class List implements Command {
-    View view;
-    DBManager dbManager;
+    private View view;
+    private DBManager dbManager;
+
+    private final String command = "list";
 
     public List(View view, DBManager dbManager) {
         this.view = view;
@@ -20,7 +22,7 @@ public class List implements Command {
 
     @Override
     public boolean isValid(String command) {
-        return command.equals("list");
+        return command.equals(this.command);
     }
 
     @Override

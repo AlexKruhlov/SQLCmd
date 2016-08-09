@@ -8,13 +8,15 @@ import ua.com.rafael.view.View;
 public class Help implements Command {
     private View view;
 
+    private final String command = "help";
+
     public Help(View view) {
         this.view = view;
     }
 
     @Override
     public boolean isValid(String command) {
-        return command.equals("help");
+        return command.equals(this.command);
     }
 
     @Override

@@ -7,8 +7,8 @@ import ua.com.rafael.view.View;
  * Created by Alexandr Kruhlov on 08.08.2016.
  */
 public class IsConnect implements Command {
-    View view;
-    DBManager dbManager;
+    private View view;
+    private DBManager dbManager;
 
     public IsConnect(View view, DBManager dbManager) {
         this.view = view;

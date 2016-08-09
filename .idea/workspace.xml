@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24b0fe09-e617-4a44-8d49-d17eb2280737" name="Default" comment=" add interface Command, class Help, Exit, List, Controller">
+    <list default="true" id="24b0fe09-e617-4a44-8d49-d17eb2280737" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Connect.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Connect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Exit.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Exit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Find.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Find.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Help.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Help.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/ua/com/rafael/manager/MySqlDBManagerTest.java" afterPath="$PROJECT_DIR$/tests/ua/com/rafael/manager/MySqlDBManagerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/IsConnect.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/IsConnect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/List.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/List.java" />
     </list>
     <ignored path="SQLcmd.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,27 +38,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="MySqlDBManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/manager/MySqlDBManager.java">
+      <file leaf-file-name="Find.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Find.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+            <state relative-caret-position="220">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding>
-                <marker date="1470691633126" expanded="true" signature="2015:2061" placeholder="SELECT * FRO... missingValue" />
-                <marker date="1470691633126" expanded="true" signature="3571:3800" placeholder="INSERT INTO missingValue.missingValue... " />
-                <marker date="1470691633126" expanded="true" signature="4343:4493" placeholder="UPDATE missi... " />
-                <marker date="1470691633126" expanded="true" signature="4979:5023" placeholder="DELETE FROM " />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySqlDBManagerTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/manager/MySqlDBManagerTest.java">
+      <file leaf-file-name="Help.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Help.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+            <state relative-caret-position="176">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IsConnect.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/IsConnect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="List.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/List.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,17 +138,17 @@
         <option value="$PROJECT_DIR$/src/ua/com/rafael/manager/controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/Main.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Command.java" />
-        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Exit.java" />
-        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Find.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/manager/DBManager.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/manager/MySqlDBManager.java" />
-        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/IsConnect.java" />
-        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/List.java" />
-        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Connect.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Undetected.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/MainController.java" />
-        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Help.java" />
         <option value="$PROJECT_DIR$/tests/ua/com/rafael/manager/MySqlDBManagerTest.java" />
+        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Connect.java" />
+        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Exit.java" />
+        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Find.java" />
+        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Help.java" />
+        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/IsConnect.java" />
+        <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/List.java" />
       </list>
     </option>
   </component>
@@ -1272,7 +1297,7 @@
       <workItem from="1470664315664" duration="9310000" />
       <workItem from="1470686427420" duration="6193000" />
       <workItem from="1470721706720" duration="3176000" />
-      <workItem from="1470732188612" duration="1150000" />
+      <workItem from="1470732188612" duration="2359000" />
     </task>
     <task id="LOCAL-00001" summary="delete class UserInfo, create pacages manager and view, create class view">
       <created>1469634846321</created>
@@ -1379,13 +1404,17 @@
       <option name="project" value="LOCAL" />
       <updated>1470724103607</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary=" create test to isConnected(), refactor class Help">
+      <created>1470733437259</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1470733437259</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MySqlDBManagerTest - 2016.08.09 at 00h 38m 50s.xml">
-      <configuration name="MySqlDBManagerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MySqlDBManagerTest - 2016.08.09 at 00h 39m 01s.xml">
       <configuration name="MySqlDBManagerTest" configurationId="JUnit" />
     </history-entry>
@@ -1399,6 +1428,9 @@
       <configuration name="MySqlDBManagerTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MySqlDBManagerTest - 2016.08.09 at 12h 01m 02s.xml">
+      <configuration name="MySqlDBManagerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MySqlDBManagerTest - 2016.08.09 at 12h 22m 21s.xml">
       <configuration name="MySqlDBManagerTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MySqlDBManagerTest_getDataTableTest - 2016.08.03 at 20h 11m 25s.xml">
@@ -1415,7 +1447,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269343000" />
+    <option name="totallyTimeSpent" value="270552000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1437,7 +1469,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32794458" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="361" y="-9" width="1197" height="1012" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="361" y="2" width="1197" height="1012" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290993" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1514,7 +1546,8 @@
     <MESSAGE value=" refactor interface Command, class Help, Exit, List, Controller,Find" />
     <MESSAGE value=" refactor interface DBManager, class MySqlDBManager , MainController, create class Connect, IsConnect" />
     <MESSAGE value=" creat class Undetected, refactor classes Connect, List, MainController" />
-    <option name="LAST_COMMIT_MESSAGE" value=" creat class Undetected, refactor classes Connect, List, MainController" />
+    <MESSAGE value=" create test to isConnected(), refactor class Help" />
+    <option name="LAST_COMMIT_MESSAGE" value=" create test to isConnected(), refactor class Help" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1761,28 +1794,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Find.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/view/ConsoleView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1795,48 +1810,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/IsConnect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Exit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Connect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1861,18 +1838,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Help.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/MainTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Exit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Connect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/manager/MySqlDBManagerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="744">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1890,11 +1895,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/manager/MySqlDBManagerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Find.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        <state relative-caret-position="220">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Help.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/IsConnect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

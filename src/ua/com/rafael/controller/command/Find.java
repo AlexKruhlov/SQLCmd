@@ -8,9 +8,10 @@ import ua.com.rafael.view.View;
  * Created by Alexandr Kruhlov on 08.08.2016.
  */
 public class Find implements Command {
-    final byte NUMBER_OF_COMMAND_ELEMENTS = 2;
     private View view;
     private DBManager dbManager;
+
+    private final String command = "find command";
 
     public Find(View view, DBManager dbManager) {
         this.view = view;
@@ -21,15 +22,15 @@ public class Find implements Command {
     public boolean isValid(String command) {
         final byte COMMAND = 0;
         String[] commandElements = command.split(" ");
-        return commandElements.length == NUMBER_OF_COMMAND_ELEMENTS &&
-                commandElements[COMMAND].equals("find");
+        String[] thisCommandElements = this.command.split(" ");
+        return commandElements.length == thisCommandElements.length &&
+                commandElements[COMMAND].equals(thisCommandElements[COMMAND]);
     }
 
     @Override
     public void start(String command) {
         String[] commandElements = command.split(" ");
-        final byte COMMAND = 0,
-                TABLE_NAME = 1;
+        final byte TABLE_NAME = 1;
 
         String[] columnNames = dbManager.getColumnNames(commandElements[TABLE_NAME]);
         if (columnNames == null) {
