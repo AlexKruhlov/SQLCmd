@@ -20,17 +20,18 @@ public class MainController {
         this.view = view;
         this.dbManager = dbManager;
         command = new Command[]{
-                new Connect(view,dbManager),
-                new IsConnect(view,dbManager),
+                new Connect(view, dbManager),
                 new Help(view),
                 new Exit(view),
+                new IsConnect(view, dbManager),
                 new List(view, dbManager),
-                new Find(view, dbManager)};
+                new Find(view, dbManager),
+                new Undetected(view)};
     }
 
     public void run() {
         final int COMMAND = 0;
-        view.print("Welcome to console database manager!\n\n");
+        view.print("Welcome to console database manager!\n");
         String inputedCommand = command[COMMAND].getClass().getSimpleName().toString().toLowerCase();
 
         while (true) {
@@ -58,6 +59,4 @@ public class MainController {
 //            }
         }
     }
-
-
 }

@@ -25,6 +25,11 @@ public class List implements Command {
 
     @Override
     public void start(String command) {
-        view.print(Arrays.toString(dbManager.getTableList()));
+        String[] tableList = dbManager.getTableList();
+        if (tableList == null) {
+            view.print("Current database haven't any table");
+            return;
+        }
+        view.print(Arrays.toString(tableList));
     }
 }

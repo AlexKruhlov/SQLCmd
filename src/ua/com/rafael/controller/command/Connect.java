@@ -28,7 +28,7 @@ public class Connect implements Command {
         boolean CONNECTION_FAILED = false;
         String choice;
         do {
-            view.print("\nPlease, input your database name: ");
+            view.print("Please, input your database name: ");
             String database = view.readLine();
             view.print("Please, input your user name: ");
             String user = view.readLine();
