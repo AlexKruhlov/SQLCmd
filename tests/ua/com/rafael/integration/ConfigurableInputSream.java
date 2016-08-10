@@ -39,4 +39,10 @@ public class ConfigurableInputSream extends InputStream {
             this.line += "\n" + line;
         }
     }
+
+    public void addAll(String[] line){
+        for (int i = 0; i < line.length; i++){
+            add(line[i]);
+        }
+    }
 }
