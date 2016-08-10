@@ -1,6 +1,8 @@
 package ua.com.rafael.controller;
 
+import com.sun.javaws.exceptions.*;
 import ua.com.rafael.controller.command.*;
+import ua.com.rafael.controller.command.ExitException;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.manager.MySqlDBManager;
 import ua.com.rafael.manager.Row;
@@ -33,30 +35,20 @@ public class MainController {
         final int COMMAND = 0;
         view.print("Welcome to console database manager!\n");
         String inputedCommand = command[COMMAND].getClass().getSimpleName().toString().toLowerCase();
-
-        while (true) {
-            for (Command comm : command) {
-                if (comm.isValid(inputedCommand)) {
-                    comm.start(inputedCommand);
-                    break;
+        try {
+            while (true) {
+                for (Command comm : command) {
+                    if (comm.isValid(inputedCommand)) {
+                        comm.start(inputedCommand);
+                        break;
+                    }
                 }
+                view.print("\nPlease, input your command:\n");
+                inputedCommand = view.readLine();
             }
-            view.print("\nPlease, input your command:\n");
-            inputedCommand = view.readLine();
-//
-// int COMMAND = 0;
-//            int PARAMETER = 1;
-//            if (command[COMMAND].equals("help")) {
-//                showHelp();
-//            } else if (command[COMMAND].equals("list")) {
-//                print(Arrays.toString(dbManager.getTableList()));
-//            } else if (command[COMMAND].equals("find")) {
-//                doFind(command[PARAMETER]);
-//            } else if (command[COMMAND].equals("exit")) {
-//                System.exit(0);
-//            } else {
-//                print("Command not found");
-//            }
+        } catch (ExitException exitEx) {
+            view.print("Your work in our manager is finished!\n" +
+                    "Goodluck!");
         }
     }
 }

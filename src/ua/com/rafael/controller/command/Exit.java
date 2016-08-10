@@ -21,6 +21,6 @@ public class Exit implements Command {
 
     @Override
     public void start(String command) {
-        System.exit(0);
+        throw  new ExitException();
     }
 }

@@ -6,7 +6,7 @@ import ua.com.rafael.view.View;
  * Created by Alexandr Kruhlov on 09.08.2016.
  */
 public class Undetected implements Command {
-    View view;
+    private View view;
 
     public Undetected(View view) {
         this.view = view;
