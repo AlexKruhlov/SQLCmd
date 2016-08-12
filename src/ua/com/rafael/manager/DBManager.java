@@ -15,7 +15,7 @@ public interface DBManager {
 
     Row[] getDataTable(String tablleName);
 
-    void createTable(String tableName) throws SQLException;
+    void createTable(String[] tableData) throws SQLException;
 
     //    public
     void insert(String tablename, Row newRow) throws SQLException;

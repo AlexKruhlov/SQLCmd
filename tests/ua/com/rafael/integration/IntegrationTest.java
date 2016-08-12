@@ -50,6 +50,10 @@ public class IntegrationTest {
                         "List of commands:\n" +
                         "\tconnect\n" +
                         "\t\tconnects to database you need\n" +
+                        "\tcreate table [table name] [column name] [column data type] ...\n" +
+                        "\t\tcreates a table with inputed columns. Types of column: int - integer,\n" +
+                        "\t\tvarchar([size]) - string with size, float - floating point number.\n" +
+                        "\t\tExample: create table id int first_name varchar(45) mark float\n" +
                         "\texit\n" +
                         "\t\tcompletes database manager execution\n" +
                         "\tfind [table name]\n" +
@@ -57,7 +61,7 @@ public class IntegrationTest {
                         "\thelp\n" +
                         "\t\tprovides the information of all database manager commands\n" +
                         "\tlist\n" +
-                        "\t\tdisplays all tabels of the current database\n" +
+                        "\t\tdisplays all tables of the current database\n" +
                         "Please, input your command:\n" +
                         "[actor, address]\n" +
                         "Please, input your command:\n" +

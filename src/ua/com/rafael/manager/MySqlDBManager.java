@@ -82,7 +82,11 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
-    public void createTable(String tableName) throws SQLException {
+    public void createTable(String[] columnsData) throws SQLException {
+        final int TABLE_NAME = 0;
+
+
+        String query = "CREATE TABLE";
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("CREATE TABLE ")) {
         } catch (SQLSyntaxErrorException exc) {
