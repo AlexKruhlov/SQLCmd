@@ -50,6 +50,8 @@ public class MainController {
         } catch (ExitException exitEx) {
             view.print("Your work in our manager is finished!\n" +
                     "Goodluck!");
+        } catch (Exception exc){
+            view.print(exc.getMessage());
         }
     }
 }

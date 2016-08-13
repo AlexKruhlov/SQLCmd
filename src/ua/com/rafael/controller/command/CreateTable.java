@@ -18,30 +18,35 @@ public class CreateTable implements Command {
         this.dbManager = dbManager;
     }
 
-    private final String command = "create";
+    private final String command = "create table id int";
     private final String[] columnType = {"int", "float", "varchar"};
 
     @Override
     public boolean isValid(String command) {
         final byte COMMAND = 0;
-        String[] commandElements = command.split(" ");
-        return this.command.equals(commandElements[COMMAND]);
+        String[]
+                commandElements = command.split(" "),
+                thisCommandElements = this.command.split(" ");
+        return thisCommandElements[COMMAND].equals(commandElements[COMMAND]);
     }
 
     @Override
     public void start(String command) {
         String[] commandElements = command.split(" ");
         if (!isValidSizeAndColumnType(commandElements)) {
-            throw new RuntimeException("Argument error");
+            view.print("Command error. Please, check the command parameters.");
+            return;
         }
         final byte TABLE_NAME = 1;
         String[] argumentsForNewTable = Arrays.copyOfRange(commandElements, TABLE_NAME, commandElements.length);
         dbManager.createTable(argumentsForNewTable);
-        view.print("Table "+ commandElements[TABLE_NAME]+" was created");
+        view.print("Table " + commandElements[TABLE_NAME] + " was created");
     }
 
     private boolean isValidSizeAndColumnType(String[] commandElements) {
-        return commandElements.length % 2 == 0 && isColumnType(commandElements);
+        String[] thisCommandElement = this.command.split(" ");
+        return commandElements.length % 2 == 0 && commandElements.length >= thisCommandElement.length &&
+                isColumnType(commandElements);
     }
 
     private boolean isColumnType(String[] commandElements) {
