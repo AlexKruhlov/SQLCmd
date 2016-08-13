@@ -11,7 +11,7 @@ public class Find implements Command {
     private View view;
     private DBManager dbManager;
 
-    private final String command = "find command";
+    private final String command = "find tableName";
 
     public Find(View view, DBManager dbManager) {
         this.view = view;

@@ -1,5 +1,6 @@
 package ua.com.rafael.manager;
 
+import com.sun.deploy.association.AssociationAlreadyRegisteredException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +14,7 @@ import java.util.Arrays;
  * Created by Alexandr Kruhlov on 15.07.2016.
  */
 public class MySqlDBManagerTest {
+
     MySqlDBManager dBase = new MySqlDBManager();
 
     @Before
@@ -36,6 +38,25 @@ public class MySqlDBManagerTest {
         actual[2] = dBase.isConnect();
 
         Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void createTable() throws Exception {
+        String[] input = new String[]{"student",
+                "id", "int",
+                "first_name", "varchar(45)",
+                "second_name", "varchar(45)",
+                "mark", "float"};
+        String[] currentTables = dBase.getTableList();
+        String[] expected = new String[currentTables.length + 1];
+        System.arraycopy(currentTables, 0, expected, 0, currentTables.length);
+        expected[expected.length - 1] = "student";
+        Arrays.sort(expected);
+
+        dBase.createTable(input);
+        String[] actual = dBase.getTableList();
+        Assert.assertArrayEquals(expected, actual);
+
     }
 
     @Test

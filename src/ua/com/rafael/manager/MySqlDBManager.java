@@ -82,19 +82,25 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
-    public void createTable(String[] columnsData) throws SQLException {
+    public void createTable(String[] tableData){
         final int TABLE_NAME = 0;
-
-
-        String query = "CREATE TABLE";
-        try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("CREATE TABLE ")) {
-        } catch (SQLSyntaxErrorException exc) {
-            System.out.println("[Query syntax ERROR]: Row was not created.");
-            throw exc;
-        } catch (SQLException exc) {
-            throw exc; // TODO exception
+        String query = "CREATE TABLE " + tableData[TABLE_NAME] + "(" + getColumnsProperties(tableData) + ")";
+        try (Statement statement = connection.createStatement()) {
+            statement.executeUpdate(query);
+        } catch (Exception exc) {
+            throw new RuntimeException(exc);
         }
+    }
+
+    private String getColumnsProperties(String[] tableData) {
+        final int NEXT_COLUMN = 2;
+        String tableProperties = "";
+        for (int columnName = 1; columnName < tableData.length; columnName += NEXT_COLUMN) {
+            int columnType = columnName + 1;
+            tableProperties += tableData[columnName] + " " + tableData[columnType] + " NOT NULL,";
+        }
+        tableProperties = tableProperties.substring(0, tableProperties.length() - 1);
+        return tableProperties;
     }
 
     @Override

@@ -26,6 +26,7 @@ public class MainController {
                 new Help(view),
                 new Exit(view),
                 new IsConnect(view, dbManager),
+                new CreateTable(view,dbManager),
                 new List(view, dbManager),
                 new Find(view, dbManager),
                 new Undetected(view)};
