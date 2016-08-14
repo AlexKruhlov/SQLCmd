@@ -20,7 +20,7 @@ public interface DBManager {
     //    public
     void insert(String tablename, Row newRow) throws SQLException;
 
-    void update(String tableName, int id, Row newValue) throws SQLException;
+    void update(String tableName,String keyColumnName ,int key, Row newValue) throws SQLException;
 
     void clear(String tableName) throws SQLException;
 

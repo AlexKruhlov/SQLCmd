@@ -120,11 +120,10 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
-    public void update(String tableName, int id, Row newValue) throws SQLException {
-        String primaryKeyName = getPrimaryKey(tableName);
+    public void update(String tableName, String keyColumnName,int key, Row newValue) throws SQLException {
         String query = "UPDATE " + tableName + " set " +
                 getFormatedFieldNames(newValue.getNames(), "%s=?,") +
-                " where " + primaryKeyName + "=" + id;
+                " where " + keyColumnName + "=" + key;
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             setObjectsToPreaparedStatememnt(newValue, preparedStatement);
             preparedStatement.execute();
