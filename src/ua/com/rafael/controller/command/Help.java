@@ -28,6 +28,7 @@ Help implements Command {
                 "\n\t\tcreates a table with inputed columns. Types of column: int - integer," +
                 "\n\t\tvarchar([size]) - string with size, float - floating point number." +
                 "\n\t\tExample: create student id int first_name varchar(45) mark float" +
+                "\n\tdrop [table name]\n\t\tdeletes a table of current database" +
                 "\n\texit\n\t\tcompletes database manager execution" +
                 "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +
                 "\n\thelp\n\t\tprovides the information of all database manager commands" +

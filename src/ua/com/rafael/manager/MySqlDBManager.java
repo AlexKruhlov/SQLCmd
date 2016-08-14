@@ -82,7 +82,7 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
-    public void createTable(String[] tableData){
+    public void createTable(String[] tableData) {
         final int TABLE_NAME = 0;
         String query = "CREATE TABLE " + tableData[TABLE_NAME] + "(" + getColumnsProperties(tableData) + ")";
         try (Statement statement = connection.createStatement()) {
@@ -164,6 +164,16 @@ public class MySqlDBManager implements DBManager {
         }
         return null;
     }
+
+    @Override
+    public void drop(String tableName) {
+        try (Statement statement = connection.createStatement()) {
+            statement.executeUpdate("DROP TABLE " + tableName);
+        } catch (Exception exc) {
+            throw new RuntimeException(exc);
+        }
+    }
+
 
     private void setObjectsToPreaparedStatememnt(Row newRow, PreparedStatement preparedStatement) throws SQLException {
         Object[] newValues = newRow.getData();

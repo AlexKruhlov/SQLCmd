@@ -25,4 +25,6 @@ public interface DBManager {
     void clear(String tableName) throws SQLException;
 
     String[] getColumnNames(String tableName);
+
+    void drop(String tableName);
 }

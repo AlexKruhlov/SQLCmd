@@ -151,6 +151,18 @@ public class MySqlDBManagerTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void drop() throws Exception {
+        String[] expected = dBase.getTableList();
+
+        dBase.createTable(new String[]{"test", "id", "int", "fname", "varchar(45)", "time", "float"});
+        dBase.drop("test");
+
+        String[] actual = dBase.getTableList();
+
+        Assert.assertArrayEquals(expected, actual);
+    }
+
 
 //    @Test
 //    public void getFormatFieldNamesTest() throws Exception {
