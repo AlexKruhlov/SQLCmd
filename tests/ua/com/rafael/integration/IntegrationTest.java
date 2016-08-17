@@ -23,6 +23,7 @@ public class IntegrationTest {
 
         System.setIn(in);
         System.setOut(new PrintStream(out));
+
     }
 
     @Test
@@ -107,10 +108,12 @@ public class IntegrationTest {
                 "root",
                 "independence24",
                 "y",  //Do you want to try again? (<Y>-yes, <N>-no): y
-                "myschema",  //right database name
+                "test",  //right database name
                 "root",
                 "independence24",
+                "create test id int first_name varchar(45)",
                 "list",
+                "drop test",
                 "exit"
         });
 
@@ -129,9 +132,75 @@ public class IntegrationTest {
                 "Connection has been successful!\n" +
                 "\n" +
                 "Please, input your command:\n" +
-                "[actor, address]\n" +
+                "Table test was created\n" +
+                "Please, input your command:\n" +
+                "[test]\n" +
+                "Please, input your command:\n" +
+                "The table was deleted.\n"+
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
+    }
+
+    @Test
+    public void clearTest() {
+        in.addAll(new String[]{
+                "myschema",
+                "root",
+                "independence24",
+                "create test id int",
+                "insert test id 1",
+                "find test",
+                "clear test",
+                "find test",
+                "drop test",
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table test was created\n" +
+                "Please, input your command:\n" +
+                "The table gets new row.\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t| id                                      |\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t| 1                                       |\n" +
+                "\t|-----------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "This table was cleared.\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t| id                                      |\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t|-----------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table was deleted.\n" +
                 "Please, input your command:\n" +
                 "Your work in our manager is finished!\n" +
                 "Goodluck!", out.getData());
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,12 +3,10 @@ package ua.com.rafael.controller.command;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
-import java.sql.SQLException;
-
 /**
  * Created by Alexandr Kruhlov on 14.08.2016.
  */
-public class Clear extends ConsolCommand {
+public class Clear extends ConsoleCommand {
 
     private final View view;
     private final DBManager dbManager;
@@ -30,11 +28,11 @@ public class Clear extends ConsolCommand {
         final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         final String[] commandElements = command.split(SIGN_FOR_SPLIT);
         if (!isTheSameSize(commandModelElements, commandElements)) {
-            view.print("Command error. This command must have one parameter.");
+            view.print(NO_PARAMETER_MESSAGE);
             return;
         }
         if (!isTableExist(commandElements[TABLE_NAME_INDEX], dbManager.getTableList())) {
-            view.print("Command error. This table does not exist in current database.");
+            view.print(TABLE_NOT_EXIST_MESSAGE);
             return;
         }
         dbManager.clear(commandElements[TABLE_NAME_INDEX]);
