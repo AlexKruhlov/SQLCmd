@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Created by Alexandr Kruhlov on 17.08.2016.
  */
-abstract class ConsolCommand implements Command {
+abstract class ConsoleCommand implements Command {
 
     protected final int
             COMMAND_NAME_INDEX = 0,
@@ -13,9 +13,17 @@ abstract class ConsolCommand implements Command {
 
     protected final String SIGN_FOR_SPLIT = " ";
 
-    private final String[] columnType = {"int", "float", "varchar"};
+    private final String[] correctColumnTypes = {"int", "float", "varchar"};
+
+    public final String
+            NO_PARAMETER_MESSAGE = "Command error. This command hasn't any parameters.",
+            ONE_PARAMETER_MESSAGE = "Command error. This command must have one parameter.",
+            MANY_PARAMETERS_MESSAGE = "Command error. Please, check the number of command parameters.",
+            TABLE_NOT_EXIST_MESSAGE = "Command error. This table does not exist in current database.",
+            INCORRECT_COLUMN_TYPE = "Some of these column types are incorrect";
 
     public boolean compareCommandName(String commandModel, String command) {
+
         final int COMMAND_INDEX = 0;
         String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         String[] commandElements = command.split(SIGN_FOR_SPLIT);
@@ -33,17 +41,38 @@ abstract class ConsolCommand implements Command {
 
     public boolean isColumnType(String[] commandElements) {
         final byte
-                TYPE_WITHOUT_SIZE = 0,
                 FIRST_TYPE = 3,
                 NEXT_TYPE = 2;
 
+        final byte TYPE_WITHOUT_SIZE = 0;
+
         for (int currentType = FIRST_TYPE; currentType < commandElements.length; currentType += NEXT_TYPE) {
             String[] typeElements = commandElements[currentType].split("[(]");
-            if (Arrays.binarySearch(columnType, typeElements[TYPE_WITHOUT_SIZE]) == -1) {
+            if (!isCorrectColumnType(typeElements[TYPE_WITHOUT_SIZE])) {
                 return false;
             }
         }
         return true;
+    }
+
+    private boolean isCorrectColumnType(String currentColumnType) {
+
+        String[] sortedCorrectColumnTypes = Arrays.copyOf(correctColumnTypes, correctColumnTypes.length);
+        Arrays.sort(sortedCorrectColumnTypes);
+
+        int resultOfTypeSerching = Arrays.binarySearch(sortedCorrectColumnTypes, currentColumnType);
+
+        //System.out.println("resultOfTypeSerching = " + resultOfTypeSerching);
+
+        final int FIRST_CONDITION_ELEMENT_NOT_FOUND = -1,
+                SECOND_CONDITION_ELEMENT_NOT_FOUND = sortedCorrectColumnTypes.length;
+
+        if (resultOfTypeSerching <= FIRST_CONDITION_ELEMENT_NOT_FOUND ||
+                resultOfTypeSerching == SECOND_CONDITION_ELEMENT_NOT_FOUND) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public boolean isTableExist(final String tableName, final String[] databaseTableList) {

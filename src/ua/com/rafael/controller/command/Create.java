@@ -1,6 +1,5 @@
 package ua.com.rafael.controller.command;
 
-import ua.com.rafael.controller.command.validator.Validator;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
@@ -9,36 +8,38 @@ import java.util.Arrays;
 /**
  * Created by Alexandr Kruhlov on 12.08.2016.
  */
-public class Create implements Command {
+public class Create extends ConsoleCommand {
 
-    private View view;
-    private DBManager dbManager;
-    private Validator validator;
+    private final View view;
+    private final DBManager dbManager;
 
     public Create(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
-        validator = new Validator();
     }
 
     private final String commandModel = "create table id int";
 
-
     @Override
-    public boolean isValid(String command) {
-        return validator.isValid(commandModel, command);
+    public boolean isValid(final String command) {
+        return compareCommandName(commandModel, command);
     }
 
     @Override
-    public void start(String command) {
-        String[] commandModelElements = commandModel.split(" ");
-        String[] commandElements = command.split(" ");
-        if (!validator.isValidSizeAndColumnType(commandModelElements, commandElements)) {
-            view.print("Command error. Please, check the commandModel parameters.");
+    public void start(final String command) {
+        final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
+        final String[] commandElements = command.split(SIGN_FOR_SPLIT);
+        if (!isValidSize(commandModelElements, commandElements)) {
+            view.print(MANY_PARAMETERS_MESSAGE);
             return;
         }
+        if (!isColumnType(commandElements)){
+            view.print(INCORRECT_COLUMN_TYPE);
+            return;
+        }
+
         final byte TABLE_NAME = 1;
-        String[] argumentsForNewTable = Arrays.copyOfRange(commandElements, TABLE_NAME, commandElements.length);
+        final String[] argumentsForNewTable = Arrays.copyOfRange(commandElements, TABLE_NAME, commandElements.length);
         dbManager.createTable(argumentsForNewTable);
         view.print("Table " + commandElements[TABLE_NAME] + " was created");
     }
