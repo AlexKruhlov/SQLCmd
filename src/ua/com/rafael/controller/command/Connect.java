@@ -8,24 +8,33 @@ import java.sql.Connection;
 /**
  * Created by Alexandr Kruhlov on 08.08.2016.
  */
-public class Connect implements Command {
-    private View view;
-    private DBManager dbManager;
+public class Connect extends ConsoleCommand {
 
-    private final String command = "connect";
+    private final View view;
+    private final DBManager dbManager;
 
     public Connect(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
     }
 
+    private final String commandModel = "connect";
+
     @Override
-    public boolean isValid(String command) {
-        return command.equals(this.command);
+    public boolean isValid(final String command) {
+        return compareCommandName(commandModel, command);
     }
 
     @Override
-    public void start(String command) {
+    public void start(final String command) {
+        final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
+        final String[] commandElements = command.split(SIGN_FOR_SPLIT);
+
+        if (!isTheSameSize(commandModelElements, commandElements)) {
+            view.print(NO_PARAMETER_MESSAGE);
+            return;
+        }
+
         String choice;
         do {
             view.print("Please, input your database name: ");
@@ -59,7 +68,7 @@ public class Connect implements Command {
         return choice;
     }
 
-    private boolean isFail(String resultStr) {
+    private boolean isFail(final String resultStr) {
         return resultStr.length() == 0 ||
                 !(resultStr.equals("N") || resultStr.equals("n") ||
                         resultStr.equals("Y") || resultStr.equals("y"));
