@@ -6,32 +6,32 @@ import ua.com.rafael.view.View;
 /**
  * Created by Alexandr Kruhlov on 14.08.2016.
  */
-public class Drop implements Command {
-    private View view;
-    private DBManager dbManager;
+public class Drop extends ConsoleCommand {
+    private final View view;
+    private final DBManager dbManager;
 
     public Drop(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
     }
 
-    private String command = "drop table_name";
+    private final String commandModel = "drop table_name";
 
     @Override
-    public boolean isValid(String command) {
-        final byte COMMAND_INDEX = 0;
-        String[] commandElements = command.split(" ");
-        String[] thisCommandElements = this.command.split(" ");
-        return thisCommandElements[COMMAND_INDEX].equals(commandElements[COMMAND_INDEX]);
+    public boolean isValid(final String command) {
+        return compareCommandName(commandModel, command);
     }
 
     @Override
     public void start(String command) {
-        String[] commandElements = command.split(" ");
-        String[] thisCommandElements = this.command.split(" ");
-        if (thisCommandElements.length != commandElements.length) {
-            view.print("Command error. This command has only one argument.");
+        final int TABLE_NAME_INDEX = 1;
+        final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
+        final String[] commandElements = command.split(SIGN_FOR_SPLIT);
+        if (!isTheSameSize(commandModelElements,commandElements)){
+            view.print(ONE_PARAMETER_MESSAGE);
             return;
         }
+        dbManager.drop(commandElements[TABLE_NAME_INDEX]);
+        view.print("The table was deleted.");
     }
 }

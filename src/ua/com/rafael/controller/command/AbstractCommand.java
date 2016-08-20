@@ -23,7 +23,6 @@ abstract class ConsoleCommand implements Command {
     private static final String[] correctColumnTypes = {"int", "float", "varchar"};
 
     public boolean compareCommandName(String commandModel, String command) {
-
         final int COMMAND_INDEX = 0;
         String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         String[] commandElements = command.split(SIGN_FOR_SPLIT);
