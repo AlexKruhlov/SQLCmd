@@ -7,20 +7,20 @@ import java.util.Arrays;
  */
 abstract class ConsoleCommand implements Command {
 
-    protected final int
+    public static final int
             COMMAND_NAME_INDEX = 0,
             TABLE_NAME_INDEX = 1;
 
-    protected final String SIGN_FOR_SPLIT = " ";
+    public static final String SIGN_FOR_SPLIT = " ";
 
-    private final String[] correctColumnTypes = {"int", "float", "varchar"};
-
-    public final String
+    public static final String
             NO_PARAMETER_MESSAGE = "Command error. This command hasn't any parameters.",
             ONE_PARAMETER_MESSAGE = "Command error. This command must have one parameter.",
             MANY_PARAMETERS_MESSAGE = "Command error. Please, check the number of command parameters.",
             TABLE_NOT_EXIST_MESSAGE = "Command error. This table does not exist in current database.",
             INCORRECT_COLUMN_TYPE = "Some of these column types are incorrect";
+
+    private static final String[] correctColumnTypes = {"int", "float", "varchar"};
 
     public boolean compareCommandName(String commandModel, String command) {
 
@@ -61,8 +61,6 @@ abstract class ConsoleCommand implements Command {
         Arrays.sort(sortedCorrectColumnTypes);
 
         int resultOfTypeSerching = Arrays.binarySearch(sortedCorrectColumnTypes, currentColumnType);
-
-        //System.out.println("resultOfTypeSerching = " + resultOfTypeSerching);
 
         final int FIRST_CONDITION_ELEMENT_NOT_FOUND = -1,
                 SECOND_CONDITION_ELEMENT_NOT_FOUND = sortedCorrectColumnTypes.length;
