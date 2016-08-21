@@ -18,11 +18,11 @@ public interface DBManager {
     void createTable(String[] tableData);
 
     //    public
-    void insert(String tablename, Row newRow) throws SQLException;
+    void insert(String tablename, Row newRow);
 
     void update(String tableName,String keyColumnName ,int key, Row newValue) throws SQLException;
 
-    void clear(String tableName) throws SQLException;
+    void clear(String tableName);
 
     String[] getColumnNames(String tableName);
 

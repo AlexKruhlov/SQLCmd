@@ -301,7 +301,7 @@ public class IntegrationTest {
                 "Please, input your command:\n" +
                 "Table test was created\n" +
                 "Please, input your command:\n" +
-                "The table gets new row.\n" +
+                "The table has got new row.\n" +
                 "Please, input your command:\n" +
                 "\t|-----------------------------------------|\n" +
                 "\t| id                                      |\n" +
@@ -358,7 +358,7 @@ public class IntegrationTest {
                 "Please, input your command:\n" +
                 "Table test was created\n" +
                 "Please, input your command:\n" +
-                "The table gets new row.\n" +
+                "The table has got new row.\n" +
                 "Please, input your command:\n" +
                 "Command error. This command must have one parameter." +
                 "\n" +
@@ -375,6 +375,60 @@ public class IntegrationTest {
                 "\t|-----------------------------------------|\n" +
                 "\t| id                                      |\n" +
                 "\t|-----------------------------------------|\n" +
+                "\t|-----------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table was deleted.\n" +
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
+    }
+
+    @Test
+    public void insertTest() {
+        in.addAll(new String[]{
+                "test",
+                "root",
+                "independence24",
+                "create test id int",
+                "find test",
+                "insert test id",
+                "insert test id int",
+                "insert test id 1",
+                "find test",
+                "drop test",
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table test was created\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t| id                                      |\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t|-----------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Command error. Please, check the number of command parameters." +
+                "\n" +
+                "Please, input your command:\n" +
+                "Incorrect integer value: 'int' for column 'id' at row 1" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table has got new row.\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t| id                                      |\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t| 1                                       |\n" +
                 "\t|-----------------------------------------|\n" +
                 "\n" +
                 "Please, input your command:\n" +

@@ -113,11 +113,8 @@ public class MySqlDBManager implements DBManager {
                         "VALUES (" + getFormatedValues(newRow.getData(), "?,") + ")")) {
             setObjectsToPreaparedStatememnt(newRow, preparedStatement);
             preparedStatement.execute();
-        } catch (SQLSyntaxErrorException exc) {
-            System.out.println("[Query syntax ERROR]: Row was not created.");
-            throw new RuntimeException(exc); //TODO exception
         } catch (SQLException exc) {
-            throw new RuntimeException(exc); //todo exception
+            throw new SqlQueryException(exc);
         }
     }
 
