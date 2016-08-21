@@ -1,5 +1,7 @@
 package ua.com.rafael.manager;
 
+import ua.com.rafael.controller.command.SqlQueryException;
+
 import java.sql.*;
 
 /**
@@ -77,7 +79,7 @@ public class MySqlDBManager implements DBManager {
             }
             return tables;
         } catch (SQLException exc) {
-            throw new RuntimeException("This command hasn't been peformed!", exc);
+            throw new SqlQueryException(exc);
         }
     }
 
@@ -104,7 +106,7 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
-    public void insert(String tablename, Row newRow) throws SQLException {
+    public void insert(String tablename, Row newRow) {
         try (PreparedStatement preparedStatement = connection.prepareStatement(
                 "INSERT INTO " + connection.getCatalog() + "." + tablename +
                         "(" + getFormatedFieldNames(newRow.getNames(), "%s,") + ")" +
@@ -113,14 +115,14 @@ public class MySqlDBManager implements DBManager {
             preparedStatement.execute();
         } catch (SQLSyntaxErrorException exc) {
             System.out.println("[Query syntax ERROR]: Row was not created.");
-            throw exc;
+            throw new RuntimeException(exc); //TODO exception
         } catch (SQLException exc) {
-            throw exc; //todo exception
+            throw new RuntimeException(exc); //todo exception
         }
     }
 
     @Override
-    public void update(String tableName, String keyColumnName,int key, Row newValue) throws SQLException {
+    public void update(String tableName, String keyColumnName, int key, Row newValue) throws SQLException {
         String query = "UPDATE " + tableName + " set " +
                 getFormatedFieldNames(newValue.getNames(), "%s=?,") +
                 " where " + keyColumnName + "=" + key;
@@ -133,11 +135,11 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
-    public void clear(String tableName) throws SQLException {
+    public void clear(String tableName) {
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate("DELETE FROM " + connection.getCatalog() + "." + tableName);
         } catch (SQLException exc) {
-            throw exc; //todo exception
+            throw new SqlQueryException(exc);
         }
     }
 
@@ -158,10 +160,8 @@ public class MySqlDBManager implements DBManager {
             }
             return columnNames;
         } catch (SQLException exc) {
-            System.out.println("This table has not created");
-            //todo exc
+            throw new SqlQueryException(exc);
         }
-        return null;
     }
 
     @Override
@@ -169,7 +169,7 @@ public class MySqlDBManager implements DBManager {
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate("DROP TABLE " + tableName);
         } catch (Exception exc) {
-            throw new RuntimeException(exc);
+            throw new SqlQueryException(exc);
         }
     }
 

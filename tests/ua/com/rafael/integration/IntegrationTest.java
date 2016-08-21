@@ -326,6 +326,63 @@ public class IntegrationTest {
                 "Your work in our manager is finished!\n" +
                 "Goodluck!", out.getData());
     }
+
+    @Test
+    public void findTest() {
+        in.addAll(new String[]{
+                "test",
+                "root",
+                "independence24",
+                "find test",
+                "create test id int",
+                "insert test id 1",
+                "find test test",
+                "find test",
+                "clear test",
+                "find test",
+                "drop test",
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table 'test.test' doesn't exist" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table test was created\n" +
+                "Please, input your command:\n" +
+                "The table gets new row.\n" +
+                "Please, input your command:\n" +
+                "Command error. This command must have one parameter." +
+                "\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t| id                                      |\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t| 1                                       |\n" +
+                "\t|-----------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "This table was cleared.\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t| id                                      |\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t|-----------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table was deleted.\n" +
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
+    }
 }
 
 
