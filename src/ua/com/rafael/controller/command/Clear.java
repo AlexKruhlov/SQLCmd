@@ -28,14 +28,17 @@ public class Clear extends ConsoleCommand {
         final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         final String[] commandElements = command.split(SIGN_FOR_SPLIT);
         if (!isTheSameSize(commandModelElements, commandElements)) {
-            view.print(NO_PARAMETER_MESSAGE);
-            return;
-        }
-        if (!isTableExist(commandElements[TABLE_NAME_INDEX], dbManager.getTableList())) {
-            view.print(TABLE_NOT_EXIST_MESSAGE);
+            view.print(ONE_PARAMETER_MESSAGE);
             return;
         }
         dbManager.clear(commandElements[TABLE_NAME_INDEX]);
         view.print("This table was cleared.");
     }
 }
+
+
+
+
+
+
+

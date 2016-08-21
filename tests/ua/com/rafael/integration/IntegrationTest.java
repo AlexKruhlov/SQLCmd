@@ -136,21 +136,151 @@ public class IntegrationTest {
                 "Please, input your command:\n" +
                 "[test]\n" +
                 "Please, input your command:\n" +
-                "The table was deleted.\n"+
+                "The table was deleted.\n" +
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
+
+    }
+
+    @Test
+    public void createTest() {
+        in.addAll(new String[]{
+                "test",  //right database name
+                "root",
+                "independence24",
+                "list",
+                "create test int first_name varchar(45)", // incorrect number of parameters
+                "create test id inte first_name varchar(45)", // incorrect column type (inte, but int is correct)
+                "create test id int first_name varchar(45)", // correct command
+                "find test",
+                "drop test",
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Current database haven't any table" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Command error. Please, check the number of command parameters." +
+                "\n" +
+                "Please, input your command:\n" +
+                "Some of these column types are incorrect" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table test was created" +
+                "\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------------------------------------------------|\n" +
+                "\t| id                                      | first_name                              |\n" +
+                "\t|-----------------------------------------------------------------------------------|\n" +
+                "\t|-----------------------------------------------------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table was deleted." +
+                "\n" +
                 "Please, input your command:\n" +
                 "Your work in our manager is finished!\n" +
                 "Goodluck!", out.getData());
     }
 
     @Test
-    public void clearTest() {
+    public void dropTest() {
         in.addAll(new String[]{
-                "myschema",
+                "test",  //right database name
                 "root",
                 "independence24",
                 "create test id int",
+                "list",
+                "drop test test",
+                "drop test1",
+                "drop test",
+                "list",
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table test was created" +
+                "\n" +
+                "Please, input your command:\n" +
+                "[test]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Command error. This command must have one parameter." +
+                "\n" +
+                "Please, input your command:\n" +
+                "Unknown table 'test.test1'" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table was deleted." +
+                "\n" +
+                "Please, input your command:\n" +
+                "Current database haven't any table" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
+
+    }
+
+    @Test
+    public void exitTest() {
+        in.addAll(new String[]{
+                "test",  //right database name
+                "root",
+                "independence24",
+                "list",
+                "exit exit",
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Current database haven't any table" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Command error. This command hasn't any parameters." +
+                "\n" +
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
+    }
+
+
+    @Test
+    public void clearTest() {
+        in.addAll(new String[]{
+                "test",
+                "root",
+                "independence24",
+                "clear test",
+                "create test id int",
                 "insert test id 1",
                 "find test",
+                "clear test test",
                 "clear test",
                 "find test",
                 "drop test",
@@ -166,6 +296,9 @@ public class IntegrationTest {
                 "Connection has been successful!\n" +
                 "\n" +
                 "Please, input your command:\n" +
+                "Table 'test.test' doesn't exist" +
+                "\n" +
+                "Please, input your command:\n" +
                 "Table test was created\n" +
                 "Please, input your command:\n" +
                 "The table gets new row.\n" +
@@ -175,6 +308,9 @@ public class IntegrationTest {
                 "\t|-----------------------------------------|\n" +
                 "\t| 1                                       |\n" +
                 "\t|-----------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Command error. This command must have one parameter." +
                 "\n" +
                 "Please, input your command:\n" +
                 "This table was cleared.\n" +
