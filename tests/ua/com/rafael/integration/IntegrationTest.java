@@ -25,56 +25,6 @@ public class IntegrationTest {
     }
 
     @Test
-    public void testAllCommands() {
-        in.addAll(new String[]{
-                "myschema",
-                "root",
-                "independence24",
-                "help",
-                "list",
-                "find actor",
-                "exit"
-        });
-
-        Main.main(new String[0]);
-
-        Assert.assertEquals(
-                "Welcome to console database manager!\n" +
-                        "Please, input your database name: Please, input your user name: Please, input your password: \n" +
-                        "Connection process...\n" +
-                        "\n" +
-                        "Connection has been successful!\n" +
-                        "\n" +
-                        "Please, input your command:\n" +
-                        "List of commands:\n" +
-                        "\tconnect\n" +
-                        "\t\tconnects to database you need\n" +
-                        "\tcreate table [table name] [column name] [column data type] ...\n" +
-                        "\t\tcreates a table with inputed columns. Types of column: int - integer,\n" +
-                        "\t\tvarchar([size]) - string with size, float - floating point number.\n" +
-                        "\t\tExample: create table id int first_name varchar(45) mark float\n" +
-                        "\texit\n" +
-                        "\t\tcompletes database manager execution\n" +
-                        "\tfind [table name]\n" +
-                        "\t\tdisplays data of the given table which is called as table name.\n" +
-                        "\thelp\n" +
-                        "\t\tprovides the information of all database manager commands\n" +
-                        "\tlist\n" +
-                        "\t\tdisplays all tables of the current database\n" +
-                        "Please, input your command:\n" +
-                        "[actor, address]\n" +
-                        "Please, input your command:\n" +
-                        "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
-                        "\t| actor_id                                | first_name                              | last_name                               |\n" +
-                        "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
-                        "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
-                        "\n" +
-                        "Please, input your command:\n" +
-                        "Your work in our manager is finished!\n" +
-                        "Goodluck!", out.getData());
-    }
-
-    @Test
     public void connectionFailTest() {
         in.addAll(new String[]{
                 "schema",  //fail database name
@@ -529,7 +479,103 @@ public class IntegrationTest {
                 "Goodluck!", out.getData());
     }
 
-}
+    @Test
+    public void helpTest() {
+        in.addAll(new String[]{
+                "test",
+                "root",
+                "independence2", // incorrect password
+                "n",
+                "help",
+                "connect",
+                "test",
+                "root",
+                "independence24", // correct password
+                "help",
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Could not create connection to database server. Attempted reconnect 3 times. Giving up.\n" +
+                "Please, check your database name, user name and password!\n" +
+                "\n" +
+                "Do you want to try again? (<Y>-yes, <N>-no): \n" +
+                "Please, input your command:\n" +
+                "List of commands:" +
+                "\n\tconnect\n\t\tconnects to database you need." +
+                "\n\tcreate [table name] [column name] [column data type] ..." +
+                "\n\t\tcreates a table with inputed columns (table name must consist of one word). " +
+                "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
+                "\n\t\tfloat - floating point number." +
+                "\n\t\tExample: create student id int first_name varchar(45) mark float" +
+                "\n\tdrop [table name]\n\t\tdeletes a table of current database." +
+                "\n\texit\n\t\tcompletes database manager execution." +
+                "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +
+                "\n\thelp\n\t\tprovides the information of all database manager commands." +
+                "\n\tinsert [table name] [column name] [column value] ..." +
+                "\n\t\tinserts a new row with data into table." +
+                "\n\tlist\n\t\tdisplays all table names of the current database."+
+                "\n" +
+                "Please, input your command:\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "List of commands:" +
+                "\n\tconnect\n\t\tconnects to database you need." +
+                "\n\tcreate [table name] [column name] [column data type] ..." +
+                "\n\t\tcreates a table with inputed columns (table name must consist of one word). " +
+                "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
+                "\n\t\tfloat - floating point number." +
+                "\n\t\tExample: create student id int first_name varchar(45) mark float" +
+                "\n\tdrop [table name]\n\t\tdeletes a table of current database." +
+                "\n\texit\n\t\tcompletes database manager execution." +
+                "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +
+                "\n\thelp\n\t\tprovides the information of all database manager commands." +
+                "\n\tinsert [table name] [column name] [column value] ..." +
+                "\n\t\tinserts a new row with data into table." +
+                "\n\tlist\n\t\tdisplays all table names of the current database."+
+                "\n" +
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
+    }
+
+
+//    @Test
+//    public void undetectedTest(){
+//        in.addAll(new String[]{
+//                "test",
+//                "root",
+//                "independence", // incorrect password
+//                "n",
+//                "connection", //incorrect command
+//                "connect",
+//                "test",
+//                "root",
+//                "independence24", //correct password
+//                "creates test id int fname varchar(40) weight float", //incorrect command
+//                "create test id int fname varchar(40) weight float",
+//                "lister", //incorrect command
+//                ""
+//                "list table",
+//                "list",
+//                "drop test1",
+//                "drop test2",
+//                "list",
+//                "exit"
+//        });
+//
+//
+//    }
+    }
 
 
 
