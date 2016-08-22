@@ -519,7 +519,7 @@ public class IntegrationTest {
                 "\n\thelp\n\t\tprovides the information of all database manager commands." +
                 "\n\tinsert [table name] [column name] [column value] ..." +
                 "\n\t\tinserts a new row with data into table." +
-                "\n\tlist\n\t\tdisplays all table names of the current database."+
+                "\n\tlist\n\t\tdisplays all table names of the current database." +
                 "\n" +
                 "Please, input your command:\n" +
                 "Please, input your database name: Please, input your user name: Please, input your password: \n" +
@@ -541,7 +541,7 @@ public class IntegrationTest {
                 "\n\thelp\n\t\tprovides the information of all database manager commands." +
                 "\n\tinsert [table name] [column name] [column value] ..." +
                 "\n\t\tinserts a new row with data into table." +
-                "\n\tlist\n\t\tdisplays all table names of the current database."+
+                "\n\tlist\n\t\tdisplays all table names of the current database." +
                 "\n" +
                 "Please, input your command:\n" +
                 "Your work in our manager is finished!\n" +
@@ -549,33 +549,126 @@ public class IntegrationTest {
     }
 
 
-//    @Test
-//    public void undetectedTest(){
-//        in.addAll(new String[]{
-//                "test",
-//                "root",
-//                "independence", // incorrect password
-//                "n",
-//                "connection", //incorrect command
-//                "connect",
-//                "test",
-//                "root",
-//                "independence24", //correct password
-//                "creates test id int fname varchar(40) weight float", //incorrect command
-//                "create test id int fname varchar(40) weight float",
-//                "lister", //incorrect command
-//                ""
-//                "list table",
-//                "list",
-//                "drop test1",
-//                "drop test2",
-//                "list",
-//                "exit"
-//        });
-//
-//
-//    }
+    @Test
+    public void undetectedTest() {
+        in.addAll(new String[]{
+                "test",
+                "root",
+                "independence", // incorrect password
+                "n",
+                "connection", //incorrect command
+                "connect",
+                "test",
+                "root",
+                "independence24", //correct password
+                "connection", //incorrect command
+                "helps", //incorrect command
+                "help",
+                "creates test id int", //incorrect command
+                "create test id int",
+                "lister", //incorrect command
+                "list",
+                "insertion test id 1", //incorrect command
+                "insert test id 1",
+                "finde test", //incorrect command
+                "find test",
+                "clearing test", //incorrect command
+                "clear test",
+                "drops test", //incorrect command
+                "drop test",
+                "eksit", //incorrect command
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Could not create connection to database server. Attempted reconnect 3 times. Giving up.\n" +
+                "Please, check your database name, user name and password!\n" +
+                "\n" +
+                "Do you want to try again? (<Y>-yes, <N>-no): \n" +
+                "Please, input your command:\n" +
+                "Please, connect to database! (For database connection you have to use command \"connect\")" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Undetected command [connection]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Undetected command [helps]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "List of commands:" +
+                "\n\tconnect\n\t\tconnects to database you need." +
+                "\n\tcreate [table name] [column name] [column data type] ..." +
+                "\n\t\tcreates a table with inputed columns (table name must consist of one word). " +
+                "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
+                "\n\t\tfloat - floating point number." +
+                "\n\t\tExample: create student id int first_name varchar(45) mark float" +
+                "\n\tdrop [table name]\n\t\tdeletes a table of current database." +
+                "\n\texit\n\t\tcompletes database manager execution." +
+                "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +
+                "\n\thelp\n\t\tprovides the information of all database manager commands." +
+                "\n\tinsert [table name] [column name] [column value] ..." +
+                "\n\t\tinserts a new row with data into table." +
+                "\n\tlist\n\t\tdisplays all table names of the current database." +
+                "\n" +
+                "Please, input your command:\n" +
+                "Undetected command [creates]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table test was created" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Undetected command [lister]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "[test]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Undetected command [insertion]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table has got new row." +
+                "\n" +
+                "Please, input your command:\n" +
+                "Undetected command [finde]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t| id                                      |\n" +
+                "\t|-----------------------------------------|\n" +
+                "\t| 1                                       |\n" +
+                "\t|-----------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Undetected command [clearing]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "This table was cleared." +
+                "\n" +
+                "Please, input your command:\n" +
+                "Undetected command [drops]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table was deleted." +
+                "\n" +
+                "Please, input your command:\n" +
+                "Undetected command [eksit]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
     }
+}
 
 
 
