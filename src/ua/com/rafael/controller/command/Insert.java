@@ -27,7 +27,7 @@ public class Insert extends ConsoleCommand {
     }
 
     @Override
-    public void start(String command) {
+    public void start(final String command) {
         final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         final String[] commandElements = command.split(SIGN_FOR_SPLIT);
 

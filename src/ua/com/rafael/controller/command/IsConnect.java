@@ -16,12 +16,12 @@ public class IsConnect implements Command {
     }
 
     @Override
-    public boolean isValid(String command) {
+    public boolean isValid(final String command) {
         return !dbManager.isConnect();
     }
 
     @Override
-    public void start(String command) {
+    public void start(final String command) {
         view.print("Please, connect to database! (For database connection you have to use command \"connect\")");
     }
 }

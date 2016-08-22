@@ -437,6 +437,50 @@ public class IntegrationTest {
                 "Your work in our manager is finished!\n" +
                 "Goodluck!", out.getData());
     }
+
+    @Test
+    public void isConnectTest() {
+        in.addAll(new String[]{
+                "test",
+                "roota",  //incorrect login
+                "independence24",
+                "N",
+                "list",
+                "connect",
+                "test",
+                "root",  //correct login
+                "independence24",
+                "list",
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Could not create connection to database server. Attempted reconnect 3 times. Giving up.\n" +
+                "Please, check your database name, user name and password!\n" +
+                "\n" +
+                "Do you want to try again? (<Y>-yes, <N>-no): \n" +
+                "Please, input your command:\n" +
+                "Please, connect to database! (For database connection you have to use command \"connect\")" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Current database haven't any table" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
+    }
+
 }
 
 
