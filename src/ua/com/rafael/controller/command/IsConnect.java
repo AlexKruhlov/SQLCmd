@@ -6,7 +6,7 @@ import ua.com.rafael.view.View;
 /**
  * Created by Alexandr Kruhlov on 08.08.2016.
  */
-public class IsConnect implements Command {
+public class IsConnect extends ConsoleCommand {
     private View view;
     private DBManager dbManager;
 

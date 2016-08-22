@@ -2,12 +2,10 @@ package ua.com.rafael.integration;
 
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import ua.com.rafael.controller.Main;
 
 import java.io.PrintStream;
-import java.nio.charset.MalformedInputException;
 
 /**
  * Created by Alexandr Kruhlov on 09.08.2016.
@@ -472,6 +470,56 @@ public class IntegrationTest {
                 "Connection process...\n" +
                 "\n" +
                 "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Current database haven't any table" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
+    }
+
+    @Test
+    public void listTest() {
+        in.addAll(new String[]{
+                "test",
+                "root",
+                "independence24",
+                "create test1 id int first_name varchar(45)",
+                "create test2 id int first_name varchar(45)",
+                "list table",
+                "list",
+                "drop test1",
+                "drop test2",
+                "list",
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table test1 was created" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table test2 was created" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Command error. This command hasn't any parameters." +
+                "\n" +
+                "Please, input your command:\n" +
+                "[test1, test2]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table was deleted." +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table was deleted." +
                 "\n" +
                 "Please, input your command:\n" +
                 "Current database haven't any table" +
