@@ -56,13 +56,13 @@ public class Row {
 
     @Override
     public String toString() {
-        return "Row{"+
-        "Names: "+Arrays.toString(getNames()) +"\n"+
-         "Values: "+Arrays.toString(getData())+ "\n"+'}';
+        return "Row{" +
+                "Names: " + Arrays.toString(getNames()) + "\n" +
+                "Values: " + Arrays.toString(getData()) + "\n" + '}';
     }
 
-    public void put(String name, Object data) {
-        dataTable[index++] = new DataTable(name, data);
+    public void put(String columnName, Object columnValue) {
+        dataTable[index++] = new DataTable(columnName, columnValue);
     }
 
 }

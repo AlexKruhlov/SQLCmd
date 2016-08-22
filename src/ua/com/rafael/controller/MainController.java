@@ -1,14 +1,10 @@
 package ua.com.rafael.controller;
 
-import com.sun.javaws.exceptions.*;
 import ua.com.rafael.controller.command.*;
-import ua.com.rafael.controller.command.ExitException;
+import ua.com.rafael.controller.command.exception.ExitException;
+import ua.com.rafael.controller.command.exception.SqlQueryException;
 import ua.com.rafael.manager.DBManager;
-import ua.com.rafael.manager.MySqlDBManager;
-import ua.com.rafael.manager.Row;
 import ua.com.rafael.view.View;
-
-import java.sql.Connection;
 
 /**
  * Created by Alexandr Kruhlov on 07.08.2016.
@@ -26,9 +22,12 @@ public class MainController {
                 new Help(view),
                 new Exit(view),
                 new IsConnect(view, dbManager),
-                new CreateTable(view,dbManager),
+                new Create(view, dbManager),
                 new List(view, dbManager),
                 new Find(view, dbManager),
+                new Insert(view, dbManager),
+                new Clear(view, dbManager),
+                new Drop(view, dbManager),
                 new Undetected(view)};
     }
 
@@ -40,7 +39,11 @@ public class MainController {
             while (true) {
                 for (Command comm : command) {
                     if (comm.isValid(inputedCommand)) {
-                        comm.start(inputedCommand);
+                        try {
+                            comm.start(inputedCommand);
+                        } catch (SqlQueryException exc) {
+                            view.print(exc.getCause().getMessage());
+                        }
                         break;
                     }
                 }
@@ -50,7 +53,7 @@ public class MainController {
         } catch (ExitException exitEx) {
             view.print("Your work in our manager is finished!\n" +
                     "Goodluck!");
-        } catch (Exception exc){
+        } catch (Exception exc) {
             view.print(exc.getMessage());
         }
     }

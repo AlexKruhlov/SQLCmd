@@ -1,6 +1,6 @@
 package ua.com.rafael.manager;
 
-import ua.com.rafael.controller.command.SqlQueryException;
+import ua.com.rafael.controller.command.exception.SqlQueryException;
 
 import java.sql.*;
 

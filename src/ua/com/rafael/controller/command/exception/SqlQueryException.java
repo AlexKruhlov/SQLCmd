@@ -1,4 +1,4 @@
-package ua.com.rafael.controller.command;
+package ua.com.rafael.controller.command.exception;
 
 /**
  * Created by Alexandr Kruhlov on 20.08.2016.
