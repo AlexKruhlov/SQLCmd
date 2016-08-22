@@ -36,11 +36,11 @@ public class Insert extends ConsoleCommand {
             return;
         }
 
-        dbManager.insert(commandElements[TABLE_NAME_INDEX], getRowForInsertion(commandElements));
+        dbManager.insert(commandElements[TABLE_NAME_INDEX], createRowForInsertion(commandElements));
         view.print("The table has got new row.");
     }
 
-    private Row getRowForInsertion(final String[] commandElements) {
+    private Row createRowForInsertion(final String[] commandElements) {
         int columnNameIndex = 2;
         final byte NEXT_COLUMN = 2;
         final int numberOfValues = (commandElements.length - columnNameIndex) / 2;
