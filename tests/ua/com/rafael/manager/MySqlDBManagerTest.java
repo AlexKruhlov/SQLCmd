@@ -1,12 +1,9 @@
 package ua.com.rafael.manager;
 
-import com.sun.deploy.association.AssociationAlreadyRegisteredException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import ua.com.rafael.manager.MySqlDBManager;
-import ua.com.rafael.manager.Row;
 
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -104,9 +101,24 @@ public class MySqlDBManagerTest {
         for (Row row : expected) {
             dBase.insert("test", row);
         }
-        Row[] actual = dBase.getDataTable("test");
+
+        Row[] actual = createActual("test");
 
         Assert.assertEquals(Arrays.toString(expected), Arrays.toString(actual));
+
+        expected = null;
+        actual = createActual("teat1");
+
+        Assert.assertEquals(Arrays.toString(expected), Arrays.toString(actual));
+    }
+
+    private Row[] createActual(String tablename) {
+        Row[] actual = null;
+        try {
+            actual = dBase.getDataTable(tablename);
+        } catch (Exception ecx) {
+        }
+        return actual;
     }
 
     @Test
@@ -154,7 +166,7 @@ public class MySqlDBManagerTest {
         toUpdate.put("time", 14.9);
         Row[] expected = new Row[]{toUpdate};
 
-        dBase.update("test","id", 1, toUpdate);
+        dBase.update("test", "id", 1, toUpdate);
         Row[] actual = dBase.getDataTable("test");
 
         Assert.assertEquals(Arrays.toString(expected), Arrays.toString(actual));
@@ -169,10 +181,10 @@ public class MySqlDBManagerTest {
 
     @Test
     public void dropTest() throws Exception {
-        String[] expected = new String[]{"test","test1"};
+        String[] expected = new String[]{"test", "test1"};
         dBase.createTable(new String[]{"test1", "id", "int", "fname", "varchar(45)", "time", "float"});
         String[] actual = dBase.getTableList();
-        Assert.assertArrayEquals(expected,actual);
+        Assert.assertArrayEquals(expected, actual);
 
         dBase.drop("test1");
         expected = new String[]{"test"};

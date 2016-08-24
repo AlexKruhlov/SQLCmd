@@ -14,7 +14,6 @@ public class MySqlDBManager implements DBManager {
 
     @Override
     public Connection connection(String dataBase, String user, String password) {
-
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (Exception ex) {
@@ -79,7 +78,7 @@ public class MySqlDBManager implements DBManager {
             }
             return tables;
         } catch (SQLException exc) {
-            throw new SqlQueryException(exc); // can not find cases to test this line
+            throw new SqlQueryException(exc);
         }
     }
 
