@@ -31,6 +31,7 @@ public class IntegrationTest {
                 "root",
                 "independence24",
                 "n",  //Do you want to try again? (<Y>-yes, <N>-no): n
+                "connect schema", //fail command syntax
                 "exit"
         });
 
@@ -44,6 +45,9 @@ public class IntegrationTest {
                 "Please, check your database name, user name and password!\n" +
                 "\n" +
                 "Do you want to try again? (<Y>-yes, <N>-no): \n" +
+                "Please, input your command:\n" +
+                "Command error. This command hasn't any parameters." +
+                "\n" +
                 "Please, input your command:\n" +
                 "Your work in our manager is finished!\n" +
                 "Goodluck!", out.getData());
@@ -103,6 +107,7 @@ public class IntegrationTest {
                 "create test id int first_name varchar(45)", // correct command
                 "find test",
                 "drop test",
+                "create test*$ id int",
                 "exit"
         });
 
@@ -134,6 +139,10 @@ public class IntegrationTest {
                 "\n" +
                 "Please, input your command:\n" +
                 "The table was deleted." +
+                "\n" +
+                "Please, input your command:\n" +
+                "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server " +
+                "version for the right syntax to use near '*$(id int NOT NULL)' at line 1" +
                 "\n" +
                 "Please, input your command:\n" +
                 "Your work in our manager is finished!\n" +
@@ -289,6 +298,7 @@ public class IntegrationTest {
                 "clear test",
                 "find test",
                 "drop test",
+                "find test",
                 "exit"
         });
 
@@ -327,6 +337,9 @@ public class IntegrationTest {
                 "\n" +
                 "Please, input your command:\n" +
                 "The table was deleted.\n" +
+                "Please, input your command:\n" +
+                "Table 'test.test' doesn't exist" +
+                "\n" +
                 "Please, input your command:\n" +
                 "Your work in our manager is finished!\n" +
                 "Goodluck!", out.getData());

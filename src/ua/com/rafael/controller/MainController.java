@@ -50,11 +50,8 @@ public class MainController {
                 view.print("\nPlease, input your command:\n");
                 inputedCommand = view.readLine();
             }
-        } catch (ExitException exitEx) {
-            view.print("Your work in our manager is finished!\n" +
-                    "Goodluck!");
-        } catch (Exception exc) {
-            view.print(exc.getMessage());
+        } catch (ExitException exc) {
+           view.print(exc.getMessage());
         }
     }
 }

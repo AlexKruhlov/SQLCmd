@@ -71,10 +71,4 @@ abstract class ConsoleCommand implements Command {
             return true;
         }
     }
-
-    public boolean isTableExist(final String tableName, final String[] databaseTableList) {
-        return Arrays.binarySearch(databaseTableList, tableName) == -1 ? false : true;
-    }
-
-
 }

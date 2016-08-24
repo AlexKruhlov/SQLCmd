@@ -8,7 +8,7 @@ import ua.com.rafael.view.View;
 /**
  * Created by Alexandr Kruhlov on 07.08.2016.
  */
-public class Main {
+public class Main { // can not find cases to test this line
     public static void main(String[] args) {
         View view = new ConsoleView();
         DBManager dbManager = new MySqlDBManager();

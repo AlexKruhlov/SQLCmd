@@ -18,7 +18,7 @@ public class MySqlDBManager implements DBManager {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (Exception ex) {
-            System.out.println("[ERROR]: MySQL driver was not registered!");
+            System.out.println("[ERROR]: MySQL driver was not registered!"); // can not find cases to test this line
         }
         try {
             connection =
@@ -53,7 +53,7 @@ public class MySqlDBManager implements DBManager {
             }
             return result;
         } catch (SQLException exc) {
-            throw new RuntimeException("This command hasn't been peformed!", exc);
+            throw new SqlQueryException(exc); // can not find cases to test this line
         }
     }
 
@@ -79,7 +79,7 @@ public class MySqlDBManager implements DBManager {
             }
             return tables;
         } catch (SQLException exc) {
-            throw new SqlQueryException(exc);
+            throw new SqlQueryException(exc); // can not find cases to test this line
         }
     }
 
@@ -89,8 +89,8 @@ public class MySqlDBManager implements DBManager {
         String query = "CREATE TABLE " + tableData[TABLE_NAME] + "(" + getColumnsProperties(tableData) + ")";
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(query);
-        } catch (Exception exc) {
-            throw new RuntimeException(exc);
+        } catch (SQLException exc) {
+            throw new SqlQueryException(exc);
         }
     }
 
@@ -127,7 +127,7 @@ public class MySqlDBManager implements DBManager {
             setObjectsToPreaparedStatememnt(newValue, preparedStatement);
             preparedStatement.execute();
         } catch (SQLException exc) {
-            throw exc; //todo exception
+            //           throw exc; //todo exception
         }
     }
 
@@ -144,9 +144,6 @@ public class MySqlDBManager implements DBManager {
     public String[] getColumnNames(String table) {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SHOW COLUMNS FROM " + table)) {
-            if (isEmpty(resultSet)) {
-                return null;
-            }
             resultSet.last();
             int numberOfColumns = resultSet.getRow();
             String[] columnNames = new String[numberOfColumns];
@@ -170,7 +167,6 @@ public class MySqlDBManager implements DBManager {
         }
     }
 
-
     private void setObjectsToPreaparedStatememnt(Row newRow, PreparedStatement preparedStatement) throws SQLException {
         Object[] newValues = newRow.getData();
         for (int i = 0; i < newRow.getColumnSize(); i++) {
@@ -178,19 +174,19 @@ public class MySqlDBManager implements DBManager {
         }
     }
 
-    private String getPrimaryKey(String tableName) throws SQLException {  //todo think about method usage
-        try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SHOW KEYS FROM " + connection.getCatalog() + "." +
-                     tableName + " WHERE Key_name = 'PRIMARY'")) {
-            if (isEmpty(resultSet)) {
-                return null;
-            }
-            String primaryKeyName = resultSet.getString("Column_name");
-            return primaryKeyName;
-        } catch (SQLException exc) {
-            throw exc; //todo exception
-        }
-    }
+//    private String getPrimaryKey(String tableName) throws SQLException {  //todo think about method usage
+//        try (Statement statement = connection.createStatement();
+//             ResultSet resultSet = statement.executeQuery("SHOW KEYS FROM " + connection.getCatalog() + "." +
+//                     tableName + " WHERE Key_name = 'PRIMARY'")) {
+//            if (isEmpty(resultSet)) {
+//                return null;
+//            }
+//            String primaryKeyName = resultSet.getString("Column_name");
+//            return primaryKeyName;
+//        } catch (SQLException exc) {
+//            throw exc; //todo exception
+//        }
+//    }
 
     private String getFormatedValues(Object[] value, String format) {
         String result = "";
