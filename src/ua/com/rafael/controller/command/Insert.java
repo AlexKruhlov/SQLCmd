@@ -1,10 +1,7 @@
 package ua.com.rafael.controller.command;
 
 import ua.com.rafael.manager.DBManager;
-import ua.com.rafael.manager.Row;
 import ua.com.rafael.view.View;
-
-import java.util.Arrays;
 
 /**
  * Created by Alexandr Kruhlov on 16.08.2016.
@@ -36,22 +33,14 @@ public class Insert extends ConsoleCommand {
             return;
         }
 
-        dbManager.insert(commandElements[TABLE_NAME_INDEX], createRowForInsertion(commandElements));
+        int columnNameIndex = 2;
+
+        dbManager.insert(commandElements[TABLE_NAME_INDEX],
+                createRowForInsertionOrToUpdate(commandElements,columnNameIndex));
         view.print("The table has got new row.");
     }
 
-    private Row createRowForInsertion(final String[] commandElements) {
-        int columnNameIndex = 2;
-        final byte NEXT_COLUMN = 2;
-        final int numberOfValues = (commandElements.length - columnNameIndex) / 2;
-        final Row row = new Row(numberOfValues);
-        while (columnNameIndex < commandElements.length) {
-            int columnValueIndex = columnNameIndex + 1;
-            row.put(commandElements[columnNameIndex], commandElements[columnValueIndex]);
-            columnNameIndex += NEXT_COLUMN;
-        }
-        return row;
-    }
+
 
 
 }

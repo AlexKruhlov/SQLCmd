@@ -400,6 +400,66 @@ public class IntegrationTest {
     }
 
     @Test
+    public void updateTest() {
+        in.addAll(new String[]{
+                "test",
+                "root",
+                "independence24",
+                "create test id int fname varchar(45) weight double",
+                "insert test id 1 fname Alex weight 70.1",
+                "find test",
+                "updates test",
+                "update test",
+                "update test id 1 id 1 fname Maria weight 60",
+                "find test",
+                "drop test",
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table test was created\n" +
+                "Please, input your command:\n" +
+                "The table has got new row.\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "	| id                                      | fname                                   | weight                                  |\n" +
+                "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "	| 1                                       | Alex                                    | 70.1                                    |\n" +
+                "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Undetected command [updates]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Command error. Please, check the number of command parameters." +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table has updated." +
+                "\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "	| id                                      | fname                                   | weight                                  |\n" +
+                "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "	| 1                                       | Maria                                   | 60.0                                    |\n" +
+                "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table was deleted.\n" +
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
+    }
+
+
+    @Test
     public void isConnectTest() {
         in.addAll(new String[]{
                 "test",
@@ -524,8 +584,8 @@ public class IntegrationTest {
                 "\n\tcreate [table name] [column name] [column data type] ..." +
                 "\n\t\tcreates a table with inputed columns (table name must consist of one word). " +
                 "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
-                "\n\t\tfloat - floating point number." +
-                "\n\t\tExample: create student id int first_name varchar(45) mark float" +
+                "\n\t\tdouble - floating point number." +
+                "\n\t\tExample: create student id int first_name varchar(45) mark double" +
                 "\n\tdrop [table name]\n\t\tdeletes a table of current database." +
                 "\n\texit\n\t\tcompletes database manager execution." +
                 "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +
@@ -546,8 +606,8 @@ public class IntegrationTest {
                 "\n\tcreate [table name] [column name] [column data type] ..." +
                 "\n\t\tcreates a table with inputed columns (table name must consist of one word). " +
                 "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
-                "\n\t\tfloat - floating point number." +
-                "\n\t\tExample: create student id int first_name varchar(45) mark float" +
+                "\n\t\tdouble - floating point number." +
+                "\n\t\tExample: create student id int first_name varchar(45) mark double" +
                 "\n\tdrop [table name]\n\t\tdeletes a table of current database." +
                 "\n\texit\n\t\tcompletes database manager execution." +
                 "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +
@@ -624,8 +684,8 @@ public class IntegrationTest {
                 "\n\tcreate [table name] [column name] [column data type] ..." +
                 "\n\t\tcreates a table with inputed columns (table name must consist of one word). " +
                 "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
-                "\n\t\tfloat - floating point number." +
-                "\n\t\tExample: create student id int first_name varchar(45) mark float" +
+                "\n\t\tdouble - floating point number." +
+                "\n\t\tExample: create student id int first_name varchar(45) mark double" +
                 "\n\tdrop [table name]\n\t\tdeletes a table of current database." +
                 "\n\texit\n\t\tcompletes database manager execution." +
                 "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +

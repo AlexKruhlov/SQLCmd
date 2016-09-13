@@ -27,8 +27,8 @@ Help implements Command {
                 "\n\tcreate [table name] [column name] [column data type] ..." +
                 "\n\t\tcreates a table with inputed columns (table name must consist of one word). " +
                 "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
-                "\n\t\tfloat - floating point number." +
-                "\n\t\tExample: create student id int first_name varchar(45) mark float" +
+                "\n\t\tdouble - floating point number." +
+                "\n\t\tExample: create student id int first_name varchar(45) mark double" +
                 "\n\tdrop [table name]\n\t\tdeletes a table of current database." +
                 "\n\texit\n\t\tcompletes database manager execution." +
                 "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +

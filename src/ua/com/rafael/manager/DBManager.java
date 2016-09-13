@@ -1,7 +1,6 @@
 package ua.com.rafael.manager;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
 /**
  * Created by Alexandr Kruhlov on 27.07.2016.
@@ -17,10 +16,9 @@ public interface DBManager {
 
     void createTable(String[] tableData);
 
-    //    public
     void insert(String tablename, Row newRow);
 
-    void update(String tableName,String keyColumnName ,int key, Row newValue) throws SQLException;
+    void update(String tableName,String keyColumnName ,Object key, Row newValue);
 
     void clear(String tableName);
 

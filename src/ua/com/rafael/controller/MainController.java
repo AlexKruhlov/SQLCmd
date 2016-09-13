@@ -26,6 +26,7 @@ public class MainController {
                 new List(view, dbManager),
                 new Find(view, dbManager),
                 new Insert(view, dbManager),
+                new Update(view, dbManager),
                 new Clear(view, dbManager),
                 new Drop(view, dbManager),
                 new Undetected(view)};
@@ -51,7 +52,7 @@ public class MainController {
                 inputedCommand = view.readLine();
             }
         } catch (ExitException exc) {
-           view.print(exc.getMessage());
+            view.print(exc.getMessage());
         }
     }
 }

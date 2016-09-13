@@ -118,15 +118,16 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
-    public void update(String tableName, String keyColumnName, int key, Row newValue) throws SQLException {
+    public void update(String tableName, String keyColumnName, Object key, Row newValue) {
         String query = "UPDATE " + tableName + " set " +
                 getFormatedFieldNames(newValue.getNames(), "%s=?,") +
-                " where " + keyColumnName + "=" + key;
+                " where " + keyColumnName + "=?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             setObjectsToPreaparedStatememnt(newValue, preparedStatement);
+            preparedStatement.setObject(newValue.getColumnSize() + 1, key);
             preparedStatement.execute();
         } catch (SQLException exc) {
-            //           throw exc; //todo exception
+            throw new SqlQueryException(exc);
         }
     }
 
@@ -173,20 +174,6 @@ public class MySqlDBManager implements DBManager {
         }
     }
 
-//    private String getPrimaryKey(String tableName) throws SQLException {  //todo think about method usage
-//        try (Statement statement = connection.createStatement();
-//             ResultSet resultSet = statement.executeQuery("SHOW KEYS FROM " + connection.getCatalog() + "." +
-//                     tableName + " WHERE Key_name = 'PRIMARY'")) {
-//            if (isEmpty(resultSet)) {
-//                return null;
-//            }
-//            String primaryKeyName = resultSet.getString("Column_name");
-//            return primaryKeyName;
-//        } catch (SQLException exc) {
-//            throw exc; //todo exception
-//        }
-//    }
-
     private String getFormatedValues(Object[] value, String format) {
         String result = "";
         for (int i = 0; i < value.length; i++) {
@@ -207,12 +194,6 @@ public class MySqlDBManager implements DBManager {
         return !resultSet.first();
     }
 }
-
-/* TODO exc.getCause().getMessage();
-        System.out.println("Please, use help information to deside this problem!");
-        */
-/* TODO exc.getCause().getMessage();
-        System.out.println("Please, use help information to deside this problem!");*/
 
 
 
