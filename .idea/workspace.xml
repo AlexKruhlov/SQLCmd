@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="24b0fe09-e617-4a44-8d49-d17eb2280737" name="Default" comment="create class SqlQueryException implements RuntimeException" />
-    <list default="true" id="3e5c3b76-243a-4804-9bd9-63c386195397" name="New changelist" comment="global refactoring accoding to all tests -&gt; create class MainTest">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Update.java" />
+    <list default="true" id="3e5c3b76-243a-4804-9bd9-63c386195397" name="New changelist" comment="create class Update with all tests-&gt;update all program, change data type from float to double">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/MainController.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/ConsoleCommand.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/ConsoleCommand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Help.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Help.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Insert.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Insert.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/manager/DBManager.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/manager/DBManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ua/com/rafael/manager/MySqlDBManager.java" afterPath="$PROJECT_DIR$/src/ua/com/rafael/manager/MySqlDBManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/ua/com/rafael/integration/IntegrationTest.java" afterPath="$PROJECT_DIR$/tests/ua/com/rafael/integration/IntegrationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/ua/com/rafael/manager/MySqlDBManagerTest.java" afterPath="$PROJECT_DIR$/tests/ua/com/rafael/manager/MySqlDBManagerTest.java" />
     </list>
     <ignored path="SQLcmd.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +34,7 @@
     <SUITE FILE_PATH="coverage/SQLCmd$MySqlDBManagerTest.coverage" NAME="MySqlDBManagerTest Coverage Results" MODIFIED="1472046006935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ua.com.rafael.manager.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SQLCmd$All_in_SQLcmd.coverage" NAME="All in SQLcmd Coverage Results" MODIFIED="1473787429478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SQLCmd$All_in_SQLcmd.coverage" NAME="All in SQLcmd Coverage Results" MODIFIED="1473943939784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -61,12 +53,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="IntegrationTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IntegrationTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/integration/IntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6323">
-              <caret line="438" column="44" selection-start-line="438" selection-start-column="44" selection-end-line="438" selection-end-column="44" />
+            <state relative-caret-position="1259">
+              <caret line="445" column="51" selection-start-line="445" selection-start-column="51" selection-end-line="445" selection-end-column="51" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MySqlDBManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/manager/MySqlDBManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="153" column="13" selection-start-line="153" selection-start-column="13" selection-end-line="153" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1473409302797" expanded="true" signature="2127:2173" placeholder="SELECT * FRO... missingValue" />
+                <marker date="1473409302797" expanded="true" signature="3113:3196" placeholder="CREATE TABLE... missingValue" />
+                <marker date="1473409302797" expanded="true" signature="4082:4311" placeholder="INSERT INTO missingValue.missingValue... " />
+                <marker date="1473409302797" expanded="true" signature="4659:4786" placeholder="UPDATE missi... " />
+                <marker date="1473409302797" expanded="true" signature="4659:4808" placeholder="UPDATE missi... " />
+                <marker date="1473409302797" expanded="true" signature="4659:4809" placeholder="UPDATE missi... " />
+                <marker date="1473409302797" expanded="true" signature="5352:5396" placeholder="DELETE FROM " />
+                <marker date="1473409302797" expanded="true" signature="6375:6386" placeholder="DROP TABLE m... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,10 +86,12 @@
       <file leaf-file-name="Update.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Update.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+            <state relative-caret-position="726">
+              <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#576#577#0" expanded="false" />
+                <element signature="e#640#641#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -154,8 +168,8 @@
         <option value="$PROJECT_DIR$/tests/ua/com/rafael/manager/MySqlDBManagerTest.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Insert.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/ConsoleCommand.java" />
-        <option value="$PROJECT_DIR$/tests/ua/com/rafael/integration/IntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Update.java" />
+        <option value="$PROJECT_DIR$/tests/ua/com/rafael/integration/IntegrationTest.java" />
       </list>
     </option>
   </component>
@@ -165,9 +179,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1932" />
-    <option name="height" value="1047" />
+    <option name="x" value="17" />
+    <option name="y" value="50" />
+    <option name="width" value="1924" />
+    <option name="height" value="1037" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -447,7 +462,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
+      <pane id="Scratches">
         <subPane />
       </pane>
       <pane id="Scope">
@@ -730,9 +745,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches">
-        <subPane />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -766,10 +778,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="rafael" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manager" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -808,82 +816,11 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rafael" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SQLCmd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SQLCmd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rafael" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SQLCmd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SQLCmd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rafael" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SQLCmd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SQLCmd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rafael" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="command" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -1488,7 +1425,8 @@
       <workItem from="1472042785777" duration="3778000" />
       <workItem from="1472151096321" duration="14000" />
       <workItem from="1473403205594" duration="13863000" />
-      <workItem from="1473786894729" duration="1148000" />
+      <workItem from="1473786894729" duration="1390000" />
+      <workItem from="1473939581453" duration="1297000" />
     </task>
     <task id="LOCAL-00001" summary="delete class UserInfo, create pacages manager and view, create class view">
       <created>1469634846321</created>
@@ -1812,21 +1750,22 @@
       <option name="project" value="LOCAL" />
       <updated>1472047260776</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="create class Update with all tests-&gt;update all program, change data type from float to double">
+      <created>1473788401572</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1473788401572</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_SQLcmd - 2016.09.13 at 20h 24m 27s.xml">
+    <history-entry file="All_in_SQLcmd - 2016.09.15 at 15h 45m 26s.xml">
       <configuration name="All in SQLcmd" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="IntegrationTest_updateTest - 2016.09.09 at 13h 40m 11s.xml">
-      <configuration name="IntegrationTest.updateTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="IntegrationTest_updateTest - 2016.09.09 at 13h 41m 10s.xml">
-      <configuration name="IntegrationTest.updateTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="IntegrationTest_updateTest - 2016.09.09 at 13h 42m 27s.xml">
-      <configuration name="IntegrationTest.updateTest" configurationId="JUnit" />
+    <history-entry file="All_in_SQLcmd - 2016.09.15 at 15h 52m 57s.xml">
+      <configuration name="All in SQLcmd" configurationId="JUnit" />
     </history-entry>
     <history-entry file="IntegrationTest_updateTest - 2016.09.09 at 13h 56m 23s.xml">
       <configuration name="IntegrationTest.updateTest" configurationId="JUnit" />
@@ -1843,12 +1782,18 @@
     <history-entry file="IntegrationTest_updateTest - 2016.09.13 at 20h 21m 39s.xml">
       <configuration name="IntegrationTest.updateTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="IntegrationTest_updateTest - 2016.09.15 at 15h 51m 28s.xml">
+      <configuration name="IntegrationTest.updateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="IntegrationTest_updateTest - 2016.09.15 at 15h 52m 10s.xml">
+      <configuration name="IntegrationTest.updateTest" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="MySqlDBManagerTest - 2016.09.09 at 13h 50m 12s.xml">
       <configuration name="MySqlDBManagerTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="428422000" />
+    <option name="totallyTimeSpent" value="429961000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1860,8 +1805,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1932" height="1047" extended-state="0" />
-    <editor active="false" />
+    <frame x="17" y="50" width="1924" height="1037" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1871,12 +1816,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290993" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45727482" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.7616975" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="542" y="108" width="834" height="739" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.026096033" sideWeight="0.50461894" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.8987899" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="629" y="71" width="866" height="817" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.02620545" sideWeight="0.50461894" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290993" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23016702" sideWeight="0.35450345" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23008385" sideWeight="0.35450345" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.067708336" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.49565217" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.49538106" order="1" side_tool="false" content_ui="tabs" />
@@ -1935,7 +1880,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="create class CrateTable, refactor classes Find, Help, MainController, DBManager, MySqlDBManager, MySqlDBManagerTest" />
     <MESSAGE value="refactor class CreateTable, Exit, MainController" />
     <MESSAGE value="create class Drop, drop() within class MySqlDBManager with test, refactor class Help, add drop() to interface DBManager," />
     <MESSAGE value="create class Clear, refactor methods of classes MySqlDBManager and all tests, interface DBManager" />
@@ -1960,7 +1904,8 @@
     <MESSAGE value="refactor class Undetected with integration test" />
     <MESSAGE value="global refactoring accoding to all tests" />
     <MESSAGE value="global refactoring accoding to all tests -&gt; create class MainTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="global refactoring accoding to all tests -&gt; create class MainTest" />
+    <MESSAGE value="create class Update with all tests-&gt;update all program, change data type from float to double" />
+    <option name="LAST_COMMIT_MESSAGE" value="create class Update with all tests-&gt;update all program, change data type from float to double" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1982,13 +1927,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/tests/ua/com/rafael/integration/IntegrationTest.java</url>
-          <line>641</line>
+          <line>645</line>
           <properties />
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/tests/ua/com/rafael/manager/MySqlDBManagerTest.java</url>
-          <line>159</line>
+          <line>157</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
@@ -2168,6 +2113,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#209#210#0" expanded="false" />
+            <element signature="e#235#236#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2260,7 +2209,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2289,9 +2237,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2299,7 +2244,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="674">
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2307,25 +2251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/manager/MySqlDBManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="120" column="16" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1473409302797" expanded="true" signature="2127:2173" placeholder="SELECT * FRO... missingValue" />
-            <marker date="1473409302797" expanded="true" signature="3113:3196" placeholder="CREATE TABLE... missingValue" />
-            <marker date="1473409302797" expanded="true" signature="4082:4311" placeholder="INSERT INTO missingValue.missingValue... " />
-            <marker date="1473409302797" expanded="true" signature="4659:4786" placeholder="UPDATE missi... " />
-            <marker date="1473409302797" expanded="true" signature="4659:4808" placeholder="UPDATE missi... " />
-            <marker date="1473409302797" expanded="true" signature="4659:4809" placeholder="UPDATE missi... " />
-            <marker date="1473409302797" expanded="true" signature="5352:5396" placeholder="DELETE FROM " />
-            <marker date="1473409302797" expanded="true" signature="6375:6386" placeholder="DROP TABLE m... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2347,19 +2272,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/controller/command/Update.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+        <state relative-caret-position="726">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#576#577#0" expanded="false" />
+            <element signature="e#640#641#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/ua/com/rafael/integration/IntegrationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6323">
-          <caret line="438" column="44" selection-start-line="438" selection-start-column="44" selection-end-line="438" selection-end-column="44" />
+        <state relative-caret-position="1259">
+          <caret line="445" column="51" selection-start-line="445" selection-start-column="51" selection-end-line="445" selection-end-column="51" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/com/rafael/manager/MySqlDBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="153" column="13" selection-start-line="153" selection-start-column="13" selection-end-line="153" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1473409302797" expanded="true" signature="2127:2173" placeholder="SELECT * FRO... missingValue" />
+            <marker date="1473409302797" expanded="true" signature="3113:3196" placeholder="CREATE TABLE... missingValue" />
+            <marker date="1473409302797" expanded="true" signature="4082:4311" placeholder="INSERT INTO missingValue.missingValue... " />
+            <marker date="1473409302797" expanded="true" signature="4659:4786" placeholder="UPDATE missi... " />
+            <marker date="1473409302797" expanded="true" signature="4659:4808" placeholder="UPDATE missi... " />
+            <marker date="1473409302797" expanded="true" signature="4659:4809" placeholder="UPDATE missi... " />
+            <marker date="1473409302797" expanded="true" signature="5352:5396" placeholder="DELETE FROM " />
+            <marker date="1473409302797" expanded="true" signature="6375:6386" placeholder="DROP TABLE m... " />
+          </folding>
         </state>
       </provider>
     </entry>

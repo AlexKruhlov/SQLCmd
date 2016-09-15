@@ -410,6 +410,7 @@ public class IntegrationTest {
                 "find test",
                 "updates test",
                 "update test",
+                "update test1 id 1 id 1 fname Maria weight 60",
                 "update test id 1 id 1 fname Maria weight 60",
                 "find test",
                 "drop test",
@@ -440,6 +441,9 @@ public class IntegrationTest {
                 "\n" +
                 "Please, input your command:\n" +
                 "Command error. Please, check the number of command parameters." +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table 'test.test1' doesn't exist"+
                 "\n" +
                 "Please, input your command:\n" +
                 "The table has updated." +
