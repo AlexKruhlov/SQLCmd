@@ -9,20 +9,20 @@ import java.util.Arrays;
  */
 abstract class ConsoleCommand implements Command {
 
-    public static final int
+    public  final int
             COMMAND_NAME_INDEX = 0,
             TABLE_NAME_INDEX = 1;
 
-    public static final String SIGN_FOR_SPLIT = " ";
+    public  final String SIGN_FOR_SPLIT = " ";
 
-    public static final String
+    public  final String
             NO_PARAMETER_MESSAGE = "Command error. This command hasn't any parameters.",
             ONE_PARAMETER_MESSAGE = "Command error. This command must have one parameter.",
             MANY_PARAMETERS_MESSAGE = "Command error. Please, check the number of command parameters.",
             TABLE_NOT_EXIST_MESSAGE = "Command error. This table does not exist in current database.",
             INCORRECT_COLUMN_TYPE = "Some of these column types are incorrect";
 
-    private static final String[] correctColumnTypes = {"int", "double", "varchar"};
+    private final String[] correctColumnTypes = {"int", "double", "varchar"};
 
     public boolean compareCommandName(String commandModel, String command) {
         final int COMMAND_INDEX = 0;
@@ -77,7 +77,10 @@ abstract class ConsoleCommand implements Command {
     public Row createRowForInsertionOrToUpdate(final String[] commandElements, int columnNameIndex) {
         final byte NEXT_COLUMN = 2;
         final int numberOfValues = (commandElements.length - columnNameIndex) / 2;
-        final Row row = new Row(numberOfValues);
+
+//    todo    final Row row = new Row(numberOfValues);
+        final Row row = new Row();
+
         while (columnNameIndex < commandElements.length) {
             int columnValueIndex = columnNameIndex + 1;
             row.put(commandElements[columnNameIndex], commandElements[columnValueIndex]);

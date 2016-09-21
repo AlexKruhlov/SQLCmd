@@ -70,8 +70,10 @@ public class MySqlDBManager implements DBManager {
             Row[] tables = new Row[rowCount];
             resultSet.first();
             for (int i = 0; i < rowCount; i++) {
-                tables[i] = new Row(columnCount);
-                for (int j = 0; j < tables[i].getColumnSize(); j++) {
+
+// todo  tables[i] = new Row(columnCount);
+                tables[i] = new Row();
+                for (int j = 0; j < columnCount; j++) {
                     tables[i].put(resultSet.getMetaData().getColumnName(j + 1), resultSet.getObject(j + 1));
                 }
                 resultSet.next();

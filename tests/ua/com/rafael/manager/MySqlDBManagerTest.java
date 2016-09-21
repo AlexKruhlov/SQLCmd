@@ -84,16 +84,30 @@ public class MySqlDBManagerTest {
 
     @Test
     public void getDataTableTest() throws Exception {
+//        Row[] expected = new Row[3];
+//        expected[0] = new Row(3);
+//        expected[0].put("id", 1);
+//        expected[0].put("fname", "PENELOPE");
+//        expected[0].put("time", 23.0);
+//        expected[1] = new Row(3);
+//        expected[1].put("id", 2);
+//        expected[1].put("fname", "NICK");
+//        expected[1].put("time", 17.0);
+//        expected[2] = new Row(3);
+//        expected[2].put("id", 3);
+//        expected[2].put("fname", "ED");
+//        expected[2].put("time", 15.5); todo
+
         Row[] expected = new Row[3];
-        expected[0] = new Row(3);
+        expected[0] = new Row();
         expected[0].put("id", 1);
         expected[0].put("fname", "PENELOPE");
         expected[0].put("time", 23.0);
-        expected[1] = new Row(3);
+        expected[1] = new Row();
         expected[1].put("id", 2);
         expected[1].put("fname", "NICK");
         expected[1].put("time", 17.0);
-        expected[2] = new Row(3);
+        expected[2] = new Row();
         expected[2].put("id", 3);
         expected[2].put("fname", "ED");
         expected[2].put("time", 15.5);
@@ -126,7 +140,8 @@ public class MySqlDBManagerTest {
         Row[] expected = null;
 
         for (int i = 1; i <= 3; i++) {
-            Row input = new Row(3);
+            //todo Row input = new Row(3);
+            Row input = new Row();
             input.put("id", i);
             input.put("fname", "JACK");
             input.put("time", 17);
@@ -140,7 +155,8 @@ public class MySqlDBManagerTest {
 
     @Test
     public void insertTest() throws Exception {
-        Row input = new Row(3);
+        // TODO: 21.09.2016 Row input = new Row(3);
+        Row input = new Row();
         input.put("id", 1);
         input.put("fname", "JACK");
         input.put("time", 33.1);
@@ -154,13 +170,16 @@ public class MySqlDBManagerTest {
 
     @Test
     public void updateTest() throws Exception {
-        Row input = new Row(3);
+        // TODO: 21.09.2016 Row input = new Row(3);
+        Row input = new Row();
+
         input.put("id", 1);
         input.put("fname", "JACK");
         input.put("time", 15.0);
         dBase.insert("test", input);
 
-        Row toUpdate = new Row(3);
+        // TODO: 21.09.2016 Row input = new Row(3);
+        Row toUpdate = new Row();
         toUpdate.put("id", 1);
         toUpdate.put("fname", "Emma");
         toUpdate.put("time", 14.1);
@@ -171,8 +190,9 @@ public class MySqlDBManagerTest {
 
         Assert.assertEquals(Arrays.toString(expected), Arrays.toString(actual));
 
+// TODO: 21.09.2016 toUpdate = new Row(3);
+        toUpdate = new Row();
 
-        toUpdate = new Row(3);
         toUpdate.put("id", 1);
         toUpdate.put("fname", "STAN");
         toUpdate.put("time", 11.0);

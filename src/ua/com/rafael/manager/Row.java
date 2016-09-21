@@ -1,57 +1,35 @@
 package ua.com.rafael.manager;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Created by Alexandr Kruhlov on 19.07.2016.
  */
 
 public class Row {
-    private DataTable[] dataTable;
-    private int index = 0;
-    private int columnSize = 0;
+    private Map<String, Object> dataTable;
 
-    public Row(int columnSize) {
-        this.columnSize = columnSize;
-        dataTable = new DataTable[this.columnSize];
+    public Row() {
+        this.dataTable = new LinkedHashMap<>();
     }
 
     public int getColumnSize() {
-        return columnSize;
-    }
-
-    class DataTable {
-        private String name;
-        private Object data;
-
-        public DataTable(String name, Object data) {
-            this.name = name;
-            this.data = data;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public Object getData() {
-            return data;
-        }
+        return dataTable.size();
     }
 
     public String[] getNames() {
-        String[] names = new String[columnSize];
-        for (int i = 0; i < columnSize; i++) {
-            names[i] = dataTable[i].getName();
+        Object[] names = dataTable.keySet().toArray();
+        String[] results = new String[dataTable.size()];
+        for (int i = 0; i < results.length; i++) {
+            results[i] = String.valueOf(names[i]);
         }
-        return names;
+        return results;
     }
 
     public Object[] getData() {
-        Object[] values = new Object[columnSize];
-        for (int i = 0; i < columnSize; i++) {
-            values[i] = dataTable[i].getData();
-        }
-        return values;
+        return dataTable.values().toArray();
     }
 
     @Override
@@ -62,7 +40,6 @@ public class Row {
     }
 
     public void put(String columnName, Object columnValue) {
-        dataTable[index++] = new DataTable(columnName, columnValue);
+        dataTable.put(columnName, columnValue);
     }
-
 }

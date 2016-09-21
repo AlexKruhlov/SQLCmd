@@ -1,4 +1,4 @@
-package ua.com.rafael.integration;
+package ua.com.rafael.controller.command;
 
 import java.io.IOException;
 import java.io.InputStream;
