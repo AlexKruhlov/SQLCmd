@@ -32,11 +32,12 @@ public class Update extends ConsoleCommand {
             return;
         }
 
-        final int keyColumnIndex = 2;
-        final int keyValueIndex = keyColumnIndex + 1;
-        final int firstColumnNameIndex = 4;
-        dbManager.update(commandElements[TABLE_NAME_INDEX], commandElements[keyColumnIndex],
-                commandElements[keyValueIndex], createRowForInsertionOrToUpdate(commandElements, firstColumnNameIndex));
+//        final int keyColumnIndex = 2;
+//        final int keyValueIndex = keyColumnIndex + 1;
+        final int FIRST_COLUMN_NAME_INDEX = 4;
+        dbManager.update(commandElements[TABLE_NAME_INDEX], commandElements[COLUMN_NAME_INDEX],
+                commandElements[VALUE_INDEX],
+                createRowForInsertionOrToUpdate(commandElements, FIRST_COLUMN_NAME_INDEX));
         view.print("The table has updated.");
     }
 }

@@ -38,10 +38,9 @@ public class Create extends ConsoleCommand {
             return;
         }
 
-        final byte TABLE_NAME = 1;
-        final String[] argumentsForNewTable = Arrays.copyOfRange(commandElements, TABLE_NAME, commandElements.length);
+        final String[] argumentsForNewTable = Arrays.copyOfRange(commandElements, TABLE_NAME_INDEX, commandElements.length);
         dbManager.createTable(argumentsForNewTable);
-        view.print("Table " + commandElements[TABLE_NAME] + " was created");
+        view.print("Table " + commandElements[TABLE_NAME_INDEX] + " was created");
     }
 }
 

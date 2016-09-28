@@ -24,7 +24,6 @@ public class Drop extends ConsoleCommand {
 
     @Override
     public void start(final String command) {
-        final int TABLE_NAME_INDEX = 1;
         final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         final String[] commandElements = command.split(SIGN_FOR_SPLIT);
         if (!isTheSameSize(commandModelElements,commandElements)){

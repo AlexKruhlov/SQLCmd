@@ -9,13 +9,14 @@ import java.util.Arrays;
  */
 abstract class ConsoleCommand implements Command {
 
-    public  final int
-            COMMAND_NAME_INDEX = 0,
-            TABLE_NAME_INDEX = 1;
+    public final int
+            TABLE_NAME_INDEX = 1,
+            COLUMN_NAME_INDEX = 2,
+            VALUE_INDEX = 3;
 
-    public  final String SIGN_FOR_SPLIT = " ";
+    public final String SIGN_FOR_SPLIT = " ";
 
-    public  final String
+    public final String
             NO_PARAMETER_MESSAGE = "Command error. This command hasn't any parameters.",
             ONE_PARAMETER_MESSAGE = "Command error. This command must have one parameter.",
             MANY_PARAMETERS_MESSAGE = "Command error. Please, check the number of command parameters.",

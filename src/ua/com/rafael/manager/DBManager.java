@@ -20,6 +20,8 @@ public interface DBManager {
 
     void update(String tableName,String keyColumnName ,Object key, Row newValue);
 
+    void delete(String tableName,String keyColumnName, Object rowValueToDeleteRow);
+
     void clear(String tableName);
 
     String[] getColumnNames(String tableName);

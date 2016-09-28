@@ -28,7 +28,7 @@ public class Insert extends ConsoleCommand {
         final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         final String[] commandElements = command.split(SIGN_FOR_SPLIT);
 
-        if (!isValidSize(commandModelElements,commandElements)){
+        if (!isValidSize(commandModelElements, commandElements)) {
             view.print(MANY_PARAMETERS_MESSAGE);
             return;
         }
@@ -36,11 +36,9 @@ public class Insert extends ConsoleCommand {
         int columnNameIndex = 2;
 
         dbManager.insert(commandElements[TABLE_NAME_INDEX],
-                createRowForInsertionOrToUpdate(commandElements,columnNameIndex));
+                createRowForInsertionOrToUpdate(commandElements, columnNameIndex));
         view.print("The table has got new row.");
     }
-
-
 
 
 }

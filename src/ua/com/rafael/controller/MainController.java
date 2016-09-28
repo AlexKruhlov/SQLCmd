@@ -27,6 +27,7 @@ public class MainController {
                 new Find(view, dbManager),
                 new Insert(view, dbManager),
                 new Update(view, dbManager),
+                new Delete(view,dbManager),
                 new Clear(view, dbManager),
                 new Drop(view, dbManager),
                 new Undetected(view)};

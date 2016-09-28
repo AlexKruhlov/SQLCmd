@@ -443,7 +443,7 @@ public class IntegrationTest {
                 "Command error. Please, check the number of command parameters." +
                 "\n" +
                 "Please, input your command:\n" +
-                "Table 'test.test1' doesn't exist"+
+                "Table 'test.test1' doesn't exist" +
                 "\n" +
                 "Please, input your command:\n" +
                 "The table has updated." +
@@ -462,6 +462,74 @@ public class IntegrationTest {
                 "Goodluck!", out.getData());
     }
 
+    @Test
+    public void DeleteTest() {
+        in.addAll(new String[]{
+                "test",
+                "root",
+                "independence24",
+                "create test id int fname varchar(45) weight double",
+                "insert test id 1 fname Mike weight 75.1",
+                "insert test id 2 fname Ellis weight 60.02",
+                "del test fname Mike",
+                "delete test Mike",
+                "delete test1 fname Mike",
+                "delete test fname Mike",
+                "find test",
+                "delete test weight 60.02",
+                "find test",
+                "drop test",
+                "exit"
+        });
+
+        Main.main(new String[0]);
+
+        Assert.assertEquals("Welcome to console database manager!\n" +
+                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+                "Connection process...\n" +
+                "\n" +
+                "Connection has been successful!\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table test was created\n" +
+                "Please, input your command:\n" +
+                "The table has got new row.\n" +
+                "Please, input your command:\n" +
+                "The table has got new row.\n" +
+                "Please, input your command:\n" +
+                "Undetected command [del]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Command error. Please, check the number of command parameters." +
+                "\n" +
+                "Please, input your command:\n" +
+                "Table 'test.test1' doesn't exist" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The row was deleted." +
+                "\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "	| id                                      | fname                                   | weight                                  |\n" +
+                "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "	| 2                                       | Ellis                                   | 60.02                                   |\n" +
+                "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The row was deleted." +
+                "\n" +
+                "Please, input your command:\n" +
+                "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "	| id                                      | fname                                   | weight                                  |\n" +
+                "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
+                "\n" +
+                "Please, input your command:\n" +
+                "The table was deleted.\n" +
+                "Please, input your command:\n" +
+                "Your work in our manager is finished!\n" +
+                "Goodluck!", out.getData());
+    }
 
     @Test
     public void isConnectTest() {

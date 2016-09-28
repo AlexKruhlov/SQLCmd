@@ -36,7 +36,7 @@ public class Row {
     public String toString() {
         return "Row{" +
                 "Names: " + Arrays.toString(getNames()) + "\n" +
-                "Values: " + Arrays.toString(getData()) + "\n" + '}';
+                "Values: " + Arrays.toString(getData()) + " }";
     }
 
     public void put(String columnName, Object columnValue) {

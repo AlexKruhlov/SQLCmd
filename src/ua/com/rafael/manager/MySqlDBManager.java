@@ -112,7 +112,7 @@ public class MySqlDBManager implements DBManager {
                 "INSERT INTO " + connection.getCatalog() + "." + tablename +
                         "(" + getFormatedFieldNames(newRow.getNames(), "%s,") + ")" +
                         "VALUES (" + getFormatedValues(newRow.getData(), "?,") + ")")) {
-            setObjectsToPreaparedStatememnt(newRow, preparedStatement);
+            setObjectsToPreparedStatememnt(newRow, preparedStatement);
             preparedStatement.execute();
         } catch (SQLException exc) {
             throw new SqlQueryException(exc);
@@ -125,13 +125,25 @@ public class MySqlDBManager implements DBManager {
                 getFormatedFieldNames(newValue.getNames(), "%s=?,") +
                 " where " + keyColumnName + "=?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            setObjectsToPreaparedStatememnt(newValue, preparedStatement);
+            setObjectsToPreparedStatememnt(newValue, preparedStatement);
             preparedStatement.setObject(newValue.getColumnSize() + 1, key);
             preparedStatement.execute();
         } catch (SQLException exc) {
             throw new SqlQueryException(exc);
         }
     }
+
+    @Override
+    public void delete(String tableName, String keyColumnName, Object rowValueToDeleteRow) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM " +
+                connection.getCatalog() + "." + tableName + " WHERE " + keyColumnName + "=?")) {
+            preparedStatement.setObject(1, rowValueToDeleteRow);
+            preparedStatement.execute();
+        } catch (SQLException exc) {
+            throw new SqlQueryException(exc);
+        }
+    }
+
 
     @Override
     public void clear(String tableName) {
@@ -169,7 +181,7 @@ public class MySqlDBManager implements DBManager {
         }
     }
 
-    private void setObjectsToPreaparedStatememnt(Row newRow, PreparedStatement preparedStatement) throws SQLException {
+    private void setObjectsToPreparedStatememnt(Row newRow, PreparedStatement preparedStatement) throws SQLException {
         Object[] newValues = newRow.getData();
         for (int i = 0; i < newRow.getColumnSize(); i++) {
             preparedStatement.setObject(i + 1, newValues[i]);
