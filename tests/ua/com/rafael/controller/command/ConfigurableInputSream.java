@@ -3,9 +3,6 @@ package ua.com.rafael.controller.command;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Created by Alexandr Kruhlov on 09.08.2016.
- */
 public class ConfigurableInputSream extends InputStream {
 
     private String line;
@@ -16,19 +13,15 @@ public class ConfigurableInputSream extends InputStream {
         if (line.length() == 0) {
             return -1;
         }
-
         if (isEndLine) {
             isEndLine = false;
             return -1;
         }
-
         char ch = line.charAt(0);
         line = line.substring(1);
-
         if (ch == '\n') {
             isEndLine = true;
         }
-
         return (int) ch;
     }
 
@@ -40,8 +33,8 @@ public class ConfigurableInputSream extends InputStream {
         }
     }
 
-    public void addAll(String[] line){
-        for (int i = 0; i < line.length; i++){
+    public void addAll(String[] line) {
+        for (int i = 0; i < line.length; i++) {
             add(line[i]);
         }
     }

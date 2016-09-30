@@ -5,9 +5,6 @@ import ua.com.rafael.view.View;
 
 import java.util.Arrays;
 
-/**
- * Created by Alexandr Kruhlov on 12.08.2016.
- */
 public class Create extends ConsoleCommand {
 
     private final View view;
@@ -33,11 +30,10 @@ public class Create extends ConsoleCommand {
             view.print(MANY_PARAMETERS_MESSAGE);
             return;
         }
-        if (!isColumnType(commandElements)){
+        if (!isColumnType(commandElements)) {
             view.print(INCORRECT_COLUMN_TYPE);
             return;
         }
-
         final String[] argumentsForNewTable = Arrays.copyOfRange(commandElements, TABLE_NAME_INDEX, commandElements.length);
         dbManager.createTable(argumentsForNewTable);
         view.print("Table " + commandElements[TABLE_NAME_INDEX] + " was created");

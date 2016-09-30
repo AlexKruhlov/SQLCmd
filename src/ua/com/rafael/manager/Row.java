@@ -4,12 +4,9 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * Created by Alexandr Kruhlov on 19.07.2016.
- */
-
 public class Row {
-    private Map<String, Object> dataTable;
+
+    private final Map<String, Object> dataTable;
 
     public Row() {
         this.dataTable = new LinkedHashMap<>();

@@ -3,9 +3,6 @@ package ua.com.rafael.controller.command;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
-/**
- * Created by Alexandr Kruhlov on 14.08.2016.
- */
 public class Clear extends ConsoleCommand {
 
     private final View view;

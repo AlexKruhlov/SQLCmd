@@ -7,10 +7,8 @@ import ua.com.rafael.controller.Main;
 
 import java.io.PrintStream;
 
-/**
- * Created by Alexandr Kruhlov on 09.08.2016.
- */
 public class IntegrationTest {
+
     private ConfigurableInputSream in;
     private LogOutStream out;
 
@@ -92,7 +90,6 @@ public class IntegrationTest {
                 "Please, input your command:\n" +
                 "Your work in our manager is finished!\n" +
                 "Goodluck!", out.getData());
-
     }
 
     @Test
@@ -193,7 +190,6 @@ public class IntegrationTest {
                 "Please, input your command:\n" +
                 "Your work in our manager is finished!\n" +
                 "Goodluck!", out.getData());
-
     }
 
     @Test
@@ -225,7 +221,6 @@ public class IntegrationTest {
                 "Your work in our manager is finished!\n" +
                 "Goodluck!", out.getData());
     }
-
 
     @Test
     public void clearTest() {
@@ -446,7 +441,7 @@ public class IntegrationTest {
                 "Table 'test.test1' doesn't exist" +
                 "\n" +
                 "Please, input your command:\n" +
-                "The table has updated." +
+                "The table was updated." +
                 "\n" +
                 "Please, input your command:\n" +
                 "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
@@ -636,6 +631,8 @@ public class IntegrationTest {
                 "test",
                 "root",
                 "independence24", // correct password
+                "helps",
+                "help test",
                 "help",
                 "exit"
         });
@@ -651,20 +648,35 @@ public class IntegrationTest {
                 "\n" +
                 "Do you want to try again? (<Y>-yes, <N>-no): \n" +
                 "Please, input your command:\n" +
-                "List of commands:" +
-                "\n\tconnect\n\t\tconnects to database you need." +
-                "\n\tcreate [table name] [column name] [column data type] ..." +
-                "\n\t\tcreates a table with inputed columns (table name must consist of one word). " +
-                "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
-                "\n\t\tdouble - floating point number." +
-                "\n\t\tExample: create student id int first_name varchar(45) mark double" +
-                "\n\tdrop [table name]\n\t\tdeletes a table of current database." +
-                "\n\texit\n\t\tcompletes database manager execution." +
-                "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +
-                "\n\thelp\n\t\tprovides the information of all database manager commands." +
-                "\n\tinsert [table name] [column name] [column value] ..." +
-                "\n\t\tinserts a new row with data into table." +
-                "\n\tlist\n\t\tdisplays all table names of the current database." +
+                "List of commands:\n" +
+                "\tclear [table name]\n" +
+                "\t\tdeletes all rows in pointed table (table name).\n" +
+                "\tconnect\n" +
+                "\t\tconnects to database you need.\n" +
+                "\tcreate [table name] [column name] [column data type] ...\n" +
+                "\t\tcreates a table with user pointed columns (table name must consist of one word).\n" +
+                "\t\tTypes of column: int - integer, varchar([size]) - string with size,\n" +
+                "\t\tdouble - floating point number.\n" +
+                "\t\tExample: create student id int first_name varchar(45) mark double\n" +
+                "\tdelete [table name] [column name] [row value]\n" +
+                "\t\tdeletes in pointed table row that contains pointed value (row value)\n" +
+                "\t\tin pointed column (column name).\n" +
+                "\tdrop [table name]\n" +
+                "\t\tdeletes a pointed table of current database.\n" +
+                "\texit\n" +
+                "\t\tcompletes database manager execution.\n" +
+                "\tfind [table name]\n" +
+                "\t\tdisplays data of the given table (table name).\n" +
+                "\thelp\n" +
+                "\t\tprovides the information of all database manager commands.\n" +
+                "\tinsert [table name] [column name] [column value] ...\n" +
+                "\t\tinserts a new row with data into table.\n" +
+                "\tlist\n" +
+                "\t\tdisplays all tables names of the current database.\n" +
+                "\tupdate [table name] [key column] [key value] [column name for new value] [new value] ...\n" +
+                "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
+                "\t\t(key column).Example:\n" +
+                "\t\tupdate test id 1 id 1 fname John weight 90.5" +
                 "\n" +
                 "Please, input your command:\n" +
                 "Please, input your database name: Please, input your user name: Please, input your password: \n" +
@@ -673,26 +685,46 @@ public class IntegrationTest {
                 "Connection has been successful!\n" +
                 "\n" +
                 "Please, input your command:\n" +
-                "List of commands:" +
-                "\n\tconnect\n\t\tconnects to database you need." +
-                "\n\tcreate [table name] [column name] [column data type] ..." +
-                "\n\t\tcreates a table with inputed columns (table name must consist of one word). " +
-                "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
-                "\n\t\tdouble - floating point number." +
-                "\n\t\tExample: create student id int first_name varchar(45) mark double" +
-                "\n\tdrop [table name]\n\t\tdeletes a table of current database." +
-                "\n\texit\n\t\tcompletes database manager execution." +
-                "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +
-                "\n\thelp\n\t\tprovides the information of all database manager commands." +
-                "\n\tinsert [table name] [column name] [column value] ..." +
-                "\n\t\tinserts a new row with data into table." +
-                "\n\tlist\n\t\tdisplays all table names of the current database." +
+                "Undetected command [helps]" +
+                "\n" +
+                "Please, input your command:\n" +
+                "Command error. This command hasn't any parameters." +
+                "\n" +
+                "Please, input your command:\n" +
+                "List of commands:\n" +
+                "\tclear [table name]\n" +
+                "\t\tdeletes all rows in pointed table (table name).\n" +
+                "\tconnect\n" +
+                "\t\tconnects to database you need.\n" +
+                "\tcreate [table name] [column name] [column data type] ...\n" +
+                "\t\tcreates a table with user pointed columns (table name must consist of one word).\n" +
+                "\t\tTypes of column: int - integer, varchar([size]) - string with size,\n" +
+                "\t\tdouble - floating point number.\n" +
+                "\t\tExample: create student id int first_name varchar(45) mark double\n" +
+                "\tdelete [table name] [column name] [row value]\n" +
+                "\t\tdeletes in pointed table row that contains pointed value (row value)\n" +
+                "\t\tin pointed column (column name).\n" +
+                "\tdrop [table name]\n" +
+                "\t\tdeletes a pointed table of current database.\n" +
+                "\texit\n" +
+                "\t\tcompletes database manager execution.\n" +
+                "\tfind [table name]\n" +
+                "\t\tdisplays data of the given table (table name).\n" +
+                "\thelp\n" +
+                "\t\tprovides the information of all database manager commands.\n" +
+                "\tinsert [table name] [column name] [column value] ...\n" +
+                "\t\tinserts a new row with data into table.\n" +
+                "\tlist\n" +
+                "\t\tdisplays all tables names of the current database.\n" +
+                "\tupdate [table name] [key column] [key value] [column name for new value] [new value] ...\n" +
+                "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
+                "\t\t(key column).Example:\n" +
+                "\t\tupdate test id 1 id 1 fname John weight 90.5" +
                 "\n" +
                 "Please, input your command:\n" +
                 "Your work in our manager is finished!\n" +
                 "Goodluck!", out.getData());
     }
-
 
     @Test
     public void undetectedTest() {
@@ -751,20 +783,35 @@ public class IntegrationTest {
                 "Undetected command [helps]" +
                 "\n" +
                 "Please, input your command:\n" +
-                "List of commands:" +
-                "\n\tconnect\n\t\tconnects to database you need." +
-                "\n\tcreate [table name] [column name] [column data type] ..." +
-                "\n\t\tcreates a table with inputed columns (table name must consist of one word). " +
-                "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
-                "\n\t\tdouble - floating point number." +
-                "\n\t\tExample: create student id int first_name varchar(45) mark double" +
-                "\n\tdrop [table name]\n\t\tdeletes a table of current database." +
-                "\n\texit\n\t\tcompletes database manager execution." +
-                "\n\tfind [table name]\n\t\tdisplays data of the given table which is called as table name." +
-                "\n\thelp\n\t\tprovides the information of all database manager commands." +
-                "\n\tinsert [table name] [column name] [column value] ..." +
-                "\n\t\tinserts a new row with data into table." +
-                "\n\tlist\n\t\tdisplays all table names of the current database." +
+                "List of commands:\n" +
+                "\tclear [table name]\n" +
+                "\t\tdeletes all rows in pointed table (table name).\n" +
+                "\tconnect\n" +
+                "\t\tconnects to database you need.\n" +
+                "\tcreate [table name] [column name] [column data type] ...\n" +
+                "\t\tcreates a table with user pointed columns (table name must consist of one word).\n" +
+                "\t\tTypes of column: int - integer, varchar([size]) - string with size,\n" +
+                "\t\tdouble - floating point number.\n" +
+                "\t\tExample: create student id int first_name varchar(45) mark double\n" +
+                "\tdelete [table name] [column name] [row value]\n" +
+                "\t\tdeletes in pointed table row that contains pointed value (row value)\n" +
+                "\t\tin pointed column (column name).\n" +
+                "\tdrop [table name]\n" +
+                "\t\tdeletes a pointed table of current database.\n" +
+                "\texit\n" +
+                "\t\tcompletes database manager execution.\n" +
+                "\tfind [table name]\n" +
+                "\t\tdisplays data of the given table (table name).\n" +
+                "\thelp\n" +
+                "\t\tprovides the information of all database manager commands.\n" +
+                "\tinsert [table name] [column name] [column value] ...\n" +
+                "\t\tinserts a new row with data into table.\n" +
+                "\tlist\n" +
+                "\t\tdisplays all tables names of the current database.\n" +
+                "\tupdate [table name] [key column] [key value] [column name for new value] [new value] ...\n" +
+                "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
+                "\t\t(key column).Example:\n" +
+                "\t\tupdate test id 1 id 1 fname John weight 90.5" +
                 "\n" +
                 "Please, input your command:\n" +
                 "Undetected command [creates]" +

@@ -3,10 +3,8 @@ package ua.com.rafael.controller.command;
 import java.io.IOException;
 import java.io.OutputStream;
 
-/**
- * Created by Alexandr Kruhlov on 09.08.2016.
- */
 public class LogOutStream extends OutputStream {
+
     private String log = "";
 
     @Override

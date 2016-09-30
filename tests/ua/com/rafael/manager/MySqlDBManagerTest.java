@@ -8,12 +8,9 @@ import org.junit.Test;
 import java.sql.SQLException;
 import java.util.Arrays;
 
-/**
- * Created by Alexandr Kruhlov on 15.07.2016.
- */
 public class MySqlDBManagerTest {
 
-    MySqlDBManager dBase = new MySqlDBManager();
+    private MySqlDBManager dBase = new MySqlDBManager();
 
     @Before
     public void preSetup() throws SQLException {
@@ -145,7 +142,6 @@ public class MySqlDBManagerTest {
     @Test
     public void clearTest() throws Exception {
         Row[] expected = null;
-
         for (int i = 1; i <= 3; i++) {
             Row input = new Row();
             input.put("id", i);
@@ -176,7 +172,6 @@ public class MySqlDBManagerTest {
     @Test
     public void updateTest() throws Exception {
         Row input = new Row();
-
         input.put("id", 1);
         input.put("fname", "JACK");
         input.put("time", 15.0);
@@ -194,7 +189,6 @@ public class MySqlDBManagerTest {
         Assert.assertEquals(Arrays.toString(expected), Arrays.toString(actual));
 
         toUpdate = new Row();
-
         toUpdate.put("id", 1);
         toUpdate.put("fname", "STAN");
         toUpdate.put("time", 11.0);

@@ -4,9 +4,6 @@ import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.manager.Row;
 import ua.com.rafael.view.View;
 
-/**
- * Created by Alexandr Kruhlov on 08.08.2016.
- */
 public class Find extends ConsoleCommand {
 
     private final View view;
@@ -28,15 +25,12 @@ public class Find extends ConsoleCommand {
     public void start(final String command) {
         final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         final String[] commandElements = command.split(SIGN_FOR_SPLIT);
-        final byte TABLE_NAME = 1;
-
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(ONE_PARAMETER_MESSAGE);
             return;
         }
 
-        final String[] columnNames = dbManager.getColumnNames(commandElements[TABLE_NAME]);
-
+        final String[] columnNames = dbManager.getColumnNames(commandElements[TABLE_NAME_INDEX]);
         final int
                 COLUMN_SIZE = 40,
                 LINE_LENGTH_FOR_ONE_COLUMN = COLUMN_SIZE + 2,
@@ -44,7 +38,7 @@ public class Find extends ConsoleCommand {
         printTableLine(LINE_LENGTH);
         printTableTop(columnNames, COLUMN_SIZE);
         printTableLine(LINE_LENGTH);
-        printTableRows(commandElements[TABLE_NAME], COLUMN_SIZE);
+        printTableRows(commandElements[TABLE_NAME_INDEX], COLUMN_SIZE);
         printTableLine(LINE_LENGTH);
     }
 

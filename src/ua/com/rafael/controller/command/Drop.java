@@ -3,10 +3,8 @@ package ua.com.rafael.controller.command;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
-/**
- * Created by Alexandr Kruhlov on 14.08.2016.
- */
 public class Drop extends ConsoleCommand {
+
     private final View view;
     private final DBManager dbManager;
 
@@ -26,7 +24,7 @@ public class Drop extends ConsoleCommand {
     public void start(final String command) {
         final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         final String[] commandElements = command.split(SIGN_FOR_SPLIT);
-        if (!isTheSameSize(commandModelElements,commandElements)){
+        if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(ONE_PARAMETER_MESSAGE);
             return;
         }

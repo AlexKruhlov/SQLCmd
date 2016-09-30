@@ -2,10 +2,8 @@ package ua.com.rafael.manager;
 
 import java.sql.Connection;
 
-/**
- * Created by Alexandr Kruhlov on 27.07.2016.
- */
 public interface DBManager {
+
     Connection connection(String dataBase, String user, String password);
 
     boolean isConnect();
@@ -18,9 +16,9 @@ public interface DBManager {
 
     void insert(String tablename, Row newRow);
 
-    void update(String tableName,String keyColumnName ,Object key, Row newValue);
+    void update(String tableName, String keyColumnName, Object key, Row newValue);
 
-    void delete(String tableName,String keyColumnName, Object rowValueToDeleteRow);
+    void delete(String tableName, String keyColumnName, Object rowValueToDeleteRow);
 
     void clear(String tableName);
 

@@ -6,13 +6,11 @@ import ua.com.rafael.controller.command.exception.SqlQueryException;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
-/**
- * Created by Alexandr Kruhlov on 07.08.2016.
- */
 public class MainController {
-    View view;
-    DBManager dbManager;
-    Command[] command;
+
+    private final View view;
+    private final DBManager dbManager;
+    private final Command[] command;
 
     public MainController(View view, DBManager dbManager) {
         this.view = view;
@@ -27,7 +25,7 @@ public class MainController {
                 new Find(view, dbManager),
                 new Insert(view, dbManager),
                 new Update(view, dbManager),
-                new Delete(view,dbManager),
+                new Delete(view, dbManager),
                 new Clear(view, dbManager),
                 new Drop(view, dbManager),
                 new Undetected(view)};

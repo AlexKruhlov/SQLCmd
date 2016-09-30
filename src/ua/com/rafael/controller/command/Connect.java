@@ -5,9 +5,6 @@ import ua.com.rafael.view.View;
 
 import java.sql.Connection;
 
-/**
- * Created by Alexandr Kruhlov on 08.08.2016.
- */
 public class Connect extends ConsoleCommand {
 
     private final View view;
@@ -29,7 +26,6 @@ public class Connect extends ConsoleCommand {
     public void start(final String command) {
         final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         final String[] commandElements = command.split(SIGN_FOR_SPLIT);
-
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(NO_PARAMETER_MESSAGE);
             return;

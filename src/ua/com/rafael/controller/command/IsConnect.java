@@ -3,12 +3,10 @@ package ua.com.rafael.controller.command;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
-/**
- * Created by Alexandr Kruhlov on 08.08.2016.
- */
 public class IsConnect extends ConsoleCommand {
-    private View view;
-    private DBManager dbManager;
+
+    private final View view;
+    private final DBManager dbManager;
 
     public IsConnect(View view, DBManager dbManager) {
         this.view = view;

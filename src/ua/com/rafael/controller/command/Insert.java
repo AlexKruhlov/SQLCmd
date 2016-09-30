@@ -3,9 +3,6 @@ package ua.com.rafael.controller.command;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
-/**
- * Created by Alexandr Kruhlov on 16.08.2016.
- */
 public class Insert extends ConsoleCommand {
 
     private final View view;
@@ -27,16 +24,12 @@ public class Insert extends ConsoleCommand {
     public void start(final String command) {
         final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         final String[] commandElements = command.split(SIGN_FOR_SPLIT);
-
         if (!isValidSize(commandModelElements, commandElements)) {
             view.print(MANY_PARAMETERS_MESSAGE);
             return;
         }
-
-        int columnNameIndex = 2;
-
         dbManager.insert(commandElements[TABLE_NAME_INDEX],
-                createRowForInsertionOrToUpdate(commandElements, columnNameIndex));
+                createRowForInsertionOrToUpdate(commandElements, COLUMN_NAME_INDEX));
         view.print("The table has got new row.");
     }
 

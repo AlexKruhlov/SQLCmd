@@ -3,10 +3,8 @@ package ua.com.rafael.controller.command;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
-/**
- * Created by Alexandr Kruhlov on 09.09.2016.
- */
 public class Update extends ConsoleCommand {
+
     private final View view;
     private final DBManager dbManager;
 
@@ -26,18 +24,14 @@ public class Update extends ConsoleCommand {
     public void start(String command) {
         final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
         final String[] commandElements = command.split(SIGN_FOR_SPLIT);
-
         if (!isValidSize(commandModelElements, commandElements)) {
             view.print(MANY_PARAMETERS_MESSAGE);
             return;
         }
-
-//        final int keyColumnIndex = 2;
-//        final int keyValueIndex = keyColumnIndex + 1;
         final int FIRST_COLUMN_NAME_INDEX = 4;
         dbManager.update(commandElements[TABLE_NAME_INDEX], commandElements[COLUMN_NAME_INDEX],
                 commandElements[VALUE_INDEX],
                 createRowForInsertionOrToUpdate(commandElements, FIRST_COLUMN_NAME_INDEX));
-        view.print("The table has updated.");
+        view.print("The table was updated.");
     }
 }

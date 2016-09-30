@@ -4,11 +4,8 @@ import ua.com.rafael.controller.command.exception.SqlQueryException;
 
 import java.sql.*;
 
-/**
- * Created by sigmund69 on 12.07.2016.
- */
-
 public class MySqlDBManager implements DBManager {
+
     byte FIRST_COLUMN = 1;
     private Connection connection;
 
@@ -16,16 +13,16 @@ public class MySqlDBManager implements DBManager {
     public Connection connection(String dataBase, String user, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-        } catch (Exception ex) {
-            System.out.println("[ERROR]: MySQL driver was not registered!"); // can not find cases to test this line
+        } catch (Exception exc) {
+            throw new RuntimeException("[ERROR]: MySQL driver was not registered!", exc);// can not find cases to test this line
         }
         try {
             connection =
                     DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dataBase +
                             "?autoReconnect=true&useSSL=false", user, password);
             return connection;
-        } catch (SQLException ex) {
-            throw new RuntimeException("Please, check your database name, user name and password!", ex);
+        } catch (SQLException exc) {
+            throw new RuntimeException("Please, check your database name, user name and password!", exc);
         }
     }
 
@@ -43,7 +40,6 @@ public class MySqlDBManager implements DBManager {
             }
             resultSet.last();
             int tableLength = resultSet.getRow();
-            int index = 0;
             String[] result = new String[tableLength];
             resultSet.first();
             for (int i = 0; i < tableLength; i++) {
@@ -70,8 +66,6 @@ public class MySqlDBManager implements DBManager {
             Row[] tables = new Row[rowCount];
             resultSet.first();
             for (int i = 0; i < rowCount; i++) {
-
-// todo  tables[i] = new Row(columnCount);
                 tables[i] = new Row();
                 for (int j = 0; j < columnCount; j++) {
                     tables[i].put(resultSet.getMetaData().getColumnName(j + 1), resultSet.getObject(j + 1));
