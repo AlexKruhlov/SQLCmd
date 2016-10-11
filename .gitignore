@@ -51,3 +51,6 @@ libs
 out
 Копия SQLCmd.docx
 sqlcmd.sh
+SQLcmd.iml
+.idea/
+target/
