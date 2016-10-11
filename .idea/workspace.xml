@@ -2,42 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="24b0fe09-e617-4a44-8d49-d17eb2280737" name="Default" comment="create class SqlQueryException implements RuntimeException" />
-    <list default="true" id="3e5c3b76-243a-4804-9bd9-63c386195397" name="New changelist" comment="create class Delete with all tests - refactor enother classes and interfaces">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SQLcmd.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/MainController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Clear.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Command.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Connect.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/ConsoleCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Create.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Delete.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Drop.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Exit.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Find.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Help.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Insert.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/IsConnect.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/List.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Undetected.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/Update.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/exception/ExitException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/controller/command/exception/SqlQueryException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/manager/DBManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/manager/MySqlDBManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/manager/Row.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/view/ConsoleView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ua/com/rafael/view/View.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/ua/com/rafael/controller/command/ConfigurableInputSream.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/ua/com/rafael/controller/command/IntegrationTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/ua/com/rafael/controller/command/LogOutStream.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/ua/com/rafael/manager/MainTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/ua/com/rafael/manager/MySqlDBManagerTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/ua/com/rafael/manager/RowTest.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="3e5c3b76-243a-4804-9bd9-63c386195397" name="New changelist" comment="create maven project - changing all">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/Main.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/MainController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Clear.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Command.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Connect.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/ConsoleCommand.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Create.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Delete.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Drop.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Exit.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Find.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Help.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Insert.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/IsConnect.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/List.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Undetected.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/controller/command/Update.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/manager/DBManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/manager/MySqlDBManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/manager/Row.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/view/ConsoleView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ua/com/rafael/view/View.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ua/com/rafael/controller/command/ConfigurableInputSream.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ua/com/rafael/controller/command/IntegrationTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ua/com/rafael/controller/command/LogOutStream.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ua/com/rafael/manager/MainTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ua/com/rafael/manager/MySqlDBManagerTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ua/com/rafael/manager/RowTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SQLcmd.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -534,6 +529,52 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rafael" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SQLCmd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SQLCmd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rafael" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="command" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -554,6 +595,108 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rafael" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SQLCmd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SQLCmd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rafael" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SQLCmd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SQLCmd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rafael" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SQLCmd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SQLCmd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rafael" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="command" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1472,14 +1615,7 @@
       <workItem from="1475145079736" duration="11784000" />
       <workItem from="1475231806737" duration="5283000" />
       <workItem from="1476204013511" duration="99000" />
-      <workItem from="1476204196918" duration="1512000" />
-    </task>
-    <task id="LOCAL-00002" summary="delete class UserInfo, create pacages manager and view, create class view">
-      <created>1469635191708</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1469635191708</updated>
+      <workItem from="1476204196918" duration="1782000" />
     </task>
     <task id="LOCAL-00003" summary="delete class UserInfo, create pacages manager and view, create class view">
       <created>1469635574652</created>
@@ -1817,7 +1953,14 @@
       <option name="project" value="LOCAL" />
       <updated>1475088038329</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="create maven project - changing all">
+      <created>1476205924979</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1476205925002</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1853,7 +1996,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="483393000" />
+    <option name="totallyTimeSpent" value="483663000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1940,7 +2083,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="false" />
-    <MESSAGE value="create class Validator -&gt; refactor isValid() within class Create" />
     <MESSAGE value="create abstract class ConsolCommand implements interface Command, delete class Validator - &gt; refactor class Clear" />
     <MESSAGE value="create Class Insert" />
     <MESSAGE value="refactor class Connect with integration tests" />
@@ -1965,7 +2107,8 @@
     <MESSAGE value="improve test covering" />
     <MESSAGE value="refactor class Row with tests - another classes" />
     <MESSAGE value="create class Delete with all tests - refactor enother classes and interfaces" />
-    <option name="LAST_COMMIT_MESSAGE" value="create class Delete with all tests - refactor enother classes and interfaces" />
+    <MESSAGE value="create maven project - changing all" />
+    <option name="LAST_COMMIT_MESSAGE" value="create maven project - changing all" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
