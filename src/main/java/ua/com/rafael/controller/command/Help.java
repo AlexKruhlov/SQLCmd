@@ -2,12 +2,19 @@ package ua.com.rafael.controller.command;
 
 import ua.com.rafael.view.View;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Help extends ConsoleCommand {
 
     private final View view;
 
-    public Help(View view) {
+    private final List<Command> allCommands;
+
+    public Help(View view, List allCommands) {
         this.view = view;
+        this.allCommands = allCommands;
     }
 
     private final String commandModel = "help";
@@ -26,28 +33,32 @@ public class Help extends ConsoleCommand {
             view.print(NO_PARAMETER_MESSAGE);
             return;
         }
-        view.print("List of commands:" +
-                "\n\tclear [table name]\n\t\tdeletes all rows in pointed table (table name)." +
-                "\n\tconnect\n\t\tconnects to database you need." +
-                "\n\tcreate [table name] [column name] [column data type] ..." +
-                "\n\t\tcreates a table with user pointed columns (table name must consist of one word)." +
-                "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
-                "\n\t\tdouble - floating point number." +
-                "\n\t\tExample: create student id int first_name varchar(45) mark double" +
-                "\n\tdelete [table name] [column name] [row value]" +
-                "\n\t\tdeletes in pointed table row that contains pointed value (row value)" +
-                "\n\t\tin pointed column (column name)." +
-                "\n\tdrop [table name]\n\t\tdeletes a pointed table of current database." +
-                "\n\texit\n\t\tcompletes database manager execution." +
-                "\n\tfind [table name]\n\t\tdisplays data of the given table (table name)." +
-                "\n\thelp\n\t\tprovides the information of all database manager commands." +
-                "\n\tinsert [table name] [column name] [column value] ..." +
-                "\n\t\tinserts a new row with data into table." +
-                "\n\tlist\n\t\tdisplays all tables names of the current database." +
-                "\n\tupdate [table name] [key column] [key value] [column name for new value] [new value] ..." +
-                "\n\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column" +
-                "\n\t\t(key column).Example:" +
-                "\n\t\tupdate test id 1 id 1 fname John weight 90.5"
-        );
+
+        view.print("List of commands:");
+        printListOfCommandsHelp(getSortedListOfCommandsHelp(allCommands));
+
+    }
+
+    private List<String> getSortedListOfCommandsHelp(List<Command> allCommands) {
+        List<String> helpList = new ArrayList<>();
+        for (Command com : allCommands) {
+            if (com.getHelp() != null) {
+                helpList.add(com.getHelp());
+            }
+        }
+        Collections.sort(helpList);
+        return helpList;
+    }
+
+    private void printListOfCommandsHelp(List<String> helpList) {
+        for (String comHelp : helpList) {
+            view.print("\n\t" + comHelp);
+        }
+    }
+
+    @Override
+    public String getHelp() {
+        return "help" +
+                "\n\t\tprovides the information of all database manager commands.";
     }
 }

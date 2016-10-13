@@ -31,6 +31,12 @@ public class Clear extends ConsoleCommand {
         dbManager.clear(commandElements[TABLE_NAME_INDEX]);
         view.print("This table was cleared.");
     }
+
+    @Override
+    public String getHelp() {
+        return "clear [table name]" +
+                "\n\t\tdeletes all rows in pointed table (table name).";
+    }
 }
 
 

@@ -6,4 +6,6 @@ public interface Command {
 
     void start(String command);
 
+    String getHelp();
+
 }

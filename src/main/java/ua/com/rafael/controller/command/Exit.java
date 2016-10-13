@@ -28,4 +28,10 @@ public class Exit extends ConsoleCommand {
         }
         throw new ExitException();
     }
+
+    @Override
+    public String getHelp() {
+        return "exit" +
+                "\n\t\tcompletes database manager execution.";
+    }
 }

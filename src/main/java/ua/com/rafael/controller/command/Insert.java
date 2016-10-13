@@ -33,5 +33,12 @@ public class Insert extends ConsoleCommand {
         view.print("The table has got new row.");
     }
 
+    @Override
+    public String getHelp() {
+        return "insert [table name] [column name] [column value] ..." +
+                "\n\t\tinserts a new row with data into table.";
+
+    }
+
 
 }

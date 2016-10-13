@@ -5,12 +5,12 @@ import ua.com.rafael.view.View;
 
 import java.util.Arrays;
 
-public class List extends ConsoleCommand {
+public class TablesList extends ConsoleCommand {
 
     private final View view;
     private final DBManager dbManager;
 
-    public List(View view, DBManager dbManager) {
+    public TablesList(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
     }
@@ -36,5 +36,11 @@ public class List extends ConsoleCommand {
             return;
         }
         view.print(Arrays.toString(tableList));
+    }
+
+    @Override
+    public String getHelp() {
+        return "list" +
+                "\n\t\tdisplays all tables names of the current database.";
     }
 }

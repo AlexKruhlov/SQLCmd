@@ -73,6 +73,12 @@ public class Find extends ConsoleCommand {
             }
         }
     }
+
+    @Override
+    public String getHelp() {
+        return "find [table name]" +
+                "\n\t\tdisplays data of the given table (table name).";
+    }
 }
 
 

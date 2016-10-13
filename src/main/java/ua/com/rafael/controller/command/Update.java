@@ -34,4 +34,12 @@ public class Update extends ConsoleCommand {
                 createRowForInsertionOrToUpdate(commandElements, FIRST_COLUMN_NAME_INDEX));
         view.print("The table was updated.");
     }
+
+    @Override
+    public String getHelp() {
+        return "update [table name] [key column] [key value] [column name for new value] [new value] ..." +
+                "\n\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column" +
+                "\n\t\t(key column).Example:" +
+                "\n\t\tupdate test id 1 id 1 fname John weight 90.5";
+    }
 }

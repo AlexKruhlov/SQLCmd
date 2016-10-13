@@ -22,4 +22,9 @@ public class IsConnect extends ConsoleCommand {
     public void start(final String command) {
         view.print("Please, connect to database! (For database connection you have to use command \"connect\")");
     }
+
+    @Override
+    public String getHelp() {
+        return null;
+    }
 }

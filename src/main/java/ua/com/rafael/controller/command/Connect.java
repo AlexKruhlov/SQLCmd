@@ -55,6 +55,8 @@ public class Connect extends ConsoleCommand {
         } while (choice.equals("Y") || choice.equals("y"));
     }
 
+
+
     private String getChoice() {
         String choice = null;
         do {
@@ -68,5 +70,11 @@ public class Connect extends ConsoleCommand {
         return resultStr.length() == 0 ||
                 !(resultStr.equals("N") || resultStr.equals("n") ||
                         resultStr.equals("Y") || resultStr.equals("y"));
+    }
+
+    @Override
+    public String getHelp() {
+        return "connect" +
+                "\n\t\tconnects to database you need.";
     }
 }

@@ -38,6 +38,15 @@ public class Create extends ConsoleCommand {
         dbManager.createTable(argumentsForNewTable);
         view.print("Table " + commandElements[TABLE_NAME_INDEX] + " was created");
     }
+
+    @Override
+    public String getHelp() {
+        return "create [table name] [column name] [column data type] ..." +
+                "\n\t\tcreates a table with user pointed columns (table name must consist of one word)." +
+                "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
+                "\n\t\tdouble - floating point number." +
+                "\n\t\tExample: create student id int first_name varchar(45) mark double";
+    }
 }
 
 

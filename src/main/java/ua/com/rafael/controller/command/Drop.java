@@ -31,4 +31,10 @@ public class Drop extends ConsoleCommand {
         dbManager.drop(commandElements[TABLE_NAME_INDEX]);
         view.print("The table was deleted.");
     }
+
+    @Override
+    public String getHelp() {
+        return "drop [table name]" +
+                "\n\t\tdeletes a pointed table of current database.";
+    }
 }

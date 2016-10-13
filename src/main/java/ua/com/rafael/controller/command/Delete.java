@@ -32,6 +32,13 @@ public class Delete extends ConsoleCommand {
                 commandElements[COLUMN_NAME_INDEX], commandElements[VALUE_INDEX]);
         view.print("The row was deleted.");
     }
+
+    @Override
+    public String getHelp() {
+        return "delete [table name] [column name] [row value]" +
+                "\n\t\tdeletes in pointed table row that contains pointed value (row value)" +
+                "\n\t\tin pointed column (column name).";
+    }
 }
 
 
