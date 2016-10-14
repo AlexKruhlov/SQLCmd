@@ -13,7 +13,7 @@ abstract class ConsoleCommand implements Command {
             COLUMN_NAME_INDEX = 2,
             VALUE_INDEX = 3;
 
-    public final String SIGN_FOR_SPLIT = " ";
+    public final String SIGN_FOR_SPLIT = "|";
 
     public final String
             NO_PARAMETER_MESSAGE = "Command error. This command hasn't any parameters.",

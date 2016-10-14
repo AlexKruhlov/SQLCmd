@@ -9,16 +9,31 @@ import java.io.PrintStream;
 
 public class IntegrationTest {
 
+    private final String INTRODUSE_MESSAGE = "Welcome to console database manager!\n" +
+            "Please, input your database name: Please, input your user name: Please, input your password: \n" +
+            "Connection process...\n" +
+            "\nConnection has been successful!\n";
+    private final String EXIT_MESSAGE = "Your work in our manager is finished!\n" +
+            "Goodluck!";
+    private final String INPUT_COMMAND_MESSAGE = "\nPlease, input your command:\n";
+
     private ConfigurableInputSream in;
     private LogOutStream out;
+    private final String SIGN_OF_SPLIT = "|";
+    private String databaseName;
+    private String userName;
+    private String password;
 
     @Before
     public void setup() {
         in = new ConfigurableInputSream();
         out = new LogOutStream();
-
         System.setIn(in);
         System.setOut(new PrintStream(out));
+
+        databaseName = "test";
+        userName = "root";
+        password = "independence24";
     }
 
     @Test
@@ -28,7 +43,7 @@ public class IntegrationTest {
                 "root",
                 "independence24",
                 "n",  //Do you want to try again? (<Y>-yes, <N>-no): n
-                "connect schema", //fail command syntax
+                "connect" + SIGN_OF_SPLIT + "schema", //fail command syntax
                 "exit"
         });
 
@@ -41,13 +56,11 @@ public class IntegrationTest {
                 "Could not create connection to database server. Attempted reconnect 3 times. Giving up.\n" +
                 "Please, check your database name, user name and password!\n" +
                 "\n" +
-                "Do you want to try again? (<Y>-yes, <N>-no): \n" +
-                "Please, input your command:\n" +
+                "Do you want to try again? (<Y>-yes, <N>-no): " +
+                INPUT_COMMAND_MESSAGE +
                 "Command error. This command hasn't any parameters." +
-                "\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
@@ -57,12 +70,13 @@ public class IntegrationTest {
                 "root",
                 "independence24",
                 "y",  //Do you want to try again? (<Y>-yes, <N>-no): y
-                "test",  //right database name
-                "root",
-                "independence24",
-                "create test id int first_name varchar(45)",
+                databaseName,  //right database name
+                userName,
+                password,
+                "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int" +
+                        SIGN_OF_SPLIT + "first_name varchar(45)",
                 "list",
-                "drop test",
+                "drop" + SIGN_OF_SPLIT + "test",
                 "exit"
         });
 
@@ -79,450 +93,372 @@ public class IntegrationTest {
                 "Connection process...\n" +
                 "\n" +
                 "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Table test was created\n" +
-                "Please, input your command:\n" +
-                "[test]\n" +
-                "Please, input your command:\n" +
-                "The table was deleted.\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                "Table test was created" +
+                INPUT_COMMAND_MESSAGE +
+                "[test]" +
+                INPUT_COMMAND_MESSAGE +
+                "The table was deleted." +
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
     public void createTableTest() {
         in.addAll(new String[]{
-                "test",  //right database name
-                "root",
-                "independence24",
+                databaseName,
+                userName,
+                password,
                 "list",
-                "create test int first_name varchar(45)", // incorrect number of parameters
-                "create test id inte first_name varchar(45)", // incorrect column type (inte, but int is correct)
-                "create test id int first_name varchar(45)", // correct command
-                "print test",
-                "drop test",
-                "create test*$ id int",
+                "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "int" +
+                        SIGN_OF_SPLIT + "first_name varchar(45)", // incorrect number of parameters
+                "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "inte" + SIGN_OF_SPLIT +
+                        "first_name varchar(45)", // incorrect column type (inte, but int is correct)
+                "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int" + SIGN_OF_SPLIT
+                        + "first_name varchar(45)", // correct command
+                "print" + SIGN_OF_SPLIT + "test",
+                "drop" + SIGN_OF_SPLIT + "test",
+                "create" + SIGN_OF_SPLIT + "test*$" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int",
                 "exit"
         });
 
         Main.main(new String[0]);
 
-        Assert.assertEquals("Welcome to console database manager!\n" +
-                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
-                "Connection process...\n" +
-                "\n" +
-                "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
+        Assert.assertEquals(INTRODUSE_MESSAGE +
+                INPUT_COMMAND_MESSAGE +
                 "Current database haven't any table" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Command error. Please, check the number of command parameters." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Some of these column types are incorrect" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Table test was created" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------------------------------------------------|\n" +
                 "\t| id                                      | first_name                              |\n" +
                 "\t|-----------------------------------------------------------------------------------|\n" +
                 "\t|-----------------------------------------------------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "The table was deleted." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server " +
                 "version for the right syntax to use near '*$(id int NOT NULL)' at line 1" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
     public void dropTest() {
         in.addAll(new String[]{
-                "test",  //right database name
-                "root",
-                "independence24",
-                "create test id int",
+                databaseName,
+                userName,
+                password,
+                "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int",
                 "list",
-                "drop test test",
-                "drop test1",
-                "drop test",
+                "drop" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "test",
+                "drop" + SIGN_OF_SPLIT + "test1",
+                "drop" + SIGN_OF_SPLIT + "test",
                 "list",
                 "exit"
         });
 
         Main.main(new String[0]);
 
-        Assert.assertEquals("Welcome to console database manager!\n" +
-                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
-                "Connection process...\n" +
-                "\n" +
-                "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
+        Assert.assertEquals(INTRODUSE_MESSAGE +
+                INPUT_COMMAND_MESSAGE +
                 "Table test was created" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "[test]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Command error. This command must have one parameter." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Unknown table 'test.test1'" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "The table was deleted." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Current database haven't any table" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
     public void exitTest() {
         in.addAll(new String[]{
-                "test",  //right database name
-                "root",
-                "independence24",
+                databaseName,
+                userName,
+                password,
                 "list",
-                "exit exit",
+                "exit" + SIGN_OF_SPLIT + "exit",
                 "exit"
         });
 
         Main.main(new String[0]);
 
-        Assert.assertEquals("Welcome to console database manager!\n" +
-                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
-                "Connection process...\n" +
-                "\n" +
-                "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
+        Assert.assertEquals(INTRODUSE_MESSAGE +
+                INPUT_COMMAND_MESSAGE +
                 "Current database haven't any table" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Command error. This command hasn't any parameters." +
-                "\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
     public void clearTest() {
         in.addAll(new String[]{
-                "test",
-                "root",
-                "independence24",
-                "clear test",
-                "create test id int",
-                "insert test id 1",
-                "print test",
-                "clear test test",
-                "clear test",
-                "print test",
-                "drop test",
+                databaseName,
+                userName,
+                password,
+                "clear" + SIGN_OF_SPLIT + "test",
+                "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int",
+                "insert" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "1",
+                "print" + SIGN_OF_SPLIT + "test",
+                "clear" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "test",
+                "clear" + SIGN_OF_SPLIT + "test",
+                "print" + SIGN_OF_SPLIT + "test",
+                "drop" + SIGN_OF_SPLIT + "test",
                 "exit"
         });
 
         Main.main(new String[0]);
 
-        Assert.assertEquals("Welcome to console database manager!\n" +
-                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
-                "Connection process...\n" +
-                "\n" +
-                "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
+        Assert.assertEquals(INTRODUSE_MESSAGE +
+                INPUT_COMMAND_MESSAGE +
                 "Table 'test.test' doesn't exist" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Table test was created\n" +
-                "Please, input your command:\n" +
-                "The table has got new row.\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
+                "Table test was created" +
+                INPUT_COMMAND_MESSAGE +
+                "The table has got new row." +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------|\n" +
                 "\t| id                                      |\n" +
                 "\t|-----------------------------------------|\n" +
                 "\t| 1                                       |\n" +
                 "\t|-----------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Command error. This command must have one parameter." +
-                "\n" +
-                "Please, input your command:\n" +
-                "This table was cleared.\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
+                "This table was cleared." +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------|\n" +
                 "\t| id                                      |\n" +
                 "\t|-----------------------------------------|\n" +
                 "\t|-----------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
-                "The table was deleted.\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                "The table was deleted." +
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
     public void printTest() {
         in.addAll(new String[]{
-                "test",
-                "root",
-                "independence24",
-                "print test",
-                "create test id int",
-                "insert test id 1",
-                "print test test",
-                "print test",
-                "clear test",
-                "print test",
-                "drop test",
-                "print test",
+                databaseName,
+                userName,
+                password,
+                "print" + SIGN_OF_SPLIT + "test",
+                "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int",
+                "insert" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "1",
+                "print" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "test",
+                "print" + SIGN_OF_SPLIT + "test",
+                "clear" + SIGN_OF_SPLIT + "test",
+                "print" + SIGN_OF_SPLIT + "test",
+                "drop" + SIGN_OF_SPLIT + "test",
+                "print" + SIGN_OF_SPLIT + "test",
                 "exit"
         });
 
         Main.main(new String[0]);
 
-        Assert.assertEquals("Welcome to console database manager!\n" +
-                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
-                "Connection process...\n" +
-                "\n" +
-                "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
+        Assert.assertEquals(INTRODUSE_MESSAGE +
+                INPUT_COMMAND_MESSAGE +
                 "Table 'test.test' doesn't exist" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Table test was created\n" +
-                "Please, input your command:\n" +
-                "The table has got new row.\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
+                "Table test was created" +
+                INPUT_COMMAND_MESSAGE +
+                "The table has got new row." +
+                INPUT_COMMAND_MESSAGE +
                 "Command error. This command must have one parameter." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------|\n" +
                 "\t| id                                      |\n" +
                 "\t|-----------------------------------------|\n" +
                 "\t| 1                                       |\n" +
                 "\t|-----------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
-                "This table was cleared.\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
+                "This table was cleared." +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------|\n" +
                 "\t| id                                      |\n" +
                 "\t|-----------------------------------------|\n" +
                 "\t|-----------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
-                "The table was deleted.\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
+                "The table was deleted." +
+                INPUT_COMMAND_MESSAGE +
                 "Table 'test.test' doesn't exist" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
     public void insertTest() {
         in.addAll(new String[]{
-                "test",
-                "root",
-                "independence24",
-                "create test id int",
-                "print test",
-                "insert test id",
-                "insert test id int",
-                "insert test id 1",
-                "print test",
-                "drop test",
+                databaseName,
+                userName,
+                password,
+                "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int",
+                "print" + SIGN_OF_SPLIT + "test",
+                "insert" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id",
+                "insert" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int",
+                "insert" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "1",
+                "print" + SIGN_OF_SPLIT + "test",
+                "drop" + SIGN_OF_SPLIT + "test",
                 "exit"
         });
 
         Main.main(new String[0]);
 
-        Assert.assertEquals("Welcome to console database manager!\n" +
-                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
-                "Connection process...\n" +
-                "\n" +
-                "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Table test was created\n" +
-                "Please, input your command:\n" +
+        Assert.assertEquals(INTRODUSE_MESSAGE +
+                INPUT_COMMAND_MESSAGE +
+                "Table test was created" +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------|\n" +
                 "\t| id                                      |\n" +
                 "\t|-----------------------------------------|\n" +
                 "\t|-----------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Command error. Please, check the number of command parameters." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Incorrect integer value: 'int' for column 'id' at row 1" +
-                "\n" +
-                "Please, input your command:\n" +
-                "The table has got new row.\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
+                "The table has got new row." +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------|\n" +
                 "\t| id                                      |\n" +
                 "\t|-----------------------------------------|\n" +
                 "\t| 1                                       |\n" +
                 "\t|-----------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
-                "The table was deleted.\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                "The table was deleted." +
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
     public void updateTest() {
         in.addAll(new String[]{
-                "test",
-                "root",
-                "independence24",
-                "create test id int fname varchar(45) weight double",
-                "insert test id 1 fname Alex weight 70.1",
-                "print test",
-                "updates test",
-                "update test",
-                "update test1 id 1 id 1 fname Maria weight 60",
-                "update test id 1 id 1 fname Maria weight 60",
-                "print test",
-                "drop test",
+                databaseName,
+                userName,
+                password,
+                "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int" + SIGN_OF_SPLIT +
+                        "fname" + SIGN_OF_SPLIT + "varchar(45)" + SIGN_OF_SPLIT + "weight" + SIGN_OF_SPLIT + "double",
+                "insert" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT +
+                        "1" + SIGN_OF_SPLIT + "fname" + SIGN_OF_SPLIT + "Alex" + SIGN_OF_SPLIT +
+                        "weight" + SIGN_OF_SPLIT + "70.1",
+                "print" + SIGN_OF_SPLIT + "test",
+                "updates" + SIGN_OF_SPLIT + "test",
+                "update" + SIGN_OF_SPLIT + "test",
+                "update" + SIGN_OF_SPLIT + "test1" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "1" + SIGN_OF_SPLIT +
+                        "id" + SIGN_OF_SPLIT + "1" + SIGN_OF_SPLIT + "fname" + SIGN_OF_SPLIT +
+                        "Maria" + SIGN_OF_SPLIT + "weight" + SIGN_OF_SPLIT + "60",
+                "update" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "1" + SIGN_OF_SPLIT +
+                        "id" + SIGN_OF_SPLIT + "1" + SIGN_OF_SPLIT + "fname" + SIGN_OF_SPLIT +
+                        "Maria" + SIGN_OF_SPLIT + "weight" + SIGN_OF_SPLIT + "60",
+                "print" + SIGN_OF_SPLIT + "test",
+                "drop" + SIGN_OF_SPLIT + "test",
                 "exit"
         });
 
         Main.main(new String[0]);
 
-        Assert.assertEquals("Welcome to console database manager!\n" +
-                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
-                "Connection process...\n" +
-                "\n" +
-                "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Table test was created\n" +
-                "Please, input your command:\n" +
-                "The table has got new row.\n" +
-                "Please, input your command:\n" +
+        Assert.assertEquals(INTRODUSE_MESSAGE +
+                INPUT_COMMAND_MESSAGE +
+                "Table test was created" +
+                INPUT_COMMAND_MESSAGE +
+                "The table has got new row." +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
                 "	| id                                      | fname                                   | weight                                  |\n" +
                 "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
                 "	| 1                                       | Alex                                    | 70.1                                    |\n" +
                 "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [updates]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Command error. Please, check the number of command parameters." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Table 'test.test1' doesn't exist" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "The table was updated." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
                 "	| id                                      | fname                                   | weight                                  |\n" +
                 "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
                 "	| 1                                       | Maria                                   | 60.0                                    |\n" +
                 "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
-                "The table was deleted.\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                "The table was deleted." +
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
     public void DeleteTest() {
         in.addAll(new String[]{
-                "test",
-                "root",
-                "independence24",
-                "create test id int fname varchar(45) weight double",
-                "insert test id 1 fname Mike weight 75.1",
-                "insert test id 2 fname Ellis weight 60.02",
-                "del test fname Mike",
-                "delete test Mike",
-                "delete test1 fname Mike",
-                "delete test fname Mike",
-                "print test",
-                "delete test weight 60.02",
-                "print test",
-                "drop test",
+                databaseName,
+                userName,
+                password,
+                "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int" + SIGN_OF_SPLIT +
+                        "fname" + SIGN_OF_SPLIT + "varchar(45)" + SIGN_OF_SPLIT + "weight" + SIGN_OF_SPLIT + "double",
+                "insert" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "1" + SIGN_OF_SPLIT +
+                        "fname" + SIGN_OF_SPLIT + "Mike" + SIGN_OF_SPLIT + "weight" + SIGN_OF_SPLIT + "75.1",
+                "insert" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "2" + SIGN_OF_SPLIT +
+                        "fname" + SIGN_OF_SPLIT + "Ellis" + SIGN_OF_SPLIT + "weight" + SIGN_OF_SPLIT + "60.02",
+                "del" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "fname" + SIGN_OF_SPLIT + "Mike",
+                "delete" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "Mike",
+                "delete" + SIGN_OF_SPLIT + "test1" + SIGN_OF_SPLIT + "fname" + SIGN_OF_SPLIT + "Mike",
+                "delete" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "fname" + SIGN_OF_SPLIT + "Mike",
+                "print" + SIGN_OF_SPLIT + "test",
+                "delete" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "weight" + SIGN_OF_SPLIT + "60.02",
+                "print" + SIGN_OF_SPLIT + "test",
+                "drop" + SIGN_OF_SPLIT + "test",
                 "exit"
         });
 
         Main.main(new String[0]);
 
-        Assert.assertEquals("Welcome to console database manager!\n" +
-                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
-                "Connection process...\n" +
-                "\n" +
-                "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Table test was created\n" +
-                "Please, input your command:\n" +
-                "The table has got new row.\n" +
-                "Please, input your command:\n" +
-                "The table has got new row.\n" +
-                "Please, input your command:\n" +
+        Assert.assertEquals(INTRODUSE_MESSAGE +
+                INPUT_COMMAND_MESSAGE +
+                "Table test was created" +
+                INPUT_COMMAND_MESSAGE +
+                "The table has got new row." +
+                INPUT_COMMAND_MESSAGE +
+                "The table has got new row." +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [del]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Command error. Please, check the number of command parameters." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Table 'test.test1' doesn't exist" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "The row was deleted." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
                 "	| id                                      | fname                                   | weight                                  |\n" +
                 "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
                 "	| 2                                       | Ellis                                   | 60.02                                   |\n" +
                 "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "The row was deleted." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------------------------------------------------------------------------------------------|\n" +
                 "	| id                                      | fname                                   | weight                                  |\n" +
                 "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
                 "	|-----------------------------------------------------------------------------------------------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
-                "The table was deleted.\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                "The table was deleted." +
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
@@ -534,9 +470,9 @@ public class IntegrationTest {
                 "N",
                 "list",
                 "connect",
-                "test",
-                "root",  //correct login
-                "independence24",
+                databaseName,
+                userName,
+                password,
                 "list",
                 "exit"
         });
@@ -550,72 +486,57 @@ public class IntegrationTest {
                 "Could not create connection to database server. Attempted reconnect 3 times. Giving up.\n" +
                 "Please, check your database name, user name and password!\n" +
                 "\n" +
-                "Do you want to try again? (<Y>-yes, <N>-no): \n" +
-                "Please, input your command:\n" +
+                "Do you want to try again? (<Y>-yes, <N>-no): " +
+                INPUT_COMMAND_MESSAGE +
                 "Please, connect to database! (For database connection you have to use command \"connect\")" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Please, input your database name: Please, input your user name: Please, input your password: \n" +
                 "Connection process...\n" +
                 "\n" +
                 "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Current database haven't any table" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
     public void listTest() {
         in.addAll(new String[]{
-                "test",
-                "root",
-                "independence24",
-                "create test1 id int first_name varchar(45)",
-                "create test2 id int first_name varchar(45)",
-                "list table",
+                databaseName,
+                userName,
+                password,
+                "create" + SIGN_OF_SPLIT + "test1" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int" + SIGN_OF_SPLIT +
+                        "first_name" + SIGN_OF_SPLIT + "varchar(45)",
+                "create" + SIGN_OF_SPLIT + "test2" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int" + SIGN_OF_SPLIT +
+                        "first_name" + SIGN_OF_SPLIT + "varchar(45)",
+                "list" + SIGN_OF_SPLIT + "table",
                 "list",
-                "drop test1",
-                "drop test2",
+                "drop" + SIGN_OF_SPLIT + "test1",
+                "drop" + SIGN_OF_SPLIT + "test2",
                 "list",
                 "exit"
         });
 
         Main.main(new String[0]);
 
-        Assert.assertEquals("Welcome to console database manager!\n" +
-                "Please, input your database name: Please, input your user name: Please, input your password: \n" +
-                "Connection process...\n" +
-                "\n" +
-                "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
+        Assert.assertEquals(INTRODUSE_MESSAGE +
+                INPUT_COMMAND_MESSAGE +
                 "Table test1 was created" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Table test2 was created" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Command error. This command hasn't any parameters." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "[test1, test2]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "The table was deleted." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "The table was deleted." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Current database haven't any table" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
@@ -627,9 +548,9 @@ public class IntegrationTest {
                 "n",
                 "help",
                 "connect",
-                "test",
-                "root",
-                "independence24", // correct password
+                databaseName,
+                userName,
+                password,
                 "helps",
                 "help test",
                 "help",
@@ -645,8 +566,8 @@ public class IntegrationTest {
                 "Could not create connection to database server. Attempted reconnect 3 times. Giving up.\n" +
                 "Please, check your database name, user name and password!\n" +
                 "\n" +
-                "Do you want to try again? (<Y>-yes, <N>-no): \n" +
-                "Please, input your command:\n" +
+                "Do you want to try again? (<Y>-yes, <N>-no): " +
+                INPUT_COMMAND_MESSAGE +
                 "List of commands:\n" +
                 "\tclear [table name]\n" +
                 "\t\tdeletes all rows in pointed table (table name).\n" +
@@ -676,20 +597,16 @@ public class IntegrationTest {
                 "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
                 "\t\tupdate test id 1 id 1 fname John weight 90.5" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Please, input your database name: Please, input your user name: Please, input your password: \n" +
                 "Connection process...\n" +
                 "\n" +
                 "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [helps]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Command error. This command hasn't any parameters." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "List of commands:\n" +
                 "\tclear [table name]\n" +
                 "\t\tdeletes all rows in pointed table (table name).\n" +
@@ -719,10 +636,8 @@ public class IntegrationTest {
                 "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
                 "\t\tupdate test id 1 id 1 fname John weight 90.5" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 
     @Test
@@ -734,24 +649,24 @@ public class IntegrationTest {
                 "n",
                 "connection", //incorrect command
                 "connect",
-                "test",
-                "root",
-                "independence24", //correct password
+                databaseName,
+                userName,
+                password,
                 "connection", //incorrect command
                 "helps", //incorrect command
                 "help",
-                "creates test id int", //incorrect command
-                "create test id int",
+                "creates" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int", //incorrect command
+                "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int",
                 "lister", //incorrect command
                 "list",
-                "insertion test id 1", //incorrect command
-                "insert test id 1",
-                "printe test", //incorrect command
-                "print test",
-                "clearing test", //incorrect command
-                "clear test",
-                "drops test", //incorrect command
-                "drop test",
+                "insertion" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "1", //incorrect command
+                "insert" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "1",
+                "printe" + SIGN_OF_SPLIT + "test", //incorrect command
+                "print" + SIGN_OF_SPLIT + "test",
+                "clearing" + SIGN_OF_SPLIT + "test", //incorrect command
+                "clear" + SIGN_OF_SPLIT + "test",
+                "drops" + SIGN_OF_SPLIT + "test", //incorrect command
+                "drop" + SIGN_OF_SPLIT + "test",
                 "eksit", //incorrect command
                 "exit"
         });
@@ -765,23 +680,19 @@ public class IntegrationTest {
                 "Could not create connection to database server. Attempted reconnect 3 times. Giving up.\n" +
                 "Please, check your database name, user name and password!\n" +
                 "\n" +
-                "Do you want to try again? (<Y>-yes, <N>-no): \n" +
-                "Please, input your command:\n" +
+                "Do you want to try again? (<Y>-yes, <N>-no): " +
+                INPUT_COMMAND_MESSAGE +
                 "Please, connect to database! (For database connection you have to use command \"connect\")" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Please, input your database name: Please, input your user name: Please, input your password: \n" +
                 "Connection process...\n" +
                 "\n" +
                 "Connection has been successful!\n" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [connection]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [helps]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "List of commands:\n" +
                 "\tclear [table name]\n" +
                 "\t\tdeletes all rows in pointed table (table name).\n" +
@@ -811,52 +722,37 @@ public class IntegrationTest {
                 "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
                 "\t\tupdate test id 1 id 1 fname John weight 90.5" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [creates]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Table test was created" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [lister]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "[test]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [insertion]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "The table has got new row." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [printe]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "\t|-----------------------------------------|\n" +
                 "\t| id                                      |\n" +
                 "\t|-----------------------------------------|\n" +
                 "\t| 1                                       |\n" +
                 "\t|-----------------------------------------|\n" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [clearing]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "This table was cleared." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [drops]" +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "The table was deleted." +
-                "\n" +
-                "Please, input your command:\n" +
+                INPUT_COMMAND_MESSAGE +
                 "Undetected command [eksit]" +
-                "\n" +
-                "Please, input your command:\n" +
-                "Your work in our manager is finished!\n" +
-                "Goodluck!", out.getData());
+                INPUT_COMMAND_MESSAGE +
+                EXIT_MESSAGE, out.getData());
     }
 }
