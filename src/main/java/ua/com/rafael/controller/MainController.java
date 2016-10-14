@@ -44,7 +44,7 @@ public class MainController {
         String inputedCommand = commands.get(COMMAND).getClass().getSimpleName().toString().toLowerCase();
         try {
             while (true) {
-                for (Command comm : (List<Command>) commands) {
+                for (Command comm : commands) {
                     if (comm.isValid(inputedCommand)) {
                         try {
                             comm.start(inputedCommand);

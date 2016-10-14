@@ -1,5 +1,6 @@
 package ua.com.rafael.controller.command;
 
+import org.apache.commons.lang3.StringUtils;
 import ua.com.rafael.manager.Row;
 
 import java.util.Arrays;
@@ -24,8 +25,8 @@ abstract class ConsoleCommand implements Command {
 
     public boolean compareCommandName(String commandModel, String command) {
         final int COMMAND_INDEX = 0;
-        String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
-        String[] commandElements = command.split(SIGN_FOR_SPLIT);
+        String[] commandModelElements = getCommandElements(commandModel);
+        String[] commandElements = getCommandElements(command);
         return commandModelElements[COMMAND_INDEX].equals(commandElements[COMMAND_INDEX]);
     }
 
@@ -44,7 +45,7 @@ abstract class ConsoleCommand implements Command {
                 NEXT_TYPE = 2;
         final byte TYPE_WITHOUT_SIZE = 0;
         for (int currentType = FIRST_TYPE; currentType < commandElements.length; currentType += NEXT_TYPE) {
-            String[] typeElements = commandElements[currentType].split("[(]");
+            String[] typeElements = StringUtils.split(commandElements[currentType], '(');
             if (!isCorrectColumnType(typeElements[TYPE_WITHOUT_SIZE])) {
                 return false;
             }
@@ -55,15 +56,11 @@ abstract class ConsoleCommand implements Command {
     private boolean isCorrectColumnType(String currentColumnType) {
         String[] sortedCorrectColumnTypes = Arrays.copyOf(correctColumnTypes, correctColumnTypes.length);
         Arrays.sort(sortedCorrectColumnTypes);
-        int resultOfTypeSerching = Arrays.binarySearch(sortedCorrectColumnTypes, currentColumnType);
+        int resultOfTypeSearching = Arrays.binarySearch(sortedCorrectColumnTypes, currentColumnType);
         final int FIRST_CONDITION_ELEMENT_NOT_FOUND = -1,
                 SECOND_CONDITION_ELEMENT_NOT_FOUND = sortedCorrectColumnTypes.length;
-        if (resultOfTypeSerching <= FIRST_CONDITION_ELEMENT_NOT_FOUND ||
-                resultOfTypeSerching == SECOND_CONDITION_ELEMENT_NOT_FOUND) {
-            return false;
-        } else {
-            return true;
-        }
+        return !(resultOfTypeSearching <= FIRST_CONDITION_ELEMENT_NOT_FOUND ||
+                resultOfTypeSearching == SECOND_CONDITION_ELEMENT_NOT_FOUND);
     }
 
     public Row createRowForInsertionOrToUpdate(final String[] commandElements, int columnNameIndex) {
@@ -75,5 +72,9 @@ abstract class ConsoleCommand implements Command {
             columnNameIndex += NEXT_COLUMN;
         }
         return row;
+    }
+
+    protected String[] getCommandElements(String command) {
+        return StringUtils.split(command, SIGN_FOR_SPLIT);
     }
 }

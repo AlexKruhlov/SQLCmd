@@ -17,7 +17,7 @@ public class Undetected extends ConsoleCommand {
 
     @Override
     public void start(String command) {
-        final String[] commandElelments = command.split(SIGN_FOR_SPLIT);
+        final String[] commandElelments = getCommandElements(command);
         view.print("Undetected command [" + commandElelments[COMMAND_NAME_INDEX] + "]");
     }
 

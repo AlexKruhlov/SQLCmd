@@ -23,8 +23,8 @@ public class Find extends ConsoleCommand {
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
-        final String[] commandElements = command.split(SIGN_FOR_SPLIT);
+        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandElements = getCommandElements(command);
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(ONE_PARAMETER_MESSAGE);
             return;

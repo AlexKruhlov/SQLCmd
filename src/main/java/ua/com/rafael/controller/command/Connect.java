@@ -24,8 +24,8 @@ public class Connect extends ConsoleCommand {
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = commandModel.split(SIGN_FOR_SPLIT);
-        final String[] commandElements = command.split(SIGN_FOR_SPLIT);
+        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandElements = getCommandElements(command);
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(NO_PARAMETER_MESSAGE);
             return;
@@ -55,10 +55,8 @@ public class Connect extends ConsoleCommand {
         } while (choice.equals("Y") || choice.equals("y"));
     }
 
-
-
     private String getChoice() {
-        String choice = null;
+        String choice;
         do {
             view.print("\n\nDo you want to try again? (<Y>-yes, <N>-no): ");
             choice = view.readLine();
