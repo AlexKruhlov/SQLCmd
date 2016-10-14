@@ -4,17 +4,17 @@ import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.manager.Row;
 import ua.com.rafael.view.View;
 
-public class Find extends ConsoleCommand {
+public class PrintTable extends ConsoleCommand {
 
     private final View view;
     private final DBManager dbManager;
 
-    public Find(View view, DBManager dbManager) {
+    public PrintTable(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
     }
 
-    private final String commandModel = "find table_Name";
+    private final String commandModel = "print table_Name";
 
     @Override
     public boolean isValid(final String command) {
@@ -76,7 +76,7 @@ public class Find extends ConsoleCommand {
 
     @Override
     public String getHelp() {
-        return "find [table name]" +
+        return "print [table name]" +
                 "\n\t\tdisplays data of the given table (table name).";
     }
 }

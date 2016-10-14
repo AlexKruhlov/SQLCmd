@@ -3,12 +3,12 @@ package ua.com.rafael.controller.command;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
-public class Update extends ConsoleCommand {
+public class UpdateRow extends ConsoleCommand {
 
     private final View view;
     private final DBManager dbManager;
 
-    public Update(View view, DBManager dbManager) {
+    public UpdateRow(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
     }

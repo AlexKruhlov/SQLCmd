@@ -19,7 +19,6 @@ public class IntegrationTest {
 
         System.setIn(in);
         System.setOut(new PrintStream(out));
-
     }
 
     @Test
@@ -93,7 +92,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void createTest() {
+    public void createTableTest() {
         in.addAll(new String[]{
                 "test",  //right database name
                 "root",
@@ -102,7 +101,7 @@ public class IntegrationTest {
                 "create test int first_name varchar(45)", // incorrect number of parameters
                 "create test id inte first_name varchar(45)", // incorrect column type (inte, but int is correct)
                 "create test id int first_name varchar(45)", // correct command
-                "find test",
+                "print test",
                 "drop test",
                 "create test*$ id int",
                 "exit"
@@ -231,10 +230,10 @@ public class IntegrationTest {
                 "clear test",
                 "create test id int",
                 "insert test id 1",
-                "find test",
+                "print test",
                 "clear test test",
                 "clear test",
-                "find test",
+                "print test",
                 "drop test",
                 "exit"
         });
@@ -280,20 +279,20 @@ public class IntegrationTest {
     }
 
     @Test
-    public void findTest() {
+    public void printTest() {
         in.addAll(new String[]{
                 "test",
                 "root",
                 "independence24",
-                "find test",
+                "print test",
                 "create test id int",
                 "insert test id 1",
-                "find test test",
-                "find test",
+                "print test test",
+                "print test",
                 "clear test",
-                "find test",
+                "print test",
                 "drop test",
-                "find test",
+                "print test",
                 "exit"
         });
 
@@ -347,11 +346,11 @@ public class IntegrationTest {
                 "root",
                 "independence24",
                 "create test id int",
-                "find test",
+                "print test",
                 "insert test id",
                 "insert test id int",
                 "insert test id 1",
-                "find test",
+                "print test",
                 "drop test",
                 "exit"
         });
@@ -402,12 +401,12 @@ public class IntegrationTest {
                 "independence24",
                 "create test id int fname varchar(45) weight double",
                 "insert test id 1 fname Alex weight 70.1",
-                "find test",
+                "print test",
                 "updates test",
                 "update test",
                 "update test1 id 1 id 1 fname Maria weight 60",
                 "update test id 1 id 1 fname Maria weight 60",
-                "find test",
+                "print test",
                 "drop test",
                 "exit"
         });
@@ -470,9 +469,9 @@ public class IntegrationTest {
                 "delete test Mike",
                 "delete test1 fname Mike",
                 "delete test fname Mike",
-                "find test",
+                "print test",
                 "delete test weight 60.02",
-                "find test",
+                "print test",
                 "drop test",
                 "exit"
         });
@@ -665,14 +664,14 @@ public class IntegrationTest {
                 "\t\tdeletes a pointed table of current database.\n" +
                 "\texit\n" +
                 "\t\tcompletes database manager execution.\n" +
-                "\tfind [table name]\n" +
-                "\t\tdisplays data of the given table (table name).\n" +
                 "\thelp\n" +
                 "\t\tprovides the information of all database manager commands.\n" +
                 "\tinsert [table name] [column name] [column value] ...\n" +
                 "\t\tinserts a new row with data into table.\n" +
                 "\tlist\n" +
                 "\t\tdisplays all tables names of the current database.\n" +
+                "\tprint [table name]\n" +
+                "\t\tdisplays data of the given table (table name).\n" +
                 "\tupdate [table name] [key column] [key value] [column name for new value] [new value] ...\n" +
                 "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
@@ -708,14 +707,14 @@ public class IntegrationTest {
                 "\t\tdeletes a pointed table of current database.\n" +
                 "\texit\n" +
                 "\t\tcompletes database manager execution.\n" +
-                "\tfind [table name]\n" +
-                "\t\tdisplays data of the given table (table name).\n" +
                 "\thelp\n" +
                 "\t\tprovides the information of all database manager commands.\n" +
                 "\tinsert [table name] [column name] [column value] ...\n" +
                 "\t\tinserts a new row with data into table.\n" +
                 "\tlist\n" +
                 "\t\tdisplays all tables names of the current database.\n" +
+                "\tprint [table name]\n" +
+                "\t\tdisplays data of the given table (table name).\n" +
                 "\tupdate [table name] [key column] [key value] [column name for new value] [new value] ...\n" +
                 "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
@@ -747,8 +746,8 @@ public class IntegrationTest {
                 "list",
                 "insertion test id 1", //incorrect command
                 "insert test id 1",
-                "finde test", //incorrect command
-                "find test",
+                "printe test", //incorrect command
+                "print test",
                 "clearing test", //incorrect command
                 "clear test",
                 "drops test", //incorrect command
@@ -800,14 +799,14 @@ public class IntegrationTest {
                 "\t\tdeletes a pointed table of current database.\n" +
                 "\texit\n" +
                 "\t\tcompletes database manager execution.\n" +
-                "\tfind [table name]\n" +
-                "\t\tdisplays data of the given table (table name).\n" +
                 "\thelp\n" +
                 "\t\tprovides the information of all database manager commands.\n" +
                 "\tinsert [table name] [column name] [column value] ...\n" +
                 "\t\tinserts a new row with data into table.\n" +
                 "\tlist\n" +
                 "\t\tdisplays all tables names of the current database.\n" +
+                "\tprint [table name]\n" +
+                "\t\tdisplays data of the given table (table name).\n" +
                 "\tupdate [table name] [key column] [key value] [column name for new value] [new value] ...\n" +
                 "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
@@ -832,7 +831,7 @@ public class IntegrationTest {
                 "The table has got new row." +
                 "\n" +
                 "Please, input your command:\n" +
-                "Undetected command [finde]" +
+                "Undetected command [printe]" +
                 "\n" +
                 "Please, input your command:\n" +
                 "\t|-----------------------------------------|\n" +
@@ -861,16 +860,3 @@ public class IntegrationTest {
                 "Goodluck!", out.getData());
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

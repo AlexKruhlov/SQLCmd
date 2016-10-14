@@ -1,20 +1,19 @@
 package ua.com.rafael.controller.command;
 
-
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
-public class Clear extends ConsoleCommand {
+public class DropTable extends ConsoleCommand {
 
     private final View view;
     private final DBManager dbManager;
 
-    public Clear(View view, DBManager dbManager) {
+    public DropTable(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
     }
 
-    private final String commandModel = "clear table_name";
+    private final String commandModel = "drop table_name";
 
     @Override
     public boolean isValid(final String command) {
@@ -29,20 +28,13 @@ public class Clear extends ConsoleCommand {
             view.print(ONE_PARAMETER_MESSAGE);
             return;
         }
-        dbManager.clear(commandElements[TABLE_NAME_INDEX]);
-        view.print("This table was cleared.");
+        dbManager.drop(commandElements[TABLE_NAME_INDEX]);
+        view.print("The table was deleted.");
     }
 
     @Override
     public String getHelp() {
-        return "clear [table name]" +
-                "\n\t\tdeletes all rows in pointed table (table name).";
+        return "drop [table name]" +
+                "\n\t\tdeletes a pointed table of current database.";
     }
 }
-
-
-
-
-
-
-

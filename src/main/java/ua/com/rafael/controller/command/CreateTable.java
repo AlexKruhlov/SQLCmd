@@ -5,12 +5,12 @@ import ua.com.rafael.view.View;
 
 import java.util.Arrays;
 
-public class Create extends ConsoleCommand {
+public class CreateTable extends ConsoleCommand {
 
     private final View view;
     private final DBManager dbManager;
 
-    public Create(View view, DBManager dbManager) {
+    public CreateTable(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
     }

@@ -25,14 +25,14 @@ public class MainController {
                 new Help(view, commands),
                 new Exit(view),
                 new IsConnect(view, dbManager),
-                new Create(view, dbManager),
+                new CreateTable(view, dbManager),
                 new TablesList(view, dbManager),
-                new Find(view, dbManager),
-                new Insert(view, dbManager),
-                new Update(view, dbManager),
-                new Delete(view, dbManager),
-                new Clear(view, dbManager),
-                new Drop(view, dbManager),
+                new PrintTable(view, dbManager),
+                new InsertRow(view, dbManager),
+                new UpdateRow(view, dbManager),
+                new DeleteRow(view, dbManager),
+                new ClearTable(view, dbManager),
+                new DropTable(view, dbManager),
                 new Undetected(view)
         };
         commands.addAll(Arrays.asList(containerForCommands));

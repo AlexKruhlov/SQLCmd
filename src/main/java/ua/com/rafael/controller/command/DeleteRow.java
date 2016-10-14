@@ -3,12 +3,12 @@ package ua.com.rafael.controller.command;
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
-public class Delete extends ConsoleCommand {
+public class DeleteRow extends ConsoleCommand {
 
     private final View view;
     private final DBManager dbManager;
 
-    public Delete(View view, DBManager dbManager) {
+    public DeleteRow(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
     }
