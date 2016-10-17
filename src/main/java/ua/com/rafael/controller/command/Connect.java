@@ -15,16 +15,14 @@ public class Connect extends ConsoleCommand {
         this.dbManager = dbManager;
     }
 
-    private final String commandModel = "connect";
-
     @Override
     public boolean isValid(final String command) {
-        return compareCommandName(commandModel, command);
+        return compareCommandName(getCommandModel(), command);
     }
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandModelElements = getCommandElements(getCommandModel());
         final String[] commandElements = getCommandElements(command);
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(NO_PARAMETER_MESSAGE);
@@ -55,6 +53,7 @@ public class Connect extends ConsoleCommand {
         } while (choice.equals("Y") || choice.equals("y"));
     }
 
+
     private String getChoice() {
         String choice;
         do {
@@ -71,8 +70,13 @@ public class Connect extends ConsoleCommand {
     }
 
     @Override
+    public String getCommandModel() {
+        return "connect";
+    }
+
+    @Override
     public String getHelp() {
-        return "connect" +
+        return getCommandModel() +
                 "\n\t\tconnects to database you need.";
     }
 }

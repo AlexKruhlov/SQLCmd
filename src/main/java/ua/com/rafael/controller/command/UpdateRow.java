@@ -13,16 +13,14 @@ public class UpdateRow extends ConsoleCommand {
         this.dbManager = dbManager;
     }
 
-    private final String commandModel = "update table key_column key_value column_name_for_new_value new_value";
-
     @Override
     public boolean isValid(String command) {
-        return compareCommandName(commandModel, command);
+        return compareCommandName(getCommandModel(), command);
     }
 
     @Override
     public void start(String command) {
-        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandModelElements = getCommandElements(getCommandModel());
         final String[] commandElements = getCommandElements(command);
         if (!isValidSize(commandModelElements, commandElements)) {
             view.print(MANY_PARAMETERS_MESSAGE);
@@ -36,8 +34,14 @@ public class UpdateRow extends ConsoleCommand {
     }
 
     @Override
+    public String getCommandModel() {
+        return "update" + SIGN_FOR_SPLIT + "[table_name]" + SIGN_FOR_SPLIT + "[key_column]" + SIGN_FOR_SPLIT +
+                "[key_value]" + SIGN_FOR_SPLIT + "[column_name_for_new_value]" + SIGN_FOR_SPLIT + "[new_value]";
+    }
+
+    @Override
     public String getHelp() {
-        return "update [table name] [key column] [key value] [column name for new value] [new value] ..." +
+        return getCommandModel() + " ..." +
                 "\n\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column" +
                 "\n\t\t(key column).Example:" +
                 "\n\t\tupdate test id 1 id 1 fname John weight 90.5";

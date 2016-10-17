@@ -17,17 +17,15 @@ public class Help extends ConsoleCommand {
         this.allCommands = allCommands;
     }
 
-    private final String commandModel = "help";
-
     @Override
     public boolean isValid(String command) {
-        return compareCommandName(commandModel, command);
+        return compareCommandName(getCommandModel(), command);
     }
 
     @Override
     public void start(String command) {
 
-        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandModelElements = getCommandElements(getCommandModel());
         final String[] commandElements = getCommandElements(command);
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(NO_PARAMETER_MESSAGE);
@@ -57,8 +55,13 @@ public class Help extends ConsoleCommand {
     }
 
     @Override
+    public String getCommandModel() {
+        return "help";
+    }
+
+    @Override
     public String getHelp() {
-        return "help" +
+        return getCommandModel() +
                 "\n\t\tprovides the information of all database manager commands.";
     }
 }

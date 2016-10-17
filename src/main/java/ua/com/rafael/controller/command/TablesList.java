@@ -15,16 +15,14 @@ public class TablesList extends ConsoleCommand {
         this.dbManager = dbManager;
     }
 
-    private final String commandModel = "list";
-
     @Override
     public boolean isValid(final String command) {
-        return compareCommandName(commandModel, command);
+        return compareCommandName(getCommandModel(), command);
     }
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandModelElements = getCommandElements(getCommandModel());
         final String[] commandElements = getCommandElements(command);
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(NO_PARAMETER_MESSAGE);
@@ -39,8 +37,13 @@ public class TablesList extends ConsoleCommand {
     }
 
     @Override
+    public String getCommandModel() {
+        return "list";
+    }
+
+    @Override
     public String getHelp() {
-        return "list" +
+        return getCommandModel() +
                 "\n\t\tdisplays all tables names of the current database.";
     }
 }

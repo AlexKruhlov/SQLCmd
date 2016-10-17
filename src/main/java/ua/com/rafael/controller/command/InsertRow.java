@@ -13,16 +13,14 @@ public class InsertRow extends ConsoleCommand {
         this.dbManager = dbManager;
     }
 
-    private final String commandModel = "insert table_name column_name column_value";
-
     @Override
     public boolean isValid(final String command) {
-        return compareCommandName(commandModel, command);
+        return compareCommandName(getCommandModel(), command);
     }
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandModelElements = getCommandElements(getCommandModel());
         final String[] commandElements = getCommandElements(command);
         if (!isValidSize(commandModelElements, commandElements)) {
             view.print(MANY_PARAMETERS_MESSAGE);
@@ -34,11 +32,14 @@ public class InsertRow extends ConsoleCommand {
     }
 
     @Override
-    public String getHelp() {
-        return "insert [table name] [column name] [column value] ..." +
-                "\n\t\tinserts a new row with data into table.";
-
+    public String getCommandModel() {
+        return "insert" + SIGN_FOR_SPLIT + "[table_name]" + SIGN_FOR_SPLIT + "[column_name]" +
+                SIGN_FOR_SPLIT + "[column_value]";
     }
 
-
+    @Override
+    public String getHelp() {
+        return getCommandModel() + " ..." +
+                "\n\t\tinserts a new row with data into table.";
+    }
 }

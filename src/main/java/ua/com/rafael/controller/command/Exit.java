@@ -7,20 +7,18 @@ public class Exit extends ConsoleCommand {
 
     private final View view;
 
-    private final String commandModel = "exit";
-
     public Exit(View view) {
         this.view = view;
     }
 
     @Override
     public boolean isValid(final String command) {
-        return compareCommandName(commandModel, command);
+        return compareCommandName(getCommandModel(), command);
     }
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandModelElements = getCommandElements(getCommandModel());
         final String[] commandElements = getCommandElements(command);
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(NO_PARAMETER_MESSAGE);
@@ -30,8 +28,13 @@ public class Exit extends ConsoleCommand {
     }
 
     @Override
+    public String getCommandModel() {
+        return "exit";
+    }
+
+    @Override
     public String getHelp() {
-        return "exit" +
+        return getCommandModel() +
                 "\n\t\tcompletes database manager execution.";
     }
 }

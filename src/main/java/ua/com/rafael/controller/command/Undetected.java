@@ -22,6 +22,11 @@ public class Undetected extends ConsoleCommand {
     }
 
     @Override
+    public String getCommandModel() {
+        return null;
+    }
+
+    @Override
     public String getHelp() {
         return null;
     }

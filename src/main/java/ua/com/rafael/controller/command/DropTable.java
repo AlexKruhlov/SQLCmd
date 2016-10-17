@@ -13,16 +13,14 @@ public class DropTable extends ConsoleCommand {
         this.dbManager = dbManager;
     }
 
-    private final String commandModel = "drop table_name";
-
     @Override
     public boolean isValid(final String command) {
-        return compareCommandName(commandModel, command);
+        return compareCommandName(getCommandModel(), command);
     }
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandModelElements = getCommandElements(getCommandModel());
         final String[] commandElements = getCommandElements(command);
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(ONE_PARAMETER_MESSAGE);
@@ -33,8 +31,13 @@ public class DropTable extends ConsoleCommand {
     }
 
     @Override
+    public String getCommandModel() {
+        return "drop" + SIGN_FOR_SPLIT + "[table_name]";
+    }
+
+    @Override
     public String getHelp() {
-        return "drop [table name]" +
+        return getCommandModel() +
                 "\n\t\tdeletes a pointed table of current database.";
     }
 }

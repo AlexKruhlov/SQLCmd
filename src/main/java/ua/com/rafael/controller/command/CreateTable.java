@@ -15,16 +15,14 @@ public class CreateTable extends ConsoleCommand {
         this.dbManager = dbManager;
     }
 
-    private final String commandModel = "create table id int";
-
     @Override
     public boolean isValid(final String command) {
-        return compareCommandName(commandModel, command);
+        return compareCommandName(getCommandModel(), command);
     }
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandModelElements = getCommandElements(getCommandModel());
         final String[] commandElements = getCommandElements(command);
         if (!isValidSize(commandModelElements, commandElements)) {
             view.print(MANY_PARAMETERS_MESSAGE);
@@ -34,14 +32,21 @@ public class CreateTable extends ConsoleCommand {
             view.print(INCORRECT_COLUMN_TYPE);
             return;
         }
-        final String[] argumentsForNewTable = Arrays.copyOfRange(commandElements, TABLE_NAME_INDEX, commandElements.length);
+        final String[] argumentsForNewTable
+                = Arrays.copyOfRange(commandElements, TABLE_NAME_INDEX, commandElements.length);
         dbManager.createTable(argumentsForNewTable);
         view.print("Table " + commandElements[TABLE_NAME_INDEX] + " was created");
     }
 
     @Override
+    public String getCommandModel() {
+        return "create" + SIGN_FOR_SPLIT + "[table_name]" + SIGN_FOR_SPLIT + "[column_name]" +
+                SIGN_FOR_SPLIT + "[column_data_type]";
+    }
+
+    @Override
     public String getHelp() {
-        return "create [table name] [column name] [column data type] ..." +
+        return getCommandModel() + " ..." +
                 "\n\t\tcreates a table with user pointed columns (table name must consist of one word)." +
                 "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
                 "\n\t\tdouble - floating point number." +

@@ -14,16 +14,14 @@ public class PrintTable extends ConsoleCommand {
         this.dbManager = dbManager;
     }
 
-    private final String commandModel = "print table_Name";
-
     @Override
     public boolean isValid(final String command) {
-        return compareCommandName(commandModel, command);
+        return compareCommandName(getCommandModel(), command);
     }
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandModelElements = getCommandElements(getCommandModel());
         final String[] commandElements = getCommandElements(command);
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(ONE_PARAMETER_MESSAGE);
@@ -75,8 +73,13 @@ public class PrintTable extends ConsoleCommand {
     }
 
     @Override
+    public String getCommandModel() {
+        return "print" + SIGN_FOR_SPLIT + "[table_name]";
+    }
+
+    @Override
     public String getHelp() {
-        return "print [table name]" +
+        return getCommandModel() +
                 "\n\t\tdisplays data of the given table (table name).";
     }
 }

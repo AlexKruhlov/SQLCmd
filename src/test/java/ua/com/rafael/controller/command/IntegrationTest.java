@@ -19,7 +19,7 @@ public class IntegrationTest {
 
     private ConfigurableInputSream in;
     private LogOutStream out;
-    private final String SIGN_OF_SPLIT = "|";
+    private final String SIGN_OF_SPLIT = " ";
     private String databaseName;
     private String userName;
     private String password;
@@ -74,7 +74,7 @@ public class IntegrationTest {
                 userName,
                 password,
                 "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int" +
-                        SIGN_OF_SPLIT + "first_name varchar(45)",
+                        SIGN_OF_SPLIT + "first_name" + SIGN_OF_SPLIT + "varchar(45)",
                 "list",
                 "drop" + SIGN_OF_SPLIT + "test",
                 "exit"
@@ -111,11 +111,11 @@ public class IntegrationTest {
                 password,
                 "list",
                 "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "int" +
-                        SIGN_OF_SPLIT + "first_name varchar(45)", // incorrect number of parameters
+                        SIGN_OF_SPLIT + "first_name" + SIGN_OF_SPLIT + "varchar(45)", // incorrect number of parameters
                 "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "inte" + SIGN_OF_SPLIT +
-                        "first_name varchar(45)", // incorrect column type (inte, but int is correct)
+                        "first_name" + SIGN_OF_SPLIT + "varchar(45)", // incorrect column type (inte, but int is correct)
                 "create" + SIGN_OF_SPLIT + "test" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int" + SIGN_OF_SPLIT
-                        + "first_name varchar(45)", // correct command
+                        + "first_name" + SIGN_OF_SPLIT + "varchar(45)", // correct command
                 "print" + SIGN_OF_SPLIT + "test",
                 "drop" + SIGN_OF_SPLIT + "test",
                 "create" + SIGN_OF_SPLIT + "test*$" + SIGN_OF_SPLIT + "id" + SIGN_OF_SPLIT + "int",
@@ -403,7 +403,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void DeleteTest() {
+    public void deleteTest() {
         in.addAll(new String[]{
                 databaseName,
                 userName,
@@ -552,7 +552,7 @@ public class IntegrationTest {
                 userName,
                 password,
                 "helps",
-                "help test",
+                "help" + SIGN_OF_SPLIT + "test",
                 "help",
                 "exit"
         });
@@ -569,31 +569,35 @@ public class IntegrationTest {
                 "Do you want to try again? (<Y>-yes, <N>-no): " +
                 INPUT_COMMAND_MESSAGE +
                 "List of commands:\n" +
-                "\tclear [table name]\n" +
+                "\tclear" + SIGN_OF_SPLIT + "[table_name]\n" +
                 "\t\tdeletes all rows in pointed table (table name).\n" +
                 "\tconnect\n" +
                 "\t\tconnects to database you need.\n" +
-                "\tcreate [table name] [column name] [column data type] ...\n" +
+                "\tcreate" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[column_name]" + SIGN_OF_SPLIT +
+                "[column_data_type] ...\n" +
                 "\t\tcreates a table with user pointed columns (table name must consist of one word).\n" +
                 "\t\tTypes of column: int - integer, varchar([size]) - string with size,\n" +
                 "\t\tdouble - floating point number.\n" +
                 "\t\tExample: create student id int first_name varchar(45) mark double\n" +
-                "\tdelete [table name] [column name] [row value]\n" +
+                "\tdelete" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[column_name]" + SIGN_OF_SPLIT +
+                "[row_value]\n" +
                 "\t\tdeletes in pointed table row that contains pointed value (row value)\n" +
                 "\t\tin pointed column (column name).\n" +
-                "\tdrop [table name]\n" +
+                "\tdrop" + SIGN_OF_SPLIT + "[table_name]\n" +
                 "\t\tdeletes a pointed table of current database.\n" +
                 "\texit\n" +
                 "\t\tcompletes database manager execution.\n" +
                 "\thelp\n" +
                 "\t\tprovides the information of all database manager commands.\n" +
-                "\tinsert [table name] [column name] [column value] ...\n" +
+                "\tinsert" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[column_name]" + SIGN_OF_SPLIT +
+                "[column_value] ...\n" +
                 "\t\tinserts a new row with data into table.\n" +
                 "\tlist\n" +
                 "\t\tdisplays all tables names of the current database.\n" +
-                "\tprint [table name]\n" +
+                "\tprint" + SIGN_OF_SPLIT + "[table_name]\n" +
                 "\t\tdisplays data of the given table (table name).\n" +
-                "\tupdate [table name] [key column] [key value] [column name for new value] [new value] ...\n" +
+                "\tupdate" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[key_column]" + SIGN_OF_SPLIT +
+                "[key_value]" + SIGN_OF_SPLIT + "[column_name_for_new_value]" + SIGN_OF_SPLIT + "[new_value] ...\n" +
                 "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
                 "\t\tupdate test id 1 id 1 fname John weight 90.5" +
@@ -608,31 +612,35 @@ public class IntegrationTest {
                 "Command error. This command hasn't any parameters." +
                 INPUT_COMMAND_MESSAGE +
                 "List of commands:\n" +
-                "\tclear [table name]\n" +
+                "\tclear" + SIGN_OF_SPLIT + "[table_name]\n" +
                 "\t\tdeletes all rows in pointed table (table name).\n" +
                 "\tconnect\n" +
                 "\t\tconnects to database you need.\n" +
-                "\tcreate [table name] [column name] [column data type] ...\n" +
+                "\tcreate" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[column_name]" + SIGN_OF_SPLIT +
+                "[column_data_type] ...\n" +
                 "\t\tcreates a table with user pointed columns (table name must consist of one word).\n" +
                 "\t\tTypes of column: int - integer, varchar([size]) - string with size,\n" +
                 "\t\tdouble - floating point number.\n" +
                 "\t\tExample: create student id int first_name varchar(45) mark double\n" +
-                "\tdelete [table name] [column name] [row value]\n" +
+                "\tdelete" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[column_name]" + SIGN_OF_SPLIT +
+                "[row_value]\n" +
                 "\t\tdeletes in pointed table row that contains pointed value (row value)\n" +
                 "\t\tin pointed column (column name).\n" +
-                "\tdrop [table name]\n" +
+                "\tdrop" + SIGN_OF_SPLIT + "[table_name]\n" +
                 "\t\tdeletes a pointed table of current database.\n" +
                 "\texit\n" +
                 "\t\tcompletes database manager execution.\n" +
                 "\thelp\n" +
                 "\t\tprovides the information of all database manager commands.\n" +
-                "\tinsert [table name] [column name] [column value] ...\n" +
+                "\tinsert" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[column_name]" + SIGN_OF_SPLIT +
+                "[column_value] ...\n" +
                 "\t\tinserts a new row with data into table.\n" +
                 "\tlist\n" +
                 "\t\tdisplays all tables names of the current database.\n" +
-                "\tprint [table name]\n" +
+                "\tprint" + SIGN_OF_SPLIT + "[table_name]\n" +
                 "\t\tdisplays data of the given table (table name).\n" +
-                "\tupdate [table name] [key column] [key value] [column name for new value] [new value] ...\n" +
+                "\tupdate" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[key_column]" + SIGN_OF_SPLIT +
+                "[key_value]" + SIGN_OF_SPLIT + "[column_name_for_new_value]" + SIGN_OF_SPLIT + "[new_value] ...\n" +
                 "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
                 "\t\tupdate test id 1 id 1 fname John weight 90.5" +
@@ -694,31 +702,35 @@ public class IntegrationTest {
                 "Undetected command [helps]" +
                 INPUT_COMMAND_MESSAGE +
                 "List of commands:\n" +
-                "\tclear [table name]\n" +
+                "\tclear" + SIGN_OF_SPLIT + "[table_name]\n" +
                 "\t\tdeletes all rows in pointed table (table name).\n" +
                 "\tconnect\n" +
                 "\t\tconnects to database you need.\n" +
-                "\tcreate [table name] [column name] [column data type] ...\n" +
+                "\tcreate" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[column_name]" + SIGN_OF_SPLIT +
+                "[column_data_type] ...\n" +
                 "\t\tcreates a table with user pointed columns (table name must consist of one word).\n" +
                 "\t\tTypes of column: int - integer, varchar([size]) - string with size,\n" +
                 "\t\tdouble - floating point number.\n" +
                 "\t\tExample: create student id int first_name varchar(45) mark double\n" +
-                "\tdelete [table name] [column name] [row value]\n" +
+                "\tdelete" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[column_name]" + SIGN_OF_SPLIT +
+                "[row_value]\n" +
                 "\t\tdeletes in pointed table row that contains pointed value (row value)\n" +
                 "\t\tin pointed column (column name).\n" +
-                "\tdrop [table name]\n" +
+                "\tdrop" + SIGN_OF_SPLIT + "[table_name]\n" +
                 "\t\tdeletes a pointed table of current database.\n" +
                 "\texit\n" +
                 "\t\tcompletes database manager execution.\n" +
                 "\thelp\n" +
                 "\t\tprovides the information of all database manager commands.\n" +
-                "\tinsert [table name] [column name] [column value] ...\n" +
+                "\tinsert" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[column_name]" + SIGN_OF_SPLIT +
+                "[column_value] ...\n" +
                 "\t\tinserts a new row with data into table.\n" +
                 "\tlist\n" +
                 "\t\tdisplays all tables names of the current database.\n" +
-                "\tprint [table name]\n" +
+                "\tprint" + SIGN_OF_SPLIT + "[table_name]\n" +
                 "\t\tdisplays data of the given table (table name).\n" +
-                "\tupdate [table name] [key column] [key value] [column name for new value] [new value] ...\n" +
+                "\tupdate" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[key_column]" + SIGN_OF_SPLIT +
+                "[key_value]" + SIGN_OF_SPLIT + "[column_name_for_new_value]" + SIGN_OF_SPLIT + "[new_value] ...\n" +
                 "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
                 "\t\tupdate test id 1 id 1 fname John weight 90.5" +

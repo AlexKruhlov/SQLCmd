@@ -14,16 +14,14 @@ public class ClearTable extends ConsoleCommand {
         this.dbManager = dbManager;
     }
 
-    private final String commandModel = "clear table_name";
-
     @Override
     public boolean isValid(final String command) {
-        return compareCommandName(commandModel, command);
+        return compareCommandName(getCommandModel(), command);
     }
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandModelElements = getCommandElements(getCommandModel());
         final String[] commandElements = getCommandElements(command);
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(ONE_PARAMETER_MESSAGE);
@@ -34,8 +32,13 @@ public class ClearTable extends ConsoleCommand {
     }
 
     @Override
+    public String getCommandModel() {
+        return "clear" + SIGN_FOR_SPLIT + "[table_name]";
+    }
+
+    @Override
     public String getHelp() {
-        return "clear [table name]" +
+        return getCommandModel() +
                 "\n\t\tdeletes all rows in pointed table (table name).";
     }
 }

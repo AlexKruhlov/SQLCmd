@@ -13,16 +13,14 @@ public class DeleteRow extends ConsoleCommand {
         this.dbManager = dbManager;
     }
 
-    private final String commandModel = "delete table column value";
-
     @Override
     public boolean isValid(String command) {
-        return compareCommandName(commandModel, command);
+        return compareCommandName(getCommandModel(), command);
     }
 
     @Override
     public void start(String command) {
-        final String[] commandModelElements = getCommandElements(commandModel);
+        final String[] commandModelElements = getCommandElements(getCommandModel());
         final String[] commandElements = getCommandElements(command);
         if (!isTheSameSize(commandModelElements, commandElements)) {
             view.print(MANY_PARAMETERS_MESSAGE);
@@ -34,8 +32,14 @@ public class DeleteRow extends ConsoleCommand {
     }
 
     @Override
+    public String getCommandModel() {
+        return "delete" + SIGN_FOR_SPLIT + "[table_name]" + SIGN_FOR_SPLIT + "[column_name]" +
+                SIGN_FOR_SPLIT + "[row_value]";
+    }
+
+    @Override
     public String getHelp() {
-        return "delete [table name] [column name] [row value]" +
+        return getCommandModel() +
                 "\n\t\tdeletes in pointed table row that contains pointed value (row value)" +
                 "\n\t\tin pointed column (column name).";
     }
