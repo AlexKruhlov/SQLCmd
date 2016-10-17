@@ -7,22 +7,25 @@ public class UpdateRow extends ConsoleCommand {
 
     private final View view;
     private final DBManager dbManager;
+    private final String commandModel;
 
     public UpdateRow(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
+        commandModel = "update" + SIGN_FOR_SPLIT + "[table_name]" + SIGN_FOR_SPLIT + "[key_column]" + SIGN_FOR_SPLIT +
+                "[key_value]" + SIGN_FOR_SPLIT + "[column_name_for_new_value]" + SIGN_FOR_SPLIT + "[new_value]";
     }
 
     @Override
     public boolean isValid(String command) {
-        return compareCommandName(getCommandModel(), command);
+        return compareCommandName(commandModel, command);
     }
 
     @Override
     public void start(String command) {
-        final String[] commandModelElements = getCommandElements(getCommandModel());
+        final String[] commandModelElements = getCommandElements(commandModel);
         final String[] commandElements = getCommandElements(command);
-        if (!isValidSize(commandModelElements, commandElements)) {
+        if (isInvalidSize(commandModelElements, commandElements)) {
             view.print(MANY_PARAMETERS_MESSAGE);
             return;
         }
@@ -37,15 +40,9 @@ public class UpdateRow extends ConsoleCommand {
     }
 
     @Override
-    public String getCommandModel() {
-        return "update" + SIGN_FOR_SPLIT + "[table_name]" + SIGN_FOR_SPLIT + "[key_column]" + SIGN_FOR_SPLIT +
-                "[key_value]" + SIGN_FOR_SPLIT + "[column_name_for_new_value]" + SIGN_FOR_SPLIT + "[new_value]";
-    }
-
-    @Override
     public String getHelp() {
-        return getCommandModel() + " ..." +
-                "\n\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column" +
+        return commandModel + " ..." +
+                "\n\t\tsets inputted values (new value) into row that has pointed value (key value) in pointed column" +
                 "\n\t\t(key column).Example:" +
                 "\n\t\tupdate test id 1 id 1 fname John weight 90.5";
     }

@@ -1,6 +1,5 @@
 package ua.com.rafael.controller.command;
 
-
 import ua.com.rafael.manager.DBManager;
 import ua.com.rafael.view.View;
 
@@ -8,22 +7,24 @@ public class ClearTable extends ConsoleCommand {
 
     private final View view;
     private final DBManager dbManager;
+    private final String commandModel;
 
     public ClearTable(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
+        commandModel = "clear" + SIGN_FOR_SPLIT + "[table_name]";
     }
 
     @Override
     public boolean isValid(final String command) {
-        return compareCommandName(getCommandModel(), command);
+        return compareCommandName(commandModel, command);
     }
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = getCommandElements(getCommandModel());
+        final String[] commandModelElements = getCommandElements(commandModel);
         final String[] commandElements = getCommandElements(command);
-        if (!isTheSameSize(commandModelElements, commandElements)) {
+        if (isNotTheSameSize(commandModelElements, commandElements)) {
             view.print(ONE_PARAMETER_MESSAGE);
             return;
         }
@@ -33,13 +34,8 @@ public class ClearTable extends ConsoleCommand {
     }
 
     @Override
-    public String getCommandModel() {
-        return "clear" + SIGN_FOR_SPLIT + "[table_name]";
-    }
-
-    @Override
     public String getHelp() {
-        return getCommandModel() +
+        return commandModel +
                 "\n\t\tdeletes all rows in pointed table (table name).";
     }
 }

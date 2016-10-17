@@ -7,9 +7,9 @@ import java.util.Arrays;
 
 abstract class ConsoleCommand implements Command {
 
-    public final String SIGN_FOR_SPLIT = " ";
+    final String SIGN_FOR_SPLIT = " ";
 
-    public final String
+    final String
             NO_PARAMETER_MESSAGE = "Command error. This command hasn't any parameters.",
             ONE_PARAMETER_MESSAGE = "Command error. This command must have one parameter.",
             MANY_PARAMETERS_MESSAGE = "Command error. Please, check the number of command parameters.",
@@ -17,23 +17,23 @@ abstract class ConsoleCommand implements Command {
 
     private final String[] correctColumnTypes = {"int", "double", "varchar"};
 
-    public boolean compareCommandName(String commandModel, String command) {
+    boolean compareCommandName(String commandModel, String command) {
         final int COMMAND_INDEX = 0;
         String[] commandModelElements = getCommandElements(commandModel);
         String[] commandElements = getCommandElements(command);
         return commandModelElements[COMMAND_INDEX].equals(commandElements[COMMAND_INDEX]);
     }
 
-    public boolean isValidSize(String[] commandModelElements, String[] commandElements) {
-        return commandElements.length >= commandModelElements.length &&
-                commandElements.length % 2 == commandModelElements.length % 2;
+    boolean isInvalidSize(String[] commandModelElements, String[] commandElements) {
+        return commandElements.length < commandModelElements.length ||
+                commandElements.length % 2 != commandModelElements.length % 2;
     }
 
-    public boolean isTheSameSize(String[] commandModelElements, String[] commandElements) {
-        return commandElements.length == commandModelElements.length;
+    boolean isNotTheSameSize(String[] commandModelElements, String[] commandElements) {
+        return commandElements.length != commandModelElements.length;
     }
 
-    public boolean isColumnType(String[] commandElements) {
+    boolean isColumnType(String[] commandElements) {
         final byte
                 FIRST_TYPE = 3,
                 NEXT_TYPE = 2;
@@ -57,7 +57,7 @@ abstract class ConsoleCommand implements Command {
                 resultOfTypeSearching == SECOND_CONDITION_ELEMENT_NOT_FOUND);
     }
 
-    public Row createRowForInsertionOrToUpdate(final String[] commandElements, int columnNameIndex) {
+    Row createRowForInsertionOrToUpdate(final String[] commandElements, int columnNameIndex) {
         final byte NEXT_COLUMN = 2;
         final Row row = new Row();
         while (columnNameIndex < commandElements.length) {
@@ -68,7 +68,7 @@ abstract class ConsoleCommand implements Command {
         return row;
     }
 
-    protected String[] getCommandElements(String command) {
+    String[] getCommandElements(String command) {
         return StringUtils.split(command, SIGN_FOR_SPLIT);
     }
 }

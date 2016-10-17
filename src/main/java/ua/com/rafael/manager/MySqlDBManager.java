@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class MySqlDBManager implements DBManager {
 
-    byte FIRST_COLUMN = 1;
+    private final byte FIRST_COLUMN = 1;
     private Connection connection;
 
     @Override
@@ -53,10 +53,10 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
-    public Row[] getDataTable(String tablleName) {
+    public Row[] getDataTable(String tableName) {
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT * FROM " + connection.getCatalog() + "."
-                     + tablleName)) {
+                     + tableName)) {
             if (isEmpty(resultSet)) {
                 return null;
             }
@@ -101,12 +101,12 @@ public class MySqlDBManager implements DBManager {
     }
 
     @Override
-    public void insert(String tablename, Row newRow) {
+    public void insert(String tableName, Row newRow) {
         try (PreparedStatement preparedStatement = connection.prepareStatement(
-                "INSERT INTO " + connection.getCatalog() + "." + tablename +
-                        "(" + getFormatedFieldNames(newRow.getNames(), "%s,") + ")" +
-                        "VALUES (" + getFormatedValues(newRow.getData(), "?,") + ")")) {
-            setObjectsToPreparedStatememnt(newRow, preparedStatement);
+                "INSERT INTO " + connection.getCatalog() + "." + tableName +
+                        "(" + getFormattedFieldNames(newRow.getNames(), "%s,") + ")" +
+                        "VALUES (" + getFormattedValues(newRow.getData()) + ")")) {
+            setObjectsToPreparedStatement(newRow, preparedStatement);
             preparedStatement.execute();
         } catch (SQLException exc) {
             throw new SqlQueryException(exc);
@@ -116,10 +116,10 @@ public class MySqlDBManager implements DBManager {
     @Override
     public void update(String tableName, String keyColumnName, Object key, Row newValue) {
         String query = "UPDATE " + tableName + " set " +
-                getFormatedFieldNames(newValue.getNames(), "%s=?,") +
+                getFormattedFieldNames(newValue.getNames(), "%s=?,") +
                 " where " + keyColumnName + "=?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            setObjectsToPreparedStatememnt(newValue, preparedStatement);
+            setObjectsToPreparedStatement(newValue, preparedStatement);
             preparedStatement.setObject(newValue.getColumnSize() + 1, key);
             preparedStatement.execute();
         } catch (SQLException exc) {
@@ -175,22 +175,22 @@ public class MySqlDBManager implements DBManager {
         }
     }
 
-    private void setObjectsToPreparedStatememnt(Row newRow, PreparedStatement preparedStatement) throws SQLException {
+    private void setObjectsToPreparedStatement(Row newRow, PreparedStatement preparedStatement) throws SQLException {
         Object[] newValues = newRow.getData();
         for (int i = 0; i < newRow.getColumnSize(); i++) {
             preparedStatement.setObject(i + 1, newValues[i]);
         }
     }
 
-    private String getFormatedValues(Object[] value, String format) {
+    private String getFormattedValues(Object[] value) {
         String result = "";
-        for (int i = 0; i < value.length; i++) {
-            result += String.format(format, value);
+        for (Object aValue : value) {
+            result += String.format("?,", value);
         }
         return result.substring(0, result.length() - 1);
     }
 
-    private String getFormatedFieldNames(String[] names, String format) {
+    private String getFormattedFieldNames(String[] names, String format) {
         String result = "";
         for (String name : names) {
             result += String.format(format, name);

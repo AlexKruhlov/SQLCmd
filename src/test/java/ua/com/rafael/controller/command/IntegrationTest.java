@@ -9,15 +9,15 @@ import java.io.PrintStream;
 
 public class IntegrationTest {
 
-    private final String INTRODUSE_MESSAGE = "Welcome to console database manager!\n" +
+    private final String INTRODUCE_MESSAGE = "Welcome to console database manager!\n" +
             "Please, input your database name: Please, input your user name: Please, input your password: \n" +
             "Connection process...\n" +
             "\nConnection has been successful!\n";
     private final String EXIT_MESSAGE = "Your work in our manager is finished!\n" +
-            "Goodluck!";
+            "Good luck!";
     private final String INPUT_COMMAND_MESSAGE = "\nPlease, input your command:\n";
 
-    private ConfigurableInputSream in;
+    private ConfigurableInputStream in;
     private LogOutStream out;
     private final String SIGN_OF_SPLIT = " ";
     private String databaseName;
@@ -26,7 +26,7 @@ public class IntegrationTest {
 
     @Before
     public void setup() {
-        in = new ConfigurableInputSream();
+        in = new ConfigurableInputStream();
         out = new LogOutStream();
         System.setIn(in);
         System.setOut(new PrintStream(out));
@@ -124,7 +124,7 @@ public class IntegrationTest {
 
         Main.main(new String[0]);
 
-        Assert.assertEquals(INTRODUSE_MESSAGE +
+        Assert.assertEquals(INTRODUCE_MESSAGE +
                 INPUT_COMMAND_MESSAGE +
                 "Current database haven't any table" +
                 INPUT_COMMAND_MESSAGE +
@@ -164,7 +164,7 @@ public class IntegrationTest {
 
         Main.main(new String[0]);
 
-        Assert.assertEquals(INTRODUSE_MESSAGE +
+        Assert.assertEquals(INTRODUCE_MESSAGE +
                 INPUT_COMMAND_MESSAGE +
                 "Table test was created" +
                 INPUT_COMMAND_MESSAGE +
@@ -194,7 +194,7 @@ public class IntegrationTest {
 
         Main.main(new String[0]);
 
-        Assert.assertEquals(INTRODUSE_MESSAGE +
+        Assert.assertEquals(INTRODUCE_MESSAGE +
                 INPUT_COMMAND_MESSAGE +
                 "Current database haven't any table" +
                 INPUT_COMMAND_MESSAGE +
@@ -222,7 +222,7 @@ public class IntegrationTest {
 
         Main.main(new String[0]);
 
-        Assert.assertEquals(INTRODUSE_MESSAGE +
+        Assert.assertEquals(INTRODUCE_MESSAGE +
                 INPUT_COMMAND_MESSAGE +
                 "Table 'test.test' doesn't exist" +
                 INPUT_COMMAND_MESSAGE +
@@ -270,7 +270,7 @@ public class IntegrationTest {
 
         Main.main(new String[0]);
 
-        Assert.assertEquals(INTRODUSE_MESSAGE +
+        Assert.assertEquals(INTRODUCE_MESSAGE +
                 INPUT_COMMAND_MESSAGE +
                 "Table 'test.test' doesn't exist" +
                 INPUT_COMMAND_MESSAGE +
@@ -318,7 +318,7 @@ public class IntegrationTest {
 
         Main.main(new String[0]);
 
-        Assert.assertEquals(INTRODUSE_MESSAGE +
+        Assert.assertEquals(INTRODUCE_MESSAGE +
                 INPUT_COMMAND_MESSAGE +
                 "Table test was created" +
                 INPUT_COMMAND_MESSAGE +
@@ -371,7 +371,7 @@ public class IntegrationTest {
 
         Main.main(new String[0]);
 
-        Assert.assertEquals(INTRODUSE_MESSAGE +
+        Assert.assertEquals(INTRODUCE_MESSAGE +
                 INPUT_COMMAND_MESSAGE +
                 "Table test was created" +
                 INPUT_COMMAND_MESSAGE +
@@ -427,7 +427,7 @@ public class IntegrationTest {
 
         Main.main(new String[0]);
 
-        Assert.assertEquals(INTRODUSE_MESSAGE +
+        Assert.assertEquals(INTRODUCE_MESSAGE +
                 INPUT_COMMAND_MESSAGE +
                 "Table test was created" +
                 INPUT_COMMAND_MESSAGE +
@@ -520,7 +520,7 @@ public class IntegrationTest {
 
         Main.main(new String[0]);
 
-        Assert.assertEquals(INTRODUSE_MESSAGE +
+        Assert.assertEquals(INTRODUCE_MESSAGE +
                 INPUT_COMMAND_MESSAGE +
                 "Table test1 was created" +
                 INPUT_COMMAND_MESSAGE +
@@ -598,7 +598,7 @@ public class IntegrationTest {
                 "\t\tdisplays data of the given table (table name).\n" +
                 "\tupdate" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[key_column]" + SIGN_OF_SPLIT +
                 "[key_value]" + SIGN_OF_SPLIT + "[column_name_for_new_value]" + SIGN_OF_SPLIT + "[new_value] ...\n" +
-                "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
+                "\t\tsets inputted values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
                 "\t\tupdate test id 1 id 1 fname John weight 90.5" +
                 INPUT_COMMAND_MESSAGE +
@@ -641,7 +641,7 @@ public class IntegrationTest {
                 "\t\tdisplays data of the given table (table name).\n" +
                 "\tupdate" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[key_column]" + SIGN_OF_SPLIT +
                 "[key_value]" + SIGN_OF_SPLIT + "[column_name_for_new_value]" + SIGN_OF_SPLIT + "[new_value] ...\n" +
-                "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
+                "\t\tsets inputted values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
                 "\t\tupdate test id 1 id 1 fname John weight 90.5" +
                 INPUT_COMMAND_MESSAGE +
@@ -731,7 +731,7 @@ public class IntegrationTest {
                 "\t\tdisplays data of the given table (table name).\n" +
                 "\tupdate" + SIGN_OF_SPLIT + "[table_name]" + SIGN_OF_SPLIT + "[key_column]" + SIGN_OF_SPLIT +
                 "[key_value]" + SIGN_OF_SPLIT + "[column_name_for_new_value]" + SIGN_OF_SPLIT + "[new_value] ...\n" +
-                "\t\tsets inputed values (new value) into row that has pointed value (key value) in pointed column\n" +
+                "\t\tsets inputted values (new value) into row that has pointed value (key value) in pointed column\n" +
                 "\t\t(key column).Example:\n" +
                 "\t\tupdate test id 1 id 1 fname John weight 90.5" +
                 INPUT_COMMAND_MESSAGE +

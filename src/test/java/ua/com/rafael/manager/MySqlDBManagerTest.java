@@ -5,16 +5,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.SQLException;
 import java.util.Arrays;
 
 public class MySqlDBManagerTest {
 
     private MySqlDBManager dBase = new MySqlDBManager();
+    private final String dataBaseName = "myschema";
+    private final String userName = "root";
+    private final String password = "independence24";
 
     @Before
-    public void preSetup() throws SQLException {
-        dBase.connection("myschema", "root", "independence24");
+    public void preSetup() {
+        dBase.connection(dataBaseName, userName, password);
         dBase.createTable(new String[]{"test", "id", "int", "fname", "varchar(45)", "time", "double"});
     }
 
@@ -24,7 +26,7 @@ public class MySqlDBManagerTest {
     }
 
     @Test
-    public void isConnectTest() throws Exception {
+    public void isConnectTest() {
         boolean[] expected = {true, true, false};
 
         boolean[] actual = new boolean[3];
@@ -39,11 +41,11 @@ public class MySqlDBManagerTest {
 
         Assert.assertArrayEquals(expected, actual);
 
-        dBase.connection("myschema", "root", "independence24");
+        dBase.connection(dataBaseName, userName, password);
     }
 
     @Test
-    public void createTableTest() throws Exception {
+    public void createTableTest() {
         String[] input = new String[]{"student",
                 "id", "int",
                 "first_name", "varchar(45)",
@@ -64,7 +66,7 @@ public class MySqlDBManagerTest {
     }
 
     @Test
-    public void getTableListTest() throws Exception {
+    public void getTableListTest() {
         dBase.createTable(new String[]{"test1", "id", "int"});
         String[] expected = {"test", "test1"};
         String[] actual = dBase.getTableList();
@@ -72,15 +74,14 @@ public class MySqlDBManagerTest {
 
         dBase.drop("test");
         dBase.drop("test1");
-        expected = null;
         actual = dBase.getTableList();
-        Assert.assertArrayEquals(expected, actual);
+        Assert.assertArrayEquals(null, actual);
 
         dBase.createTable(new String[]{"test", "id", "int"});
     }
 
     @Test
-    public void getDataTableTest() throws Exception {
+    public void getDataTableTest() {
         Row[] expected = new Row[3];
         expected[0] = new Row();
         expected[0].put("id", 1);
@@ -109,10 +110,10 @@ public class MySqlDBManagerTest {
         Assert.assertEquals(Arrays.toString(expected), Arrays.toString(actual));
     }
 
-    private Row[] createActual(String tablename) {
+    private Row[] createActual(String tableName) {
         Row[] actual = null;
         try {
-            actual = dBase.getDataTable(tablename);
+            actual = dBase.getDataTable(tableName);
         } catch (Exception ecx) {
         }
         return actual;
@@ -126,9 +127,8 @@ public class MySqlDBManagerTest {
         dBase.delete("test", "id", "2");
         Assert.assertEquals(Arrays.toString(expected), Arrays.toString(dBase.getDataTable("test")));
 
-        expected = null;
         dBase.delete("test", "time", "14.31");
-        Assert.assertArrayEquals(expected, dBase.getDataTable("test"));
+        Assert.assertArrayEquals(null, dBase.getDataTable("test"));
     }
 
     private Row createRow(int id, String fname, double time) {
@@ -140,8 +140,7 @@ public class MySqlDBManagerTest {
     }
 
     @Test
-    public void clearTest() throws Exception {
-        Row[] expected = null;
+    public void clearTest() {
         for (int i = 1; i <= 3; i++) {
             Row input = new Row();
             input.put("id", i);
@@ -152,11 +151,11 @@ public class MySqlDBManagerTest {
         dBase.clear("test");
         Row[] actual = dBase.getDataTable("test");
 
-        Assert.assertArrayEquals(expected, actual);
+        Assert.assertArrayEquals(null, actual);
     }
 
     @Test
-    public void insertTest() throws Exception {
+    public void insertTest() {
         Row input = new Row();
         input.put("id", 1);
         input.put("fname", "JACK");
@@ -170,7 +169,7 @@ public class MySqlDBManagerTest {
     }
 
     @Test
-    public void updateTest() throws Exception {
+    public void updateTest() {
         Row input = new Row();
         input.put("id", 1);
         input.put("fname", "JACK");
@@ -201,14 +200,14 @@ public class MySqlDBManagerTest {
     }
 
     @Test
-    public void getColumnNamesTest() throws Exception {
+    public void getColumnNamesTest() {
         String[] expected = {"id", "fname", "time"};
         String[] actual = dBase.getColumnNames("test");
         Assert.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void dropTest() throws Exception {
+    public void dropTest() {
         String[] expected = new String[]{"test", "test1"};
         dBase.createTable(new String[]{"test1", "id", "int", "fname", "varchar(45)", "time", "double"});
         String[] actual = dBase.getTableList();

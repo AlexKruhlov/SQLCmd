@@ -3,7 +3,7 @@ package ua.com.rafael.controller.command;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class ConfigurableInputSream extends InputStream {
+class ConfigurableInputStream extends InputStream {
 
     private String line;
     private boolean isEndLine = false;
@@ -25,17 +25,17 @@ public class ConfigurableInputSream extends InputStream {
         return (int) ch;
     }
 
-    public void add(String line) {
+    public void addAll(String[] line) {
+        for (String aLine : line) {
+            add(aLine);
+        }
+    }
+
+    private void add(String line) {
         if (this.line == null) {
             this.line = line;
         } else {
             this.line += "\n" + line;
-        }
-    }
-
-    public void addAll(String[] line) {
-        for (int i = 0; i < line.length; i++) {
-            add(line[i]);
         }
     }
 }

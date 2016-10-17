@@ -10,15 +10,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainController {
+class MainController {
 
     private final View view;
-    private final DBManager dbManager;
-    private List<Command> commands;
+    private final List<Command> commands;
 
     public MainController(View view, DBManager dbManager) {
         this.view = view;
-        this.dbManager = dbManager;
         commands = new ArrayList<>();
         Command[] containerForCommands = new Command[]{
                 new Connect(view, dbManager),
@@ -41,13 +39,13 @@ public class MainController {
     public void run() {
         final int COMMAND = 0;
         view.print("Welcome to console database manager!\n");
-        String inputedCommand = commands.get(COMMAND).getClass().getSimpleName().toString().toLowerCase();
+        String inputtedCommand = commands.get(COMMAND).getClass().getSimpleName().toLowerCase();
         try {
             while (true) {
                 for (Command comm : commands) {
-                    if (comm.isValid(inputedCommand)) {
+                    if (comm.isValid(inputtedCommand)) {
                         try {
-                            comm.start(inputedCommand);
+                            comm.start(inputtedCommand);
                         } catch (SqlQueryException exc) {
                             view.print(exc.getCause().getMessage());
                         }
@@ -55,7 +53,7 @@ public class MainController {
                     }
                 }
                 view.print("\nPlease, input your command:\n");
-                inputedCommand = view.readLine();
+                inputtedCommand = view.readLine();
             }
         } catch (ExitException exc) {
             view.print(exc.getMessage());

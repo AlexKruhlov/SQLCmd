@@ -18,13 +18,8 @@ public class Undetected extends ConsoleCommand {
     @Override
     public void start(String command) {
         final int COMMAND_NAME_INDEX = 0;
-        final String[] commandElelments = getCommandElements(command);
-        view.print("Undetected command [" + commandElelments[COMMAND_NAME_INDEX] + "]");
-    }
-
-    @Override
-    public String getCommandModel() {
-        return null;
+        final String[] commandElements = getCommandElements(command);
+        view.print("Undetected command [" + commandElements[COMMAND_NAME_INDEX] + "]");
     }
 
     @Override

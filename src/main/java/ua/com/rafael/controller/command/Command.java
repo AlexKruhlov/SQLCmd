@@ -6,8 +6,6 @@ public interface Command {
 
     void start(String command);
 
-    String getCommandModel();
-
     String getHelp();
 
 }

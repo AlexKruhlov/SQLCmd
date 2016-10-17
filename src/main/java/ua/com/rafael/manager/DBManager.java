@@ -10,11 +10,11 @@ public interface DBManager {
 
     String[] getTableList();
 
-    Row[] getDataTable(String tablleName);
+    Row[] getDataTable(String tableName);
 
     void createTable(String[] tableData);
 
-    void insert(String tablename, Row newRow);
+    void insert(String tableName, Row newRow);
 
     void update(String tableName, String keyColumnName, Object key, Row newValue);
 

@@ -9,22 +9,25 @@ public class CreateTable extends ConsoleCommand {
 
     private final View view;
     private final DBManager dbManager;
+    private final String commandModel;
 
     public CreateTable(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
+        commandModel = "create" + SIGN_FOR_SPLIT + "[table_name]" + SIGN_FOR_SPLIT + "[column_name]" +
+                SIGN_FOR_SPLIT + "[column_data_type]";
     }
 
     @Override
     public boolean isValid(final String command) {
-        return compareCommandName(getCommandModel(), command);
+        return compareCommandName(commandModel, command);
     }
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = getCommandElements(getCommandModel());
+        final String[] commandModelElements = getCommandElements(commandModel);
         final String[] commandElements = getCommandElements(command);
-        if (!isValidSize(commandModelElements, commandElements)) {
+        if (isInvalidSize(commandModelElements, commandElements)) {
             view.print(MANY_PARAMETERS_MESSAGE);
             return;
         }
@@ -40,14 +43,8 @@ public class CreateTable extends ConsoleCommand {
     }
 
     @Override
-    public String getCommandModel() {
-        return "create" + SIGN_FOR_SPLIT + "[table_name]" + SIGN_FOR_SPLIT + "[column_name]" +
-                SIGN_FOR_SPLIT + "[column_data_type]";
-    }
-
-    @Override
     public String getHelp() {
-        return getCommandModel() + " ..." +
+        return commandModel + " ..." +
                 "\n\t\tcreates a table with user pointed columns (table name must consist of one word)." +
                 "\n\t\tTypes of column: int - integer, varchar([size]) - string with size," +
                 "\n\t\tdouble - floating point number." +

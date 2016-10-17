@@ -6,7 +6,7 @@ import org.junit.Test;
 public class RowTest {
 
     @Test
-    public void getNamesTest() throws Exception {
+    public void getNamesTest() {
         Row row = new Row();
         row.put("id", 1);
         row.put("name", "Ema");
@@ -17,7 +17,7 @@ public class RowTest {
     }
 
     @Test
-    public void getDataTest() throws Exception {
+    public void getDataTest() {
         Row row = new Row();
         row.put("id", 1);
         row.put("name", "Ema");

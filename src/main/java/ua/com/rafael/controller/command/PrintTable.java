@@ -8,22 +8,24 @@ public class PrintTable extends ConsoleCommand {
 
     private final View view;
     private final DBManager dbManager;
+    private final String commandModel;
 
     public PrintTable(View view, DBManager dbManager) {
         this.view = view;
         this.dbManager = dbManager;
+        commandModel = "print" + SIGN_FOR_SPLIT + "[table_name]";
     }
 
     @Override
     public boolean isValid(final String command) {
-        return compareCommandName(getCommandModel(), command);
+        return compareCommandName(commandModel, command);
     }
 
     @Override
     public void start(final String command) {
-        final String[] commandModelElements = getCommandElements(getCommandModel());
+        final String[] commandModelElements = getCommandElements(commandModel);
         final String[] commandElements = getCommandElements(command);
-        if (!isTheSameSize(commandModelElements, commandElements)) {
+        if (isNotTheSameSize(commandModelElements, commandElements)) {
             view.print(ONE_PARAMETER_MESSAGE);
             return;
         }
@@ -51,8 +53,8 @@ public class PrintTable extends ConsoleCommand {
     private void printTableTop(String[] columnNames, int columnSize) {
         String format = " %-" + columnSize + "s";
         view.print("\t|");
-        for (int i = 0; i < columnNames.length; i++) {
-            view.print(String.format(format, columnNames[i]) + "|");
+        for (String columnName : columnNames) {
+            view.print(String.format(format, columnName) + "|");
         }
         view.print("\n");
     }
@@ -61,11 +63,11 @@ public class PrintTable extends ConsoleCommand {
         Row[] rows = dbManager.getDataTable(tableName);
         if (rows != null) {
             String format = " %-" + columnSize + "s";
-            for (int i = 0; i < rows.length; i++) {
+            for (Row row : rows) {
                 view.print("\t|");
-                Object[] rowData = rows[i].getData();
-                for (int j = 0; j < rowData.length; j++) {
-                    view.print(String.format(format, rowData[j]) + "|");
+                Object[] rowData = row.getData();
+                for (Object aRowData : rowData) {
+                    view.print(String.format(format, aRowData) + "|");
                 }
                 view.print("\n");
             }
@@ -73,13 +75,8 @@ public class PrintTable extends ConsoleCommand {
     }
 
     @Override
-    public String getCommandModel() {
-        return "print" + SIGN_FOR_SPLIT + "[table_name]";
-    }
-
-    @Override
     public String getHelp() {
-        return getCommandModel() +
+        return commandModel +
                 "\n\t\tdisplays data of the given table (table name).";
     }
 }

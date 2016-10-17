@@ -10,15 +10,13 @@ public class MainTest {
     public void mainClassTest() {
         boolean isMainClassCreated = true;
         try {
-            Main main = new Main();
+            new Main();
         } catch (Exception exc) {
             isMainClassCreated = false;
         }
-        boolean
-                expected = true,
-                actual = isMainClassCreated;
 
-        Assert.assertEquals(expected, actual);
+        boolean actual = isMainClassCreated;
+
+        Assert.assertEquals(true, actual);
     }
-
 }

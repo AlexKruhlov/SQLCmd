@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ConsoleView implements View {
 
-    final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     @Override
     public void print(String string) {

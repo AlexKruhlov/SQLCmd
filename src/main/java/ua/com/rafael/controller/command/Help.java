@@ -9,25 +9,26 @@ import java.util.List;
 public class Help extends ConsoleCommand {
 
     private final View view;
-
     private final List<Command> allCommands;
+    private final String commandModel;
 
     public Help(View view, List allCommands) {
         this.view = view;
         this.allCommands = allCommands;
+        commandModel = "help";
     }
 
     @Override
     public boolean isValid(String command) {
-        return compareCommandName(getCommandModel(), command);
+        return compareCommandName(commandModel, command);
     }
 
     @Override
     public void start(String command) {
 
-        final String[] commandModelElements = getCommandElements(getCommandModel());
+        final String[] commandModelElements = getCommandElements(commandModel);
         final String[] commandElements = getCommandElements(command);
-        if (!isTheSameSize(commandModelElements, commandElements)) {
+        if (isNotTheSameSize(commandModelElements, commandElements)) {
             view.print(NO_PARAMETER_MESSAGE);
             return;
         }
@@ -55,13 +56,8 @@ public class Help extends ConsoleCommand {
     }
 
     @Override
-    public String getCommandModel() {
-        return "help";
-    }
-
-    @Override
     public String getHelp() {
-        return getCommandModel() +
+        return commandModel +
                 "\n\t\tprovides the information of all database manager commands.";
     }
 }
