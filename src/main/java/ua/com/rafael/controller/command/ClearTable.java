@@ -27,6 +27,7 @@ public class ClearTable extends ConsoleCommand {
             view.print(ONE_PARAMETER_MESSAGE);
             return;
         }
+        final int TABLE_NAME_INDEX = 1;
         dbManager.clear(commandElements[TABLE_NAME_INDEX]);
         view.print("This table was cleared.");
     }

@@ -26,6 +26,9 @@ public class DeleteRow extends ConsoleCommand {
             view.print(MANY_PARAMETERS_MESSAGE);
             return;
         }
+        final int TABLE_NAME_INDEX = 1;
+        final int COLUMN_NAME_INDEX = 2;
+        final int VALUE_INDEX = 3;
         dbManager.delete(commandElements[TABLE_NAME_INDEX],
                 commandElements[COLUMN_NAME_INDEX], commandElements[VALUE_INDEX]);
         view.print("The row was deleted.");

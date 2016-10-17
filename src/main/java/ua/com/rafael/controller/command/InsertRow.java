@@ -26,6 +26,8 @@ public class InsertRow extends ConsoleCommand {
             view.print(MANY_PARAMETERS_MESSAGE);
             return;
         }
+        final int TABLE_NAME_INDEX = 1;
+        final int COLUMN_NAME_INDEX = 2;
         dbManager.insert(commandElements[TABLE_NAME_INDEX],
                 createRowForInsertionOrToUpdate(commandElements, COLUMN_NAME_INDEX));
         view.print("The table has got new row.");

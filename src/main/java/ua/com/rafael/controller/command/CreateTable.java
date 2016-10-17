@@ -32,6 +32,7 @@ public class CreateTable extends ConsoleCommand {
             view.print(INCORRECT_COLUMN_TYPE);
             return;
         }
+        final int TABLE_NAME_INDEX = 1;
         final String[] argumentsForNewTable
                 = Arrays.copyOfRange(commandElements, TABLE_NAME_INDEX, commandElements.length);
         dbManager.createTable(argumentsForNewTable);

@@ -7,12 +7,6 @@ import java.util.Arrays;
 
 abstract class ConsoleCommand implements Command {
 
-    public final int
-            COMMAND_NAME_INDEX = 0,
-            TABLE_NAME_INDEX = 1,
-            COLUMN_NAME_INDEX = 2,
-            VALUE_INDEX = 3;
-
     public final String SIGN_FOR_SPLIT = " ";
 
     public final String

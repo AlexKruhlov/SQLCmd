@@ -26,6 +26,7 @@ public class DropTable extends ConsoleCommand {
             view.print(ONE_PARAMETER_MESSAGE);
             return;
         }
+        final int TABLE_NAME_INDEX = 1;
         dbManager.drop(commandElements[TABLE_NAME_INDEX]);
         view.print("The table was deleted.");
     }

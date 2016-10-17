@@ -27,7 +27,7 @@ public class PrintTable extends ConsoleCommand {
             view.print(ONE_PARAMETER_MESSAGE);
             return;
         }
-
+        final int TABLE_NAME_INDEX = 1;
         final String[] columnNames = dbManager.getColumnNames(commandElements[TABLE_NAME_INDEX]);
         final int
                 COLUMN_SIZE = 40,
